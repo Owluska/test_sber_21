@@ -1,0 +1,5 @@
+<launch>
+    <arg name="path" default="/home/kseniia/downloads/semantic_pseudo_point_cloud.bag" />
+    <node pkg="rosbag" type="play" name="player" output="screen" args="--clock $(arg path)"/>
+    <node pkg="semantic_to_occupancy" type="sem_to_occup_grid.py" name="points_to_occp_grid_node"/>
+</launch>
