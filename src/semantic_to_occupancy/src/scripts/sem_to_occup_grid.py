@@ -31,7 +31,10 @@ class cloud_to_costmap():
     sub_name = '/stereo_depth/point_cloud'
     def __init__(self):
         self.pub = rospy.Publisher('costmap', OccupancyGrid, queue_size=10)
-        self.sub = rospy.Subscriber(self.sub_name, PointCloud2, queue_size=10)
+        self.msg = OccupancyGrid()
+
+        self.sub = rospy.Subscriber(self.sub_name, PointCloud2, self.callback, queue_size=10)
+        
 
     def unpack_points(self, msg):
         fields = len(msg.fields)
@@ -54,8 +57,8 @@ class cloud_to_costmap():
         return cost_map
 
     def callback(self, msg):
-        self.pub.data = self.points_to_costmap(msg)
-        self.pub.publish()
+        self.msg.data = self.points_to_costmap(msg)
+        self.pub.publish(self.msg)
         
     def node(self):
         rospy.spin()
