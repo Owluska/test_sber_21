@@ -5,4 +5,4 @@ Description: Description of semantic_to_occupancy
 Version: 0.0.0
 Cflags: 
 Libs: -L${prefix}/lib 
-Requires: 
+Requires: roscpp rospy std_msgs sensor_msgs nav_msgs
