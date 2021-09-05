@@ -64,18 +64,10 @@ class cloud_to_costmap():
         return data
     
     def get_meta_data(self, msg, data):
-        l = data.shape[0]
-        width = int(round(data[0, :].max() - data[0, :].min())) 
-        height = int(round(data[1, :].max() - data[1, :].min()))
-        
-        resolution = (width/l + height/l)/2
-
-        width = int(width * resolution)
-        height = int(height * resolution) 
-        rospy.loginfo("Msg w:{}, h:{}".format(width, height))
-        self.msg.info.width = width 
-        self.msg.info.height = height
-        self.msg.info.resolution = resolution
+        self.msg.info.width = 900
+        self.msg.info.height = 900
+ 
+        self.msg.info.resolution = 0.01
     
     def points_to_costmap(self, msg):
         data = self.unpack_points(msg)
