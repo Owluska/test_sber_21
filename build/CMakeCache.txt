@@ -486,6 +486,12 @@ rospy_DIR:PATH=/opt/ros/noetic/share/rospy/cmake
 rostime_DIR:PATH=/opt/ros/noetic/share/rostime/cmake
 
 //Value Computed by CMake
+sem_to_costmap_cpp_BINARY_DIR:STATIC=/home/kseniia/catkin_ws/build/sem_to_costmap_cpp
+
+//Value Computed by CMake
+sem_to_costmap_cpp_SOURCE_DIR:STATIC=/home/kseniia/catkin_ws/src/sem_to_costmap_cpp
+
+//Value Computed by CMake
 semantic_to_occupancy_BINARY_DIR:STATIC=/home/kseniia/catkin_ws/build/semantic_to_occupancy
 
 //Value Computed by CMake
@@ -648,7 +654,7 @@ CMAKE_MODULE_LINKER_FLAGS_RELWITHDEBINFO-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_NM
 CMAKE_NM-ADVANCED:INTERNAL=1
 //number of local generators
-CMAKE_NUMBER_OF_MAKEFILES:INTERNAL=5
+CMAKE_NUMBER_OF_MAKEFILES:INTERNAL=6
 //ADVANCED property for variable: CMAKE_OBJCOPY
 CMAKE_OBJCOPY-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_OBJDUMP
