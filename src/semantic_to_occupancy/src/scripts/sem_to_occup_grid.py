@@ -4,6 +4,7 @@ from sensor_msgs.msg import PointCloud2
 from nav_msgs.msg import OccupancyGrid 
 import struct
 import numpy as np
+import math
 # import rosbag
 # path = "/home/kseniia/downloads/semantic_pseudo_point_cloud.bag"
 # bag = rosbag.Bag(path)
@@ -24,7 +25,7 @@ class cloud_to_costmap():
                     'rider',          'car',      'truck',    'bus', 'train', 'motorcycle', 
                 'bicycle']
     costs = [50,   0, 100, 100, 100, 100,
-            50, 100,  75,  75,   0, 100,
+            50, 100,  50,  100, 100, 100,
             100, 100, 100, 100, 100, 100,
             100]
     # costs = [127,   0, 255, 255, 255, 255,
@@ -46,7 +47,7 @@ class cloud_to_costmap():
         self.msg.info.origin.orientation.z = 0
         self.msg.info.origin.orientation.w = 1
 
-        self.msg.header.frame_id = "/map"
+        self.msg.header.frame_id = "map"
 
         self.sub = rospy.Subscriber(self.sub_name, PointCloud2, self.callback, queue_size=10)
         
@@ -64,10 +65,11 @@ class cloud_to_costmap():
         return data
     
     def get_meta_data(self, msg, data):
-        self.msg.info.width = 900
-        self.msg.info.height = 900
+        l = data.shape[0]
+        self.msg.info.width = int(math.sqrt(l))
+        self.msg.info.height = int(math.sqrt(l))
  
-        self.msg.info.resolution = 0.01
+        self.msg.info.resolution = 0.002
     
     def points_to_costmap(self, msg):
         data = self.unpack_points(msg)
