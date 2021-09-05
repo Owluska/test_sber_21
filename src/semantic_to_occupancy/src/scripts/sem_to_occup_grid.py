@@ -26,12 +26,27 @@ class cloud_to_costmap():
     costs = [50,   0, 100, 100, 100, 100,
             50, 100,  75,  75,   0, 100,
             100, 100, 100, 100, 100, 100,
-            100]              
+            100]
+    # costs = [127,   0, 255, 255, 255, 255,
+    #     127, 255,  127,  127,   0, 255,
+    #     255, 255, 255, 255, 255, 255,
+    #     255]               
+    
     classes = {k:i for k, i in zip(keys, range(len(keys)))}
     sub_name = '/stereo_depth/point_cloud'
     def __init__(self):
         self.pub = rospy.Publisher('costmap', OccupancyGrid, queue_size=10)
         self.msg = OccupancyGrid()
+        self.msg.info.origin.position.x = 0
+        self.msg.info.origin.position.y = 0
+        self.msg.info.origin.position.z = 0
+
+        self.msg.info.origin.orientation.x = 0
+        self.msg.info.origin.orientation.y = 0
+        self.msg.info.origin.orientation.z = 0
+        self.msg.info.origin.orientation.w = 1
+
+        self.msg.header.frame_id = "/map"
 
         self.sub = rospy.Subscriber(self.sub_name, PointCloud2, self.callback, queue_size=10)
         
@@ -47,17 +62,36 @@ class cloud_to_costmap():
             control_str += "f"
         data = struct.unpack(control_str, bytes(msg.data))
         return data
+    
+    def get_meta_data(self, msg, data):
+        l = data.shape[0]
+        width = int(round(data[0, :].max() - data[0, :].min())) 
+        height = int(round(data[1, :].max() - data[1, :].min()))
+        
+        resolution = (width/l + height/l)/2
 
+        width = int(width * resolution)
+        height = int(height * resolution) 
+        rospy.loginfo("Msg w:{}, h:{}".format(width, height))
+        self.msg.info.width = width 
+        self.msg.info.height = height
+        self.msg.info.resolution = resolution
+    
     def points_to_costmap(self, msg):
         data = self.unpack_points(msg)
+
         fields = len(msg.fields)
         da = np.array(data).reshape((int(len(data)/fields), fields))
         da.sort(axis = 0)
+
+        self.get_meta_data(msg, da)
         cost_map = [self.costs[int(c)] if c != -1 else -1 for c in da[:, 3]]
+        #rospy.loginfo("Data shape: {}, map shape: {}".format(da.shape, len(cost_map)))
         return cost_map
 
     def callback(self, msg):
         self.msg.data = self.points_to_costmap(msg)
+        self.msg.header.stamp = rospy.Time.now()
         self.pub.publish(self.msg)
         
     def node(self):
