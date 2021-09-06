@@ -52,8 +52,6 @@ int main(int argc, char **argv)
         for(auto i = raw_data.begin(); i != raw_data.end(); i++)
         {
             uint32_t d = 0;
-
-                
             for(uint8_t j = 0; j < bytes_count; j++)
             {
                 if(!isBigEndian)
@@ -61,7 +59,7 @@ int main(int argc, char **argv)
                 else
                      d |= (*i >> j);         
             }
-            
+            std::cout << d;
             unpacked.at(*i) = d;
             i += bytes_count;
         }
