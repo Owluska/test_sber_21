@@ -1,35 +1,37 @@
 #include "ros/ros.h"
-#include "rosbag/bag.h"
-#include "rosbag/view.h"
+// #include "rosbag/bag.h"
+// #include "rosbag/view.h"
 
 #include "sensor_msgs/PointCloud2.h"
 #include "nav_msgs/OccupancyGrid.h"
 
-#include <boost/foreach.hpp>
+sensor_msgs::PointCloud2 points_msg;
 
-
-// const char path[100] = "/home/kseniia/downloads/semantic_pseudo_point_cloud.bag";
-rosbag::Bag bag;
-std::string path, topic;
+void callback(const sensor_msgs::PointCloud2::ConstPtr& msg)
+{
+    points_msg = *msg;
+}
 
 int main(int argc, char **argv)
 {
-    path = std::string("/home/kseniia/downloads/semantic_pseudo_point_cloud.bag");
-    topic = std::string("/stereo_depth/point_cloud");
-    bag.open(path, rosbag::bagmode::Read);
-    rosbag::View view(bag, rosbag::TopicQuery(topic));
+    std::string topic = std::string("/stereo_depth/point_cloud");
+    nav_msgs::OccupancyGrid map_msg;
+    ros::NodeHandle n;
     
-    for(rosbag::MessageInstance const m : view)
+    ros::init(argc, argv, "sem_to_costmap");
+
+    ros::Publisher pub = n.advertise<nav_msgs::OccupancyGrid>("costmap", 1000);
+    ros::Subscriber sub = n.subscribe<sensor_msgs::PointCloud2>(topic, 1000, callback);
+
+    ros::Rate loop(10);
+
+    while(ros::ok())
     {
-        m.getTopic();
-        sensor_msgs::PointCloud2::ConstPtr msg_p = m.instantiate<sensor_msgs::PointCloud2>();
-        // if(msg_p != nullptr)
-        // {
-        //     //std::cout << msg_p->data << std::endl;
-        // }
-        // return;
+        pub.publish(map_msg);
+        ros::spinOnce();
     }
-    bag.close();
+    ros::spin();
+    return 0;
 }
 
 
