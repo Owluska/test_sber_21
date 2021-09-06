@@ -19,6 +19,7 @@ int main(int argc, char **argv)
     nav_msgs::OccupancyGrid map_msg;
     ros::NodeHandle n;
     
+    
     ros::init(argc, argv, "sem_to_costmap");
 
     map_msg.info.origin.position.x = 0;
@@ -31,7 +32,7 @@ int main(int argc, char **argv)
     map_msg.info.origin.orientation.w = 1;
 
     map_msg.header.frame_id = "map";
-    
+
     ros::Publisher pub = n.advertise<nav_msgs::OccupancyGrid>("costmap", 1000);
     ros::Subscriber sub = n.subscribe<sensor_msgs::PointCloud2>(topic, 1000, callback);
 
@@ -39,7 +40,32 @@ int main(int argc, char **argv)
 
     while(ros::ok())
     {
-        std::vector<uint8_t> data = points_msg.data;
+        std::vector<uint8_t> raw_data = points_msg.data;
+        
+        int bytes_count = points_msg.fields[0].offset;
+        //int data_length = sizeof(data)/sizeof(data[0]);
+        int data_length = raw_data.size();
+
+        std::vector<float> unpacked;
+        bool isBigEndian = points_msg.is_bigendian;
+        //for(int i, j = 0; i < data_length, j < data_length - 4; i++, j += 4)
+        for(auto i = raw_data.begin(); i != raw_data.end(); i++)
+        {
+            uint32_t d = 0;
+
+                
+            for(uint8_t j = 0; j < bytes_count; j++)
+            {
+                if(!isBigEndian)
+                     d |= (*i << j); 
+                else
+                     d |= (*i >> j);         
+            }
+            
+            unpacked.at(*i) = d;
+            i += bytes_count;
+        }
+        
         pub.publish(map_msg);
         ros::spinOnce();
         loop_rate.sleep();
