@@ -51,6 +51,7 @@
 /home/kseniia/catkin_ws/build/sem_to_costmap_cpp/CMakeFiles/test.dir
 /home/kseniia/catkin_ws/build/sem_to_costmap_cpp/CMakeFiles/rosgraph_msgs_generate_messages_cpp.dir
 /home/kseniia/catkin_ws/build/sem_to_costmap_cpp/CMakeFiles/std_msgs_generate_messages_cpp.dir
+/home/kseniia/catkin_ws/build/sem_to_costmap_cpp/CMakeFiles/sem_to_costmap_cpp.dir
 /home/kseniia/catkin_ws/build/sem_to_costmap_cpp/CMakeFiles/geometry_msgs_generate_messages_nodejs.dir
 /home/kseniia/catkin_ws/build/sem_to_costmap_cpp/CMakeFiles/geometry_msgs_generate_messages_cpp.dir
 /home/kseniia/catkin_ws/build/sem_to_costmap_cpp/CMakeFiles/sensor_msgs_generate_messages_py.dir

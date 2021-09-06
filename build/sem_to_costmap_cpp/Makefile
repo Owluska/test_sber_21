@@ -333,6 +333,21 @@ std_msgs_generate_messages_cpp/fast:
 .PHONY : std_msgs_generate_messages_cpp/fast
 
 # Convenience name for target.
+sem_to_costmap_cpp/CMakeFiles/sem_to_costmap_cpp.dir/rule:
+	cd /home/kseniia/catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 sem_to_costmap_cpp/CMakeFiles/sem_to_costmap_cpp.dir/rule
+.PHONY : sem_to_costmap_cpp/CMakeFiles/sem_to_costmap_cpp.dir/rule
+
+# Convenience name for target.
+sem_to_costmap_cpp: sem_to_costmap_cpp/CMakeFiles/sem_to_costmap_cpp.dir/rule
+
+.PHONY : sem_to_costmap_cpp
+
+# fast build rule for target.
+sem_to_costmap_cpp/fast:
+	cd /home/kseniia/catkin_ws/build && $(MAKE) -f sem_to_costmap_cpp/CMakeFiles/sem_to_costmap_cpp.dir/build.make sem_to_costmap_cpp/CMakeFiles/sem_to_costmap_cpp.dir/build
+.PHONY : sem_to_costmap_cpp/fast
+
+# Convenience name for target.
 sem_to_costmap_cpp/CMakeFiles/geometry_msgs_generate_messages_nodejs.dir/rule:
 	cd /home/kseniia/catkin_ws/build && $(MAKE) -f CMakeFiles/Makefile2 sem_to_costmap_cpp/CMakeFiles/geometry_msgs_generate_messages_nodejs.dir/rule
 .PHONY : sem_to_costmap_cpp/CMakeFiles/geometry_msgs_generate_messages_nodejs.dir/rule
@@ -707,6 +722,33 @@ roscpp_generate_messages_py/fast:
 	cd /home/kseniia/catkin_ws/build && $(MAKE) -f sem_to_costmap_cpp/CMakeFiles/roscpp_generate_messages_py.dir/build.make sem_to_costmap_cpp/CMakeFiles/roscpp_generate_messages_py.dir/build
 .PHONY : roscpp_generate_messages_py/fast
 
+src/sem_to_costmap.o: src/sem_to_costmap.cpp.o
+
+.PHONY : src/sem_to_costmap.o
+
+# target to build an object file
+src/sem_to_costmap.cpp.o:
+	cd /home/kseniia/catkin_ws/build && $(MAKE) -f sem_to_costmap_cpp/CMakeFiles/sem_to_costmap_cpp.dir/build.make sem_to_costmap_cpp/CMakeFiles/sem_to_costmap_cpp.dir/src/sem_to_costmap.cpp.o
+.PHONY : src/sem_to_costmap.cpp.o
+
+src/sem_to_costmap.i: src/sem_to_costmap.cpp.i
+
+.PHONY : src/sem_to_costmap.i
+
+# target to preprocess a source file
+src/sem_to_costmap.cpp.i:
+	cd /home/kseniia/catkin_ws/build && $(MAKE) -f sem_to_costmap_cpp/CMakeFiles/sem_to_costmap_cpp.dir/build.make sem_to_costmap_cpp/CMakeFiles/sem_to_costmap_cpp.dir/src/sem_to_costmap.cpp.i
+.PHONY : src/sem_to_costmap.cpp.i
+
+src/sem_to_costmap.s: src/sem_to_costmap.cpp.s
+
+.PHONY : src/sem_to_costmap.s
+
+# target to generate assembly for a file
+src/sem_to_costmap.cpp.s:
+	cd /home/kseniia/catkin_ws/build && $(MAKE) -f sem_to_costmap_cpp/CMakeFiles/sem_to_costmap_cpp.dir/build.make sem_to_costmap_cpp/CMakeFiles/sem_to_costmap_cpp.dir/src/sem_to_costmap.cpp.s
+.PHONY : src/sem_to_costmap.cpp.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -729,6 +771,7 @@ help:
 	@echo "... test"
 	@echo "... rosgraph_msgs_generate_messages_cpp"
 	@echo "... std_msgs_generate_messages_cpp"
+	@echo "... sem_to_costmap_cpp"
 	@echo "... geometry_msgs_generate_messages_nodejs"
 	@echo "... geometry_msgs_generate_messages_cpp"
 	@echo "... sensor_msgs_generate_messages_py"
@@ -756,6 +799,9 @@ help:
 	@echo "... rebuild_cache"
 	@echo "... roscpp_generate_messages_eus"
 	@echo "... roscpp_generate_messages_py"
+	@echo "... src/sem_to_costmap.o"
+	@echo "... src/sem_to_costmap.i"
+	@echo "... src/sem_to_costmap.s"
 .PHONY : help
 
 
