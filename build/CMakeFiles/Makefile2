@@ -54,14 +54,14 @@ CMAKE_BINARY_DIR = /home/kseniia/catkin_ws/build
 
 # The main recursive "all" target.
 all: gtest/all
-all: sem_to_costmap_cpp/all
+all: sem_to_costmap/all
 all: semantic_to_occupancy/all
 
 .PHONY : all
 
 # The main recursive "preinstall" target.
 preinstall: gtest/preinstall
-preinstall: sem_to_costmap_cpp/preinstall
+preinstall: sem_to_costmap/preinstall
 preinstall: semantic_to_occupancy/preinstall
 
 .PHONY : preinstall
@@ -73,7 +73,7 @@ clean: CMakeFiles/clean_test_results.dir/clean
 clean: CMakeFiles/tests.dir/clean
 clean: CMakeFiles/download_extra_data.dir/clean
 clean: gtest/clean
-clean: sem_to_costmap_cpp/clean
+clean: sem_to_costmap/clean
 clean: semantic_to_occupancy/clean
 
 .PHONY : clean
@@ -136,58 +136,58 @@ gtest/googletest/clean: gtest/googletest/CMakeFiles/gtest.dir/clean
 .PHONY : gtest/googletest/clean
 
 #=============================================================================
-# Directory level rules for directory sem_to_costmap_cpp
+# Directory level rules for directory sem_to_costmap
 
 # Recursive "all" directory target.
-sem_to_costmap_cpp/all: sem_to_costmap_cpp/CMakeFiles/sem_to_costmap_cpp.dir/all
+sem_to_costmap/all: sem_to_costmap/CMakeFiles/sem_to_costmap.dir/all
 
-.PHONY : sem_to_costmap_cpp/all
+.PHONY : sem_to_costmap/all
 
 # Recursive "preinstall" directory target.
-sem_to_costmap_cpp/preinstall:
+sem_to_costmap/preinstall:
 
-.PHONY : sem_to_costmap_cpp/preinstall
+.PHONY : sem_to_costmap/preinstall
 
 # Recursive "clean" directory target.
-sem_to_costmap_cpp/clean: sem_to_costmap_cpp/CMakeFiles/sensor_msgs_generate_messages_nodejs.dir/clean
-sem_to_costmap_cpp/clean: sem_to_costmap_cpp/CMakeFiles/sensor_msgs_generate_messages_lisp.dir/clean
-sem_to_costmap_cpp/clean: sem_to_costmap_cpp/CMakeFiles/sensor_msgs_generate_messages_cpp.dir/clean
-sem_to_costmap_cpp/clean: sem_to_costmap_cpp/CMakeFiles/rosgraph_msgs_generate_messages_py.dir/clean
-sem_to_costmap_cpp/clean: sem_to_costmap_cpp/CMakeFiles/std_msgs_generate_messages_lisp.dir/clean
-sem_to_costmap_cpp/clean: sem_to_costmap_cpp/CMakeFiles/actionlib_msgs_generate_messages_cpp.dir/clean
-sem_to_costmap_cpp/clean: sem_to_costmap_cpp/CMakeFiles/std_msgs_generate_messages_eus.dir/clean
-sem_to_costmap_cpp/clean: sem_to_costmap_cpp/CMakeFiles/geometry_msgs_generate_messages_lisp.dir/clean
-sem_to_costmap_cpp/clean: sem_to_costmap_cpp/CMakeFiles/roscpp_generate_messages_nodejs.dir/clean
-sem_to_costmap_cpp/clean: sem_to_costmap_cpp/CMakeFiles/rosgraph_msgs_generate_messages_cpp.dir/clean
-sem_to_costmap_cpp/clean: sem_to_costmap_cpp/CMakeFiles/std_msgs_generate_messages_cpp.dir/clean
-sem_to_costmap_cpp/clean: sem_to_costmap_cpp/CMakeFiles/sem_to_costmap_cpp.dir/clean
-sem_to_costmap_cpp/clean: sem_to_costmap_cpp/CMakeFiles/geometry_msgs_generate_messages_nodejs.dir/clean
-sem_to_costmap_cpp/clean: sem_to_costmap_cpp/CMakeFiles/geometry_msgs_generate_messages_cpp.dir/clean
-sem_to_costmap_cpp/clean: sem_to_costmap_cpp/CMakeFiles/sensor_msgs_generate_messages_py.dir/clean
-sem_to_costmap_cpp/clean: sem_to_costmap_cpp/CMakeFiles/nav_msgs_generate_messages_py.dir/clean
-sem_to_costmap_cpp/clean: sem_to_costmap_cpp/CMakeFiles/geometry_msgs_generate_messages_py.dir/clean
-sem_to_costmap_cpp/clean: sem_to_costmap_cpp/CMakeFiles/nav_msgs_generate_messages_lisp.dir/clean
-sem_to_costmap_cpp/clean: sem_to_costmap_cpp/CMakeFiles/sensor_msgs_generate_messages_eus.dir/clean
-sem_to_costmap_cpp/clean: sem_to_costmap_cpp/CMakeFiles/roscpp_generate_messages_cpp.dir/clean
-sem_to_costmap_cpp/clean: sem_to_costmap_cpp/CMakeFiles/geometry_msgs_generate_messages_eus.dir/clean
-sem_to_costmap_cpp/clean: sem_to_costmap_cpp/CMakeFiles/std_msgs_generate_messages_nodejs.dir/clean
-sem_to_costmap_cpp/clean: sem_to_costmap_cpp/CMakeFiles/std_msgs_generate_messages_py.dir/clean
-sem_to_costmap_cpp/clean: sem_to_costmap_cpp/CMakeFiles/nav_msgs_generate_messages_eus.dir/clean
-sem_to_costmap_cpp/clean: sem_to_costmap_cpp/CMakeFiles/actionlib_msgs_generate_messages_lisp.dir/clean
-sem_to_costmap_cpp/clean: sem_to_costmap_cpp/CMakeFiles/actionlib_msgs_generate_messages_nodejs.dir/clean
-sem_to_costmap_cpp/clean: sem_to_costmap_cpp/CMakeFiles/actionlib_msgs_generate_messages_eus.dir/clean
-sem_to_costmap_cpp/clean: sem_to_costmap_cpp/CMakeFiles/nav_msgs_generate_messages_nodejs.dir/clean
-sem_to_costmap_cpp/clean: sem_to_costmap_cpp/CMakeFiles/rosgraph_msgs_generate_messages_lisp.dir/clean
-sem_to_costmap_cpp/clean: sem_to_costmap_cpp/CMakeFiles/rosgraph_msgs_generate_messages_nodejs.dir/clean
-sem_to_costmap_cpp/clean: sem_to_costmap_cpp/CMakeFiles/actionlib_msgs_generate_messages_py.dir/clean
-sem_to_costmap_cpp/clean: sem_to_costmap_cpp/CMakeFiles/roscpp_generate_messages_lisp.dir/clean
-sem_to_costmap_cpp/clean: sem_to_costmap_cpp/CMakeFiles/_catkin_empty_exported_target.dir/clean
-sem_to_costmap_cpp/clean: sem_to_costmap_cpp/CMakeFiles/nav_msgs_generate_messages_cpp.dir/clean
-sem_to_costmap_cpp/clean: sem_to_costmap_cpp/CMakeFiles/rosgraph_msgs_generate_messages_eus.dir/clean
-sem_to_costmap_cpp/clean: sem_to_costmap_cpp/CMakeFiles/roscpp_generate_messages_eus.dir/clean
-sem_to_costmap_cpp/clean: sem_to_costmap_cpp/CMakeFiles/roscpp_generate_messages_py.dir/clean
+sem_to_costmap/clean: sem_to_costmap/CMakeFiles/sensor_msgs_generate_messages_nodejs.dir/clean
+sem_to_costmap/clean: sem_to_costmap/CMakeFiles/sensor_msgs_generate_messages_lisp.dir/clean
+sem_to_costmap/clean: sem_to_costmap/CMakeFiles/sensor_msgs_generate_messages_cpp.dir/clean
+sem_to_costmap/clean: sem_to_costmap/CMakeFiles/rosgraph_msgs_generate_messages_py.dir/clean
+sem_to_costmap/clean: sem_to_costmap/CMakeFiles/std_msgs_generate_messages_lisp.dir/clean
+sem_to_costmap/clean: sem_to_costmap/CMakeFiles/actionlib_msgs_generate_messages_cpp.dir/clean
+sem_to_costmap/clean: sem_to_costmap/CMakeFiles/std_msgs_generate_messages_eus.dir/clean
+sem_to_costmap/clean: sem_to_costmap/CMakeFiles/geometry_msgs_generate_messages_lisp.dir/clean
+sem_to_costmap/clean: sem_to_costmap/CMakeFiles/roscpp_generate_messages_nodejs.dir/clean
+sem_to_costmap/clean: sem_to_costmap/CMakeFiles/rosgraph_msgs_generate_messages_cpp.dir/clean
+sem_to_costmap/clean: sem_to_costmap/CMakeFiles/std_msgs_generate_messages_cpp.dir/clean
+sem_to_costmap/clean: sem_to_costmap/CMakeFiles/geometry_msgs_generate_messages_nodejs.dir/clean
+sem_to_costmap/clean: sem_to_costmap/CMakeFiles/geometry_msgs_generate_messages_cpp.dir/clean
+sem_to_costmap/clean: sem_to_costmap/CMakeFiles/sensor_msgs_generate_messages_py.dir/clean
+sem_to_costmap/clean: sem_to_costmap/CMakeFiles/nav_msgs_generate_messages_py.dir/clean
+sem_to_costmap/clean: sem_to_costmap/CMakeFiles/geometry_msgs_generate_messages_py.dir/clean
+sem_to_costmap/clean: sem_to_costmap/CMakeFiles/nav_msgs_generate_messages_lisp.dir/clean
+sem_to_costmap/clean: sem_to_costmap/CMakeFiles/sensor_msgs_generate_messages_eus.dir/clean
+sem_to_costmap/clean: sem_to_costmap/CMakeFiles/roscpp_generate_messages_cpp.dir/clean
+sem_to_costmap/clean: sem_to_costmap/CMakeFiles/geometry_msgs_generate_messages_eus.dir/clean
+sem_to_costmap/clean: sem_to_costmap/CMakeFiles/std_msgs_generate_messages_nodejs.dir/clean
+sem_to_costmap/clean: sem_to_costmap/CMakeFiles/sem_to_costmap.dir/clean
+sem_to_costmap/clean: sem_to_costmap/CMakeFiles/std_msgs_generate_messages_py.dir/clean
+sem_to_costmap/clean: sem_to_costmap/CMakeFiles/nav_msgs_generate_messages_eus.dir/clean
+sem_to_costmap/clean: sem_to_costmap/CMakeFiles/actionlib_msgs_generate_messages_lisp.dir/clean
+sem_to_costmap/clean: sem_to_costmap/CMakeFiles/actionlib_msgs_generate_messages_nodejs.dir/clean
+sem_to_costmap/clean: sem_to_costmap/CMakeFiles/actionlib_msgs_generate_messages_eus.dir/clean
+sem_to_costmap/clean: sem_to_costmap/CMakeFiles/nav_msgs_generate_messages_nodejs.dir/clean
+sem_to_costmap/clean: sem_to_costmap/CMakeFiles/rosgraph_msgs_generate_messages_lisp.dir/clean
+sem_to_costmap/clean: sem_to_costmap/CMakeFiles/rosgraph_msgs_generate_messages_nodejs.dir/clean
+sem_to_costmap/clean: sem_to_costmap/CMakeFiles/actionlib_msgs_generate_messages_py.dir/clean
+sem_to_costmap/clean: sem_to_costmap/CMakeFiles/roscpp_generate_messages_lisp.dir/clean
+sem_to_costmap/clean: sem_to_costmap/CMakeFiles/_catkin_empty_exported_target.dir/clean
+sem_to_costmap/clean: sem_to_costmap/CMakeFiles/nav_msgs_generate_messages_cpp.dir/clean
+sem_to_costmap/clean: sem_to_costmap/CMakeFiles/rosgraph_msgs_generate_messages_eus.dir/clean
+sem_to_costmap/clean: sem_to_costmap/CMakeFiles/roscpp_generate_messages_eus.dir/clean
+sem_to_costmap/clean: sem_to_costmap/CMakeFiles/roscpp_generate_messages_py.dir/clean
 
-.PHONY : sem_to_costmap_cpp/clean
+.PHONY : sem_to_costmap/clean
 
 #=============================================================================
 # Directory level rules for directory semantic_to_occupancy
@@ -346,8 +346,8 @@ CMakeFiles/download_extra_data.dir/clean:
 # Target rules for target gtest/googlemock/CMakeFiles/gmock_main.dir
 
 # All Build rule for target.
-gtest/googlemock/CMakeFiles/gmock_main.dir/all: gtest/googlemock/CMakeFiles/gmock.dir/all
 gtest/googlemock/CMakeFiles/gmock_main.dir/all: gtest/googletest/CMakeFiles/gtest.dir/all
+gtest/googlemock/CMakeFiles/gmock_main.dir/all: gtest/googlemock/CMakeFiles/gmock.dir/all
 	$(MAKE) -f gtest/googlemock/CMakeFiles/gmock_main.dir/build.make gtest/googlemock/CMakeFiles/gmock_main.dir/depend
 	$(MAKE) -f gtest/googlemock/CMakeFiles/gmock_main.dir/build.make gtest/googlemock/CMakeFiles/gmock_main.dir/build
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/kseniia/catkin_ws/build/CMakeFiles --progress-num=3,4 "Built target gmock_main"
@@ -452,1003 +452,1003 @@ gtest/googletest/CMakeFiles/gtest.dir/clean:
 .PHONY : gtest/googletest/CMakeFiles/gtest.dir/clean
 
 #=============================================================================
-# Target rules for target sem_to_costmap_cpp/CMakeFiles/sensor_msgs_generate_messages_nodejs.dir
+# Target rules for target sem_to_costmap/CMakeFiles/sensor_msgs_generate_messages_nodejs.dir
 
 # All Build rule for target.
-sem_to_costmap_cpp/CMakeFiles/sensor_msgs_generate_messages_nodejs.dir/all:
-	$(MAKE) -f sem_to_costmap_cpp/CMakeFiles/sensor_msgs_generate_messages_nodejs.dir/build.make sem_to_costmap_cpp/CMakeFiles/sensor_msgs_generate_messages_nodejs.dir/depend
-	$(MAKE) -f sem_to_costmap_cpp/CMakeFiles/sensor_msgs_generate_messages_nodejs.dir/build.make sem_to_costmap_cpp/CMakeFiles/sensor_msgs_generate_messages_nodejs.dir/build
+sem_to_costmap/CMakeFiles/sensor_msgs_generate_messages_nodejs.dir/all:
+	$(MAKE) -f sem_to_costmap/CMakeFiles/sensor_msgs_generate_messages_nodejs.dir/build.make sem_to_costmap/CMakeFiles/sensor_msgs_generate_messages_nodejs.dir/depend
+	$(MAKE) -f sem_to_costmap/CMakeFiles/sensor_msgs_generate_messages_nodejs.dir/build.make sem_to_costmap/CMakeFiles/sensor_msgs_generate_messages_nodejs.dir/build
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/kseniia/catkin_ws/build/CMakeFiles --progress-num= "Built target sensor_msgs_generate_messages_nodejs"
-.PHONY : sem_to_costmap_cpp/CMakeFiles/sensor_msgs_generate_messages_nodejs.dir/all
+.PHONY : sem_to_costmap/CMakeFiles/sensor_msgs_generate_messages_nodejs.dir/all
 
 # Build rule for subdir invocation for target.
-sem_to_costmap_cpp/CMakeFiles/sensor_msgs_generate_messages_nodejs.dir/rule: cmake_check_build_system
+sem_to_costmap/CMakeFiles/sensor_msgs_generate_messages_nodejs.dir/rule: cmake_check_build_system
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/kseniia/catkin_ws/build/CMakeFiles 0
-	$(MAKE) -f CMakeFiles/Makefile2 sem_to_costmap_cpp/CMakeFiles/sensor_msgs_generate_messages_nodejs.dir/all
+	$(MAKE) -f CMakeFiles/Makefile2 sem_to_costmap/CMakeFiles/sensor_msgs_generate_messages_nodejs.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/kseniia/catkin_ws/build/CMakeFiles 0
-.PHONY : sem_to_costmap_cpp/CMakeFiles/sensor_msgs_generate_messages_nodejs.dir/rule
+.PHONY : sem_to_costmap/CMakeFiles/sensor_msgs_generate_messages_nodejs.dir/rule
 
 # Convenience name for target.
-sensor_msgs_generate_messages_nodejs: sem_to_costmap_cpp/CMakeFiles/sensor_msgs_generate_messages_nodejs.dir/rule
+sensor_msgs_generate_messages_nodejs: sem_to_costmap/CMakeFiles/sensor_msgs_generate_messages_nodejs.dir/rule
 
 .PHONY : sensor_msgs_generate_messages_nodejs
 
 # clean rule for target.
-sem_to_costmap_cpp/CMakeFiles/sensor_msgs_generate_messages_nodejs.dir/clean:
-	$(MAKE) -f sem_to_costmap_cpp/CMakeFiles/sensor_msgs_generate_messages_nodejs.dir/build.make sem_to_costmap_cpp/CMakeFiles/sensor_msgs_generate_messages_nodejs.dir/clean
-.PHONY : sem_to_costmap_cpp/CMakeFiles/sensor_msgs_generate_messages_nodejs.dir/clean
+sem_to_costmap/CMakeFiles/sensor_msgs_generate_messages_nodejs.dir/clean:
+	$(MAKE) -f sem_to_costmap/CMakeFiles/sensor_msgs_generate_messages_nodejs.dir/build.make sem_to_costmap/CMakeFiles/sensor_msgs_generate_messages_nodejs.dir/clean
+.PHONY : sem_to_costmap/CMakeFiles/sensor_msgs_generate_messages_nodejs.dir/clean
 
 #=============================================================================
-# Target rules for target sem_to_costmap_cpp/CMakeFiles/sensor_msgs_generate_messages_lisp.dir
+# Target rules for target sem_to_costmap/CMakeFiles/sensor_msgs_generate_messages_lisp.dir
 
 # All Build rule for target.
-sem_to_costmap_cpp/CMakeFiles/sensor_msgs_generate_messages_lisp.dir/all:
-	$(MAKE) -f sem_to_costmap_cpp/CMakeFiles/sensor_msgs_generate_messages_lisp.dir/build.make sem_to_costmap_cpp/CMakeFiles/sensor_msgs_generate_messages_lisp.dir/depend
-	$(MAKE) -f sem_to_costmap_cpp/CMakeFiles/sensor_msgs_generate_messages_lisp.dir/build.make sem_to_costmap_cpp/CMakeFiles/sensor_msgs_generate_messages_lisp.dir/build
+sem_to_costmap/CMakeFiles/sensor_msgs_generate_messages_lisp.dir/all:
+	$(MAKE) -f sem_to_costmap/CMakeFiles/sensor_msgs_generate_messages_lisp.dir/build.make sem_to_costmap/CMakeFiles/sensor_msgs_generate_messages_lisp.dir/depend
+	$(MAKE) -f sem_to_costmap/CMakeFiles/sensor_msgs_generate_messages_lisp.dir/build.make sem_to_costmap/CMakeFiles/sensor_msgs_generate_messages_lisp.dir/build
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/kseniia/catkin_ws/build/CMakeFiles --progress-num= "Built target sensor_msgs_generate_messages_lisp"
-.PHONY : sem_to_costmap_cpp/CMakeFiles/sensor_msgs_generate_messages_lisp.dir/all
+.PHONY : sem_to_costmap/CMakeFiles/sensor_msgs_generate_messages_lisp.dir/all
 
 # Build rule for subdir invocation for target.
-sem_to_costmap_cpp/CMakeFiles/sensor_msgs_generate_messages_lisp.dir/rule: cmake_check_build_system
+sem_to_costmap/CMakeFiles/sensor_msgs_generate_messages_lisp.dir/rule: cmake_check_build_system
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/kseniia/catkin_ws/build/CMakeFiles 0
-	$(MAKE) -f CMakeFiles/Makefile2 sem_to_costmap_cpp/CMakeFiles/sensor_msgs_generate_messages_lisp.dir/all
+	$(MAKE) -f CMakeFiles/Makefile2 sem_to_costmap/CMakeFiles/sensor_msgs_generate_messages_lisp.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/kseniia/catkin_ws/build/CMakeFiles 0
-.PHONY : sem_to_costmap_cpp/CMakeFiles/sensor_msgs_generate_messages_lisp.dir/rule
+.PHONY : sem_to_costmap/CMakeFiles/sensor_msgs_generate_messages_lisp.dir/rule
 
 # Convenience name for target.
-sensor_msgs_generate_messages_lisp: sem_to_costmap_cpp/CMakeFiles/sensor_msgs_generate_messages_lisp.dir/rule
+sensor_msgs_generate_messages_lisp: sem_to_costmap/CMakeFiles/sensor_msgs_generate_messages_lisp.dir/rule
 
 .PHONY : sensor_msgs_generate_messages_lisp
 
 # clean rule for target.
-sem_to_costmap_cpp/CMakeFiles/sensor_msgs_generate_messages_lisp.dir/clean:
-	$(MAKE) -f sem_to_costmap_cpp/CMakeFiles/sensor_msgs_generate_messages_lisp.dir/build.make sem_to_costmap_cpp/CMakeFiles/sensor_msgs_generate_messages_lisp.dir/clean
-.PHONY : sem_to_costmap_cpp/CMakeFiles/sensor_msgs_generate_messages_lisp.dir/clean
+sem_to_costmap/CMakeFiles/sensor_msgs_generate_messages_lisp.dir/clean:
+	$(MAKE) -f sem_to_costmap/CMakeFiles/sensor_msgs_generate_messages_lisp.dir/build.make sem_to_costmap/CMakeFiles/sensor_msgs_generate_messages_lisp.dir/clean
+.PHONY : sem_to_costmap/CMakeFiles/sensor_msgs_generate_messages_lisp.dir/clean
 
 #=============================================================================
-# Target rules for target sem_to_costmap_cpp/CMakeFiles/sensor_msgs_generate_messages_cpp.dir
+# Target rules for target sem_to_costmap/CMakeFiles/sensor_msgs_generate_messages_cpp.dir
 
 # All Build rule for target.
-sem_to_costmap_cpp/CMakeFiles/sensor_msgs_generate_messages_cpp.dir/all:
-	$(MAKE) -f sem_to_costmap_cpp/CMakeFiles/sensor_msgs_generate_messages_cpp.dir/build.make sem_to_costmap_cpp/CMakeFiles/sensor_msgs_generate_messages_cpp.dir/depend
-	$(MAKE) -f sem_to_costmap_cpp/CMakeFiles/sensor_msgs_generate_messages_cpp.dir/build.make sem_to_costmap_cpp/CMakeFiles/sensor_msgs_generate_messages_cpp.dir/build
+sem_to_costmap/CMakeFiles/sensor_msgs_generate_messages_cpp.dir/all:
+	$(MAKE) -f sem_to_costmap/CMakeFiles/sensor_msgs_generate_messages_cpp.dir/build.make sem_to_costmap/CMakeFiles/sensor_msgs_generate_messages_cpp.dir/depend
+	$(MAKE) -f sem_to_costmap/CMakeFiles/sensor_msgs_generate_messages_cpp.dir/build.make sem_to_costmap/CMakeFiles/sensor_msgs_generate_messages_cpp.dir/build
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/kseniia/catkin_ws/build/CMakeFiles --progress-num= "Built target sensor_msgs_generate_messages_cpp"
-.PHONY : sem_to_costmap_cpp/CMakeFiles/sensor_msgs_generate_messages_cpp.dir/all
+.PHONY : sem_to_costmap/CMakeFiles/sensor_msgs_generate_messages_cpp.dir/all
 
 # Build rule for subdir invocation for target.
-sem_to_costmap_cpp/CMakeFiles/sensor_msgs_generate_messages_cpp.dir/rule: cmake_check_build_system
+sem_to_costmap/CMakeFiles/sensor_msgs_generate_messages_cpp.dir/rule: cmake_check_build_system
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/kseniia/catkin_ws/build/CMakeFiles 0
-	$(MAKE) -f CMakeFiles/Makefile2 sem_to_costmap_cpp/CMakeFiles/sensor_msgs_generate_messages_cpp.dir/all
+	$(MAKE) -f CMakeFiles/Makefile2 sem_to_costmap/CMakeFiles/sensor_msgs_generate_messages_cpp.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/kseniia/catkin_ws/build/CMakeFiles 0
-.PHONY : sem_to_costmap_cpp/CMakeFiles/sensor_msgs_generate_messages_cpp.dir/rule
+.PHONY : sem_to_costmap/CMakeFiles/sensor_msgs_generate_messages_cpp.dir/rule
 
 # Convenience name for target.
-sensor_msgs_generate_messages_cpp: sem_to_costmap_cpp/CMakeFiles/sensor_msgs_generate_messages_cpp.dir/rule
+sensor_msgs_generate_messages_cpp: sem_to_costmap/CMakeFiles/sensor_msgs_generate_messages_cpp.dir/rule
 
 .PHONY : sensor_msgs_generate_messages_cpp
 
 # clean rule for target.
-sem_to_costmap_cpp/CMakeFiles/sensor_msgs_generate_messages_cpp.dir/clean:
-	$(MAKE) -f sem_to_costmap_cpp/CMakeFiles/sensor_msgs_generate_messages_cpp.dir/build.make sem_to_costmap_cpp/CMakeFiles/sensor_msgs_generate_messages_cpp.dir/clean
-.PHONY : sem_to_costmap_cpp/CMakeFiles/sensor_msgs_generate_messages_cpp.dir/clean
+sem_to_costmap/CMakeFiles/sensor_msgs_generate_messages_cpp.dir/clean:
+	$(MAKE) -f sem_to_costmap/CMakeFiles/sensor_msgs_generate_messages_cpp.dir/build.make sem_to_costmap/CMakeFiles/sensor_msgs_generate_messages_cpp.dir/clean
+.PHONY : sem_to_costmap/CMakeFiles/sensor_msgs_generate_messages_cpp.dir/clean
 
 #=============================================================================
-# Target rules for target sem_to_costmap_cpp/CMakeFiles/rosgraph_msgs_generate_messages_py.dir
+# Target rules for target sem_to_costmap/CMakeFiles/rosgraph_msgs_generate_messages_py.dir
 
 # All Build rule for target.
-sem_to_costmap_cpp/CMakeFiles/rosgraph_msgs_generate_messages_py.dir/all:
-	$(MAKE) -f sem_to_costmap_cpp/CMakeFiles/rosgraph_msgs_generate_messages_py.dir/build.make sem_to_costmap_cpp/CMakeFiles/rosgraph_msgs_generate_messages_py.dir/depend
-	$(MAKE) -f sem_to_costmap_cpp/CMakeFiles/rosgraph_msgs_generate_messages_py.dir/build.make sem_to_costmap_cpp/CMakeFiles/rosgraph_msgs_generate_messages_py.dir/build
+sem_to_costmap/CMakeFiles/rosgraph_msgs_generate_messages_py.dir/all:
+	$(MAKE) -f sem_to_costmap/CMakeFiles/rosgraph_msgs_generate_messages_py.dir/build.make sem_to_costmap/CMakeFiles/rosgraph_msgs_generate_messages_py.dir/depend
+	$(MAKE) -f sem_to_costmap/CMakeFiles/rosgraph_msgs_generate_messages_py.dir/build.make sem_to_costmap/CMakeFiles/rosgraph_msgs_generate_messages_py.dir/build
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/kseniia/catkin_ws/build/CMakeFiles --progress-num= "Built target rosgraph_msgs_generate_messages_py"
-.PHONY : sem_to_costmap_cpp/CMakeFiles/rosgraph_msgs_generate_messages_py.dir/all
+.PHONY : sem_to_costmap/CMakeFiles/rosgraph_msgs_generate_messages_py.dir/all
 
 # Build rule for subdir invocation for target.
-sem_to_costmap_cpp/CMakeFiles/rosgraph_msgs_generate_messages_py.dir/rule: cmake_check_build_system
+sem_to_costmap/CMakeFiles/rosgraph_msgs_generate_messages_py.dir/rule: cmake_check_build_system
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/kseniia/catkin_ws/build/CMakeFiles 0
-	$(MAKE) -f CMakeFiles/Makefile2 sem_to_costmap_cpp/CMakeFiles/rosgraph_msgs_generate_messages_py.dir/all
+	$(MAKE) -f CMakeFiles/Makefile2 sem_to_costmap/CMakeFiles/rosgraph_msgs_generate_messages_py.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/kseniia/catkin_ws/build/CMakeFiles 0
-.PHONY : sem_to_costmap_cpp/CMakeFiles/rosgraph_msgs_generate_messages_py.dir/rule
+.PHONY : sem_to_costmap/CMakeFiles/rosgraph_msgs_generate_messages_py.dir/rule
 
 # Convenience name for target.
-rosgraph_msgs_generate_messages_py: sem_to_costmap_cpp/CMakeFiles/rosgraph_msgs_generate_messages_py.dir/rule
+rosgraph_msgs_generate_messages_py: sem_to_costmap/CMakeFiles/rosgraph_msgs_generate_messages_py.dir/rule
 
 .PHONY : rosgraph_msgs_generate_messages_py
 
 # clean rule for target.
-sem_to_costmap_cpp/CMakeFiles/rosgraph_msgs_generate_messages_py.dir/clean:
-	$(MAKE) -f sem_to_costmap_cpp/CMakeFiles/rosgraph_msgs_generate_messages_py.dir/build.make sem_to_costmap_cpp/CMakeFiles/rosgraph_msgs_generate_messages_py.dir/clean
-.PHONY : sem_to_costmap_cpp/CMakeFiles/rosgraph_msgs_generate_messages_py.dir/clean
+sem_to_costmap/CMakeFiles/rosgraph_msgs_generate_messages_py.dir/clean:
+	$(MAKE) -f sem_to_costmap/CMakeFiles/rosgraph_msgs_generate_messages_py.dir/build.make sem_to_costmap/CMakeFiles/rosgraph_msgs_generate_messages_py.dir/clean
+.PHONY : sem_to_costmap/CMakeFiles/rosgraph_msgs_generate_messages_py.dir/clean
 
 #=============================================================================
-# Target rules for target sem_to_costmap_cpp/CMakeFiles/std_msgs_generate_messages_lisp.dir
+# Target rules for target sem_to_costmap/CMakeFiles/std_msgs_generate_messages_lisp.dir
 
 # All Build rule for target.
-sem_to_costmap_cpp/CMakeFiles/std_msgs_generate_messages_lisp.dir/all:
-	$(MAKE) -f sem_to_costmap_cpp/CMakeFiles/std_msgs_generate_messages_lisp.dir/build.make sem_to_costmap_cpp/CMakeFiles/std_msgs_generate_messages_lisp.dir/depend
-	$(MAKE) -f sem_to_costmap_cpp/CMakeFiles/std_msgs_generate_messages_lisp.dir/build.make sem_to_costmap_cpp/CMakeFiles/std_msgs_generate_messages_lisp.dir/build
+sem_to_costmap/CMakeFiles/std_msgs_generate_messages_lisp.dir/all:
+	$(MAKE) -f sem_to_costmap/CMakeFiles/std_msgs_generate_messages_lisp.dir/build.make sem_to_costmap/CMakeFiles/std_msgs_generate_messages_lisp.dir/depend
+	$(MAKE) -f sem_to_costmap/CMakeFiles/std_msgs_generate_messages_lisp.dir/build.make sem_to_costmap/CMakeFiles/std_msgs_generate_messages_lisp.dir/build
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/kseniia/catkin_ws/build/CMakeFiles --progress-num= "Built target std_msgs_generate_messages_lisp"
-.PHONY : sem_to_costmap_cpp/CMakeFiles/std_msgs_generate_messages_lisp.dir/all
+.PHONY : sem_to_costmap/CMakeFiles/std_msgs_generate_messages_lisp.dir/all
 
 # Build rule for subdir invocation for target.
-sem_to_costmap_cpp/CMakeFiles/std_msgs_generate_messages_lisp.dir/rule: cmake_check_build_system
+sem_to_costmap/CMakeFiles/std_msgs_generate_messages_lisp.dir/rule: cmake_check_build_system
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/kseniia/catkin_ws/build/CMakeFiles 0
-	$(MAKE) -f CMakeFiles/Makefile2 sem_to_costmap_cpp/CMakeFiles/std_msgs_generate_messages_lisp.dir/all
+	$(MAKE) -f CMakeFiles/Makefile2 sem_to_costmap/CMakeFiles/std_msgs_generate_messages_lisp.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/kseniia/catkin_ws/build/CMakeFiles 0
-.PHONY : sem_to_costmap_cpp/CMakeFiles/std_msgs_generate_messages_lisp.dir/rule
+.PHONY : sem_to_costmap/CMakeFiles/std_msgs_generate_messages_lisp.dir/rule
 
 # Convenience name for target.
-std_msgs_generate_messages_lisp: sem_to_costmap_cpp/CMakeFiles/std_msgs_generate_messages_lisp.dir/rule
+std_msgs_generate_messages_lisp: sem_to_costmap/CMakeFiles/std_msgs_generate_messages_lisp.dir/rule
 
 .PHONY : std_msgs_generate_messages_lisp
 
 # clean rule for target.
-sem_to_costmap_cpp/CMakeFiles/std_msgs_generate_messages_lisp.dir/clean:
-	$(MAKE) -f sem_to_costmap_cpp/CMakeFiles/std_msgs_generate_messages_lisp.dir/build.make sem_to_costmap_cpp/CMakeFiles/std_msgs_generate_messages_lisp.dir/clean
-.PHONY : sem_to_costmap_cpp/CMakeFiles/std_msgs_generate_messages_lisp.dir/clean
+sem_to_costmap/CMakeFiles/std_msgs_generate_messages_lisp.dir/clean:
+	$(MAKE) -f sem_to_costmap/CMakeFiles/std_msgs_generate_messages_lisp.dir/build.make sem_to_costmap/CMakeFiles/std_msgs_generate_messages_lisp.dir/clean
+.PHONY : sem_to_costmap/CMakeFiles/std_msgs_generate_messages_lisp.dir/clean
 
 #=============================================================================
-# Target rules for target sem_to_costmap_cpp/CMakeFiles/actionlib_msgs_generate_messages_cpp.dir
+# Target rules for target sem_to_costmap/CMakeFiles/actionlib_msgs_generate_messages_cpp.dir
 
 # All Build rule for target.
-sem_to_costmap_cpp/CMakeFiles/actionlib_msgs_generate_messages_cpp.dir/all:
-	$(MAKE) -f sem_to_costmap_cpp/CMakeFiles/actionlib_msgs_generate_messages_cpp.dir/build.make sem_to_costmap_cpp/CMakeFiles/actionlib_msgs_generate_messages_cpp.dir/depend
-	$(MAKE) -f sem_to_costmap_cpp/CMakeFiles/actionlib_msgs_generate_messages_cpp.dir/build.make sem_to_costmap_cpp/CMakeFiles/actionlib_msgs_generate_messages_cpp.dir/build
+sem_to_costmap/CMakeFiles/actionlib_msgs_generate_messages_cpp.dir/all:
+	$(MAKE) -f sem_to_costmap/CMakeFiles/actionlib_msgs_generate_messages_cpp.dir/build.make sem_to_costmap/CMakeFiles/actionlib_msgs_generate_messages_cpp.dir/depend
+	$(MAKE) -f sem_to_costmap/CMakeFiles/actionlib_msgs_generate_messages_cpp.dir/build.make sem_to_costmap/CMakeFiles/actionlib_msgs_generate_messages_cpp.dir/build
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/kseniia/catkin_ws/build/CMakeFiles --progress-num= "Built target actionlib_msgs_generate_messages_cpp"
-.PHONY : sem_to_costmap_cpp/CMakeFiles/actionlib_msgs_generate_messages_cpp.dir/all
+.PHONY : sem_to_costmap/CMakeFiles/actionlib_msgs_generate_messages_cpp.dir/all
 
 # Build rule for subdir invocation for target.
-sem_to_costmap_cpp/CMakeFiles/actionlib_msgs_generate_messages_cpp.dir/rule: cmake_check_build_system
+sem_to_costmap/CMakeFiles/actionlib_msgs_generate_messages_cpp.dir/rule: cmake_check_build_system
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/kseniia/catkin_ws/build/CMakeFiles 0
-	$(MAKE) -f CMakeFiles/Makefile2 sem_to_costmap_cpp/CMakeFiles/actionlib_msgs_generate_messages_cpp.dir/all
+	$(MAKE) -f CMakeFiles/Makefile2 sem_to_costmap/CMakeFiles/actionlib_msgs_generate_messages_cpp.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/kseniia/catkin_ws/build/CMakeFiles 0
-.PHONY : sem_to_costmap_cpp/CMakeFiles/actionlib_msgs_generate_messages_cpp.dir/rule
+.PHONY : sem_to_costmap/CMakeFiles/actionlib_msgs_generate_messages_cpp.dir/rule
 
 # Convenience name for target.
-actionlib_msgs_generate_messages_cpp: sem_to_costmap_cpp/CMakeFiles/actionlib_msgs_generate_messages_cpp.dir/rule
+actionlib_msgs_generate_messages_cpp: sem_to_costmap/CMakeFiles/actionlib_msgs_generate_messages_cpp.dir/rule
 
 .PHONY : actionlib_msgs_generate_messages_cpp
 
 # clean rule for target.
-sem_to_costmap_cpp/CMakeFiles/actionlib_msgs_generate_messages_cpp.dir/clean:
-	$(MAKE) -f sem_to_costmap_cpp/CMakeFiles/actionlib_msgs_generate_messages_cpp.dir/build.make sem_to_costmap_cpp/CMakeFiles/actionlib_msgs_generate_messages_cpp.dir/clean
-.PHONY : sem_to_costmap_cpp/CMakeFiles/actionlib_msgs_generate_messages_cpp.dir/clean
+sem_to_costmap/CMakeFiles/actionlib_msgs_generate_messages_cpp.dir/clean:
+	$(MAKE) -f sem_to_costmap/CMakeFiles/actionlib_msgs_generate_messages_cpp.dir/build.make sem_to_costmap/CMakeFiles/actionlib_msgs_generate_messages_cpp.dir/clean
+.PHONY : sem_to_costmap/CMakeFiles/actionlib_msgs_generate_messages_cpp.dir/clean
 
 #=============================================================================
-# Target rules for target sem_to_costmap_cpp/CMakeFiles/std_msgs_generate_messages_eus.dir
+# Target rules for target sem_to_costmap/CMakeFiles/std_msgs_generate_messages_eus.dir
 
 # All Build rule for target.
-sem_to_costmap_cpp/CMakeFiles/std_msgs_generate_messages_eus.dir/all:
-	$(MAKE) -f sem_to_costmap_cpp/CMakeFiles/std_msgs_generate_messages_eus.dir/build.make sem_to_costmap_cpp/CMakeFiles/std_msgs_generate_messages_eus.dir/depend
-	$(MAKE) -f sem_to_costmap_cpp/CMakeFiles/std_msgs_generate_messages_eus.dir/build.make sem_to_costmap_cpp/CMakeFiles/std_msgs_generate_messages_eus.dir/build
+sem_to_costmap/CMakeFiles/std_msgs_generate_messages_eus.dir/all:
+	$(MAKE) -f sem_to_costmap/CMakeFiles/std_msgs_generate_messages_eus.dir/build.make sem_to_costmap/CMakeFiles/std_msgs_generate_messages_eus.dir/depend
+	$(MAKE) -f sem_to_costmap/CMakeFiles/std_msgs_generate_messages_eus.dir/build.make sem_to_costmap/CMakeFiles/std_msgs_generate_messages_eus.dir/build
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/kseniia/catkin_ws/build/CMakeFiles --progress-num= "Built target std_msgs_generate_messages_eus"
-.PHONY : sem_to_costmap_cpp/CMakeFiles/std_msgs_generate_messages_eus.dir/all
+.PHONY : sem_to_costmap/CMakeFiles/std_msgs_generate_messages_eus.dir/all
 
 # Build rule for subdir invocation for target.
-sem_to_costmap_cpp/CMakeFiles/std_msgs_generate_messages_eus.dir/rule: cmake_check_build_system
+sem_to_costmap/CMakeFiles/std_msgs_generate_messages_eus.dir/rule: cmake_check_build_system
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/kseniia/catkin_ws/build/CMakeFiles 0
-	$(MAKE) -f CMakeFiles/Makefile2 sem_to_costmap_cpp/CMakeFiles/std_msgs_generate_messages_eus.dir/all
+	$(MAKE) -f CMakeFiles/Makefile2 sem_to_costmap/CMakeFiles/std_msgs_generate_messages_eus.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/kseniia/catkin_ws/build/CMakeFiles 0
-.PHONY : sem_to_costmap_cpp/CMakeFiles/std_msgs_generate_messages_eus.dir/rule
+.PHONY : sem_to_costmap/CMakeFiles/std_msgs_generate_messages_eus.dir/rule
 
 # Convenience name for target.
-std_msgs_generate_messages_eus: sem_to_costmap_cpp/CMakeFiles/std_msgs_generate_messages_eus.dir/rule
+std_msgs_generate_messages_eus: sem_to_costmap/CMakeFiles/std_msgs_generate_messages_eus.dir/rule
 
 .PHONY : std_msgs_generate_messages_eus
 
 # clean rule for target.
-sem_to_costmap_cpp/CMakeFiles/std_msgs_generate_messages_eus.dir/clean:
-	$(MAKE) -f sem_to_costmap_cpp/CMakeFiles/std_msgs_generate_messages_eus.dir/build.make sem_to_costmap_cpp/CMakeFiles/std_msgs_generate_messages_eus.dir/clean
-.PHONY : sem_to_costmap_cpp/CMakeFiles/std_msgs_generate_messages_eus.dir/clean
+sem_to_costmap/CMakeFiles/std_msgs_generate_messages_eus.dir/clean:
+	$(MAKE) -f sem_to_costmap/CMakeFiles/std_msgs_generate_messages_eus.dir/build.make sem_to_costmap/CMakeFiles/std_msgs_generate_messages_eus.dir/clean
+.PHONY : sem_to_costmap/CMakeFiles/std_msgs_generate_messages_eus.dir/clean
 
 #=============================================================================
-# Target rules for target sem_to_costmap_cpp/CMakeFiles/geometry_msgs_generate_messages_lisp.dir
+# Target rules for target sem_to_costmap/CMakeFiles/geometry_msgs_generate_messages_lisp.dir
 
 # All Build rule for target.
-sem_to_costmap_cpp/CMakeFiles/geometry_msgs_generate_messages_lisp.dir/all:
-	$(MAKE) -f sem_to_costmap_cpp/CMakeFiles/geometry_msgs_generate_messages_lisp.dir/build.make sem_to_costmap_cpp/CMakeFiles/geometry_msgs_generate_messages_lisp.dir/depend
-	$(MAKE) -f sem_to_costmap_cpp/CMakeFiles/geometry_msgs_generate_messages_lisp.dir/build.make sem_to_costmap_cpp/CMakeFiles/geometry_msgs_generate_messages_lisp.dir/build
+sem_to_costmap/CMakeFiles/geometry_msgs_generate_messages_lisp.dir/all:
+	$(MAKE) -f sem_to_costmap/CMakeFiles/geometry_msgs_generate_messages_lisp.dir/build.make sem_to_costmap/CMakeFiles/geometry_msgs_generate_messages_lisp.dir/depend
+	$(MAKE) -f sem_to_costmap/CMakeFiles/geometry_msgs_generate_messages_lisp.dir/build.make sem_to_costmap/CMakeFiles/geometry_msgs_generate_messages_lisp.dir/build
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/kseniia/catkin_ws/build/CMakeFiles --progress-num= "Built target geometry_msgs_generate_messages_lisp"
-.PHONY : sem_to_costmap_cpp/CMakeFiles/geometry_msgs_generate_messages_lisp.dir/all
+.PHONY : sem_to_costmap/CMakeFiles/geometry_msgs_generate_messages_lisp.dir/all
 
 # Build rule for subdir invocation for target.
-sem_to_costmap_cpp/CMakeFiles/geometry_msgs_generate_messages_lisp.dir/rule: cmake_check_build_system
+sem_to_costmap/CMakeFiles/geometry_msgs_generate_messages_lisp.dir/rule: cmake_check_build_system
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/kseniia/catkin_ws/build/CMakeFiles 0
-	$(MAKE) -f CMakeFiles/Makefile2 sem_to_costmap_cpp/CMakeFiles/geometry_msgs_generate_messages_lisp.dir/all
+	$(MAKE) -f CMakeFiles/Makefile2 sem_to_costmap/CMakeFiles/geometry_msgs_generate_messages_lisp.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/kseniia/catkin_ws/build/CMakeFiles 0
-.PHONY : sem_to_costmap_cpp/CMakeFiles/geometry_msgs_generate_messages_lisp.dir/rule
+.PHONY : sem_to_costmap/CMakeFiles/geometry_msgs_generate_messages_lisp.dir/rule
 
 # Convenience name for target.
-geometry_msgs_generate_messages_lisp: sem_to_costmap_cpp/CMakeFiles/geometry_msgs_generate_messages_lisp.dir/rule
+geometry_msgs_generate_messages_lisp: sem_to_costmap/CMakeFiles/geometry_msgs_generate_messages_lisp.dir/rule
 
 .PHONY : geometry_msgs_generate_messages_lisp
 
 # clean rule for target.
-sem_to_costmap_cpp/CMakeFiles/geometry_msgs_generate_messages_lisp.dir/clean:
-	$(MAKE) -f sem_to_costmap_cpp/CMakeFiles/geometry_msgs_generate_messages_lisp.dir/build.make sem_to_costmap_cpp/CMakeFiles/geometry_msgs_generate_messages_lisp.dir/clean
-.PHONY : sem_to_costmap_cpp/CMakeFiles/geometry_msgs_generate_messages_lisp.dir/clean
+sem_to_costmap/CMakeFiles/geometry_msgs_generate_messages_lisp.dir/clean:
+	$(MAKE) -f sem_to_costmap/CMakeFiles/geometry_msgs_generate_messages_lisp.dir/build.make sem_to_costmap/CMakeFiles/geometry_msgs_generate_messages_lisp.dir/clean
+.PHONY : sem_to_costmap/CMakeFiles/geometry_msgs_generate_messages_lisp.dir/clean
 
 #=============================================================================
-# Target rules for target sem_to_costmap_cpp/CMakeFiles/roscpp_generate_messages_nodejs.dir
+# Target rules for target sem_to_costmap/CMakeFiles/roscpp_generate_messages_nodejs.dir
 
 # All Build rule for target.
-sem_to_costmap_cpp/CMakeFiles/roscpp_generate_messages_nodejs.dir/all:
-	$(MAKE) -f sem_to_costmap_cpp/CMakeFiles/roscpp_generate_messages_nodejs.dir/build.make sem_to_costmap_cpp/CMakeFiles/roscpp_generate_messages_nodejs.dir/depend
-	$(MAKE) -f sem_to_costmap_cpp/CMakeFiles/roscpp_generate_messages_nodejs.dir/build.make sem_to_costmap_cpp/CMakeFiles/roscpp_generate_messages_nodejs.dir/build
+sem_to_costmap/CMakeFiles/roscpp_generate_messages_nodejs.dir/all:
+	$(MAKE) -f sem_to_costmap/CMakeFiles/roscpp_generate_messages_nodejs.dir/build.make sem_to_costmap/CMakeFiles/roscpp_generate_messages_nodejs.dir/depend
+	$(MAKE) -f sem_to_costmap/CMakeFiles/roscpp_generate_messages_nodejs.dir/build.make sem_to_costmap/CMakeFiles/roscpp_generate_messages_nodejs.dir/build
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/kseniia/catkin_ws/build/CMakeFiles --progress-num= "Built target roscpp_generate_messages_nodejs"
-.PHONY : sem_to_costmap_cpp/CMakeFiles/roscpp_generate_messages_nodejs.dir/all
+.PHONY : sem_to_costmap/CMakeFiles/roscpp_generate_messages_nodejs.dir/all
 
 # Build rule for subdir invocation for target.
-sem_to_costmap_cpp/CMakeFiles/roscpp_generate_messages_nodejs.dir/rule: cmake_check_build_system
+sem_to_costmap/CMakeFiles/roscpp_generate_messages_nodejs.dir/rule: cmake_check_build_system
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/kseniia/catkin_ws/build/CMakeFiles 0
-	$(MAKE) -f CMakeFiles/Makefile2 sem_to_costmap_cpp/CMakeFiles/roscpp_generate_messages_nodejs.dir/all
+	$(MAKE) -f CMakeFiles/Makefile2 sem_to_costmap/CMakeFiles/roscpp_generate_messages_nodejs.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/kseniia/catkin_ws/build/CMakeFiles 0
-.PHONY : sem_to_costmap_cpp/CMakeFiles/roscpp_generate_messages_nodejs.dir/rule
+.PHONY : sem_to_costmap/CMakeFiles/roscpp_generate_messages_nodejs.dir/rule
 
 # Convenience name for target.
-roscpp_generate_messages_nodejs: sem_to_costmap_cpp/CMakeFiles/roscpp_generate_messages_nodejs.dir/rule
+roscpp_generate_messages_nodejs: sem_to_costmap/CMakeFiles/roscpp_generate_messages_nodejs.dir/rule
 
 .PHONY : roscpp_generate_messages_nodejs
 
 # clean rule for target.
-sem_to_costmap_cpp/CMakeFiles/roscpp_generate_messages_nodejs.dir/clean:
-	$(MAKE) -f sem_to_costmap_cpp/CMakeFiles/roscpp_generate_messages_nodejs.dir/build.make sem_to_costmap_cpp/CMakeFiles/roscpp_generate_messages_nodejs.dir/clean
-.PHONY : sem_to_costmap_cpp/CMakeFiles/roscpp_generate_messages_nodejs.dir/clean
+sem_to_costmap/CMakeFiles/roscpp_generate_messages_nodejs.dir/clean:
+	$(MAKE) -f sem_to_costmap/CMakeFiles/roscpp_generate_messages_nodejs.dir/build.make sem_to_costmap/CMakeFiles/roscpp_generate_messages_nodejs.dir/clean
+.PHONY : sem_to_costmap/CMakeFiles/roscpp_generate_messages_nodejs.dir/clean
 
 #=============================================================================
-# Target rules for target sem_to_costmap_cpp/CMakeFiles/rosgraph_msgs_generate_messages_cpp.dir
+# Target rules for target sem_to_costmap/CMakeFiles/rosgraph_msgs_generate_messages_cpp.dir
 
 # All Build rule for target.
-sem_to_costmap_cpp/CMakeFiles/rosgraph_msgs_generate_messages_cpp.dir/all:
-	$(MAKE) -f sem_to_costmap_cpp/CMakeFiles/rosgraph_msgs_generate_messages_cpp.dir/build.make sem_to_costmap_cpp/CMakeFiles/rosgraph_msgs_generate_messages_cpp.dir/depend
-	$(MAKE) -f sem_to_costmap_cpp/CMakeFiles/rosgraph_msgs_generate_messages_cpp.dir/build.make sem_to_costmap_cpp/CMakeFiles/rosgraph_msgs_generate_messages_cpp.dir/build
+sem_to_costmap/CMakeFiles/rosgraph_msgs_generate_messages_cpp.dir/all:
+	$(MAKE) -f sem_to_costmap/CMakeFiles/rosgraph_msgs_generate_messages_cpp.dir/build.make sem_to_costmap/CMakeFiles/rosgraph_msgs_generate_messages_cpp.dir/depend
+	$(MAKE) -f sem_to_costmap/CMakeFiles/rosgraph_msgs_generate_messages_cpp.dir/build.make sem_to_costmap/CMakeFiles/rosgraph_msgs_generate_messages_cpp.dir/build
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/kseniia/catkin_ws/build/CMakeFiles --progress-num= "Built target rosgraph_msgs_generate_messages_cpp"
-.PHONY : sem_to_costmap_cpp/CMakeFiles/rosgraph_msgs_generate_messages_cpp.dir/all
+.PHONY : sem_to_costmap/CMakeFiles/rosgraph_msgs_generate_messages_cpp.dir/all
 
 # Build rule for subdir invocation for target.
-sem_to_costmap_cpp/CMakeFiles/rosgraph_msgs_generate_messages_cpp.dir/rule: cmake_check_build_system
+sem_to_costmap/CMakeFiles/rosgraph_msgs_generate_messages_cpp.dir/rule: cmake_check_build_system
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/kseniia/catkin_ws/build/CMakeFiles 0
-	$(MAKE) -f CMakeFiles/Makefile2 sem_to_costmap_cpp/CMakeFiles/rosgraph_msgs_generate_messages_cpp.dir/all
+	$(MAKE) -f CMakeFiles/Makefile2 sem_to_costmap/CMakeFiles/rosgraph_msgs_generate_messages_cpp.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/kseniia/catkin_ws/build/CMakeFiles 0
-.PHONY : sem_to_costmap_cpp/CMakeFiles/rosgraph_msgs_generate_messages_cpp.dir/rule
+.PHONY : sem_to_costmap/CMakeFiles/rosgraph_msgs_generate_messages_cpp.dir/rule
 
 # Convenience name for target.
-rosgraph_msgs_generate_messages_cpp: sem_to_costmap_cpp/CMakeFiles/rosgraph_msgs_generate_messages_cpp.dir/rule
+rosgraph_msgs_generate_messages_cpp: sem_to_costmap/CMakeFiles/rosgraph_msgs_generate_messages_cpp.dir/rule
 
 .PHONY : rosgraph_msgs_generate_messages_cpp
 
 # clean rule for target.
-sem_to_costmap_cpp/CMakeFiles/rosgraph_msgs_generate_messages_cpp.dir/clean:
-	$(MAKE) -f sem_to_costmap_cpp/CMakeFiles/rosgraph_msgs_generate_messages_cpp.dir/build.make sem_to_costmap_cpp/CMakeFiles/rosgraph_msgs_generate_messages_cpp.dir/clean
-.PHONY : sem_to_costmap_cpp/CMakeFiles/rosgraph_msgs_generate_messages_cpp.dir/clean
+sem_to_costmap/CMakeFiles/rosgraph_msgs_generate_messages_cpp.dir/clean:
+	$(MAKE) -f sem_to_costmap/CMakeFiles/rosgraph_msgs_generate_messages_cpp.dir/build.make sem_to_costmap/CMakeFiles/rosgraph_msgs_generate_messages_cpp.dir/clean
+.PHONY : sem_to_costmap/CMakeFiles/rosgraph_msgs_generate_messages_cpp.dir/clean
 
 #=============================================================================
-# Target rules for target sem_to_costmap_cpp/CMakeFiles/std_msgs_generate_messages_cpp.dir
+# Target rules for target sem_to_costmap/CMakeFiles/std_msgs_generate_messages_cpp.dir
 
 # All Build rule for target.
-sem_to_costmap_cpp/CMakeFiles/std_msgs_generate_messages_cpp.dir/all:
-	$(MAKE) -f sem_to_costmap_cpp/CMakeFiles/std_msgs_generate_messages_cpp.dir/build.make sem_to_costmap_cpp/CMakeFiles/std_msgs_generate_messages_cpp.dir/depend
-	$(MAKE) -f sem_to_costmap_cpp/CMakeFiles/std_msgs_generate_messages_cpp.dir/build.make sem_to_costmap_cpp/CMakeFiles/std_msgs_generate_messages_cpp.dir/build
+sem_to_costmap/CMakeFiles/std_msgs_generate_messages_cpp.dir/all:
+	$(MAKE) -f sem_to_costmap/CMakeFiles/std_msgs_generate_messages_cpp.dir/build.make sem_to_costmap/CMakeFiles/std_msgs_generate_messages_cpp.dir/depend
+	$(MAKE) -f sem_to_costmap/CMakeFiles/std_msgs_generate_messages_cpp.dir/build.make sem_to_costmap/CMakeFiles/std_msgs_generate_messages_cpp.dir/build
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/kseniia/catkin_ws/build/CMakeFiles --progress-num= "Built target std_msgs_generate_messages_cpp"
-.PHONY : sem_to_costmap_cpp/CMakeFiles/std_msgs_generate_messages_cpp.dir/all
+.PHONY : sem_to_costmap/CMakeFiles/std_msgs_generate_messages_cpp.dir/all
 
 # Build rule for subdir invocation for target.
-sem_to_costmap_cpp/CMakeFiles/std_msgs_generate_messages_cpp.dir/rule: cmake_check_build_system
+sem_to_costmap/CMakeFiles/std_msgs_generate_messages_cpp.dir/rule: cmake_check_build_system
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/kseniia/catkin_ws/build/CMakeFiles 0
-	$(MAKE) -f CMakeFiles/Makefile2 sem_to_costmap_cpp/CMakeFiles/std_msgs_generate_messages_cpp.dir/all
+	$(MAKE) -f CMakeFiles/Makefile2 sem_to_costmap/CMakeFiles/std_msgs_generate_messages_cpp.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/kseniia/catkin_ws/build/CMakeFiles 0
-.PHONY : sem_to_costmap_cpp/CMakeFiles/std_msgs_generate_messages_cpp.dir/rule
+.PHONY : sem_to_costmap/CMakeFiles/std_msgs_generate_messages_cpp.dir/rule
 
 # Convenience name for target.
-std_msgs_generate_messages_cpp: sem_to_costmap_cpp/CMakeFiles/std_msgs_generate_messages_cpp.dir/rule
+std_msgs_generate_messages_cpp: sem_to_costmap/CMakeFiles/std_msgs_generate_messages_cpp.dir/rule
 
 .PHONY : std_msgs_generate_messages_cpp
 
 # clean rule for target.
-sem_to_costmap_cpp/CMakeFiles/std_msgs_generate_messages_cpp.dir/clean:
-	$(MAKE) -f sem_to_costmap_cpp/CMakeFiles/std_msgs_generate_messages_cpp.dir/build.make sem_to_costmap_cpp/CMakeFiles/std_msgs_generate_messages_cpp.dir/clean
-.PHONY : sem_to_costmap_cpp/CMakeFiles/std_msgs_generate_messages_cpp.dir/clean
+sem_to_costmap/CMakeFiles/std_msgs_generate_messages_cpp.dir/clean:
+	$(MAKE) -f sem_to_costmap/CMakeFiles/std_msgs_generate_messages_cpp.dir/build.make sem_to_costmap/CMakeFiles/std_msgs_generate_messages_cpp.dir/clean
+.PHONY : sem_to_costmap/CMakeFiles/std_msgs_generate_messages_cpp.dir/clean
 
 #=============================================================================
-# Target rules for target sem_to_costmap_cpp/CMakeFiles/sem_to_costmap_cpp.dir
+# Target rules for target sem_to_costmap/CMakeFiles/geometry_msgs_generate_messages_nodejs.dir
 
 # All Build rule for target.
-sem_to_costmap_cpp/CMakeFiles/sem_to_costmap_cpp.dir/all:
-	$(MAKE) -f sem_to_costmap_cpp/CMakeFiles/sem_to_costmap_cpp.dir/build.make sem_to_costmap_cpp/CMakeFiles/sem_to_costmap_cpp.dir/depend
-	$(MAKE) -f sem_to_costmap_cpp/CMakeFiles/sem_to_costmap_cpp.dir/build.make sem_to_costmap_cpp/CMakeFiles/sem_to_costmap_cpp.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/kseniia/catkin_ws/build/CMakeFiles --progress-num=9,10 "Built target sem_to_costmap_cpp"
-.PHONY : sem_to_costmap_cpp/CMakeFiles/sem_to_costmap_cpp.dir/all
-
-# Build rule for subdir invocation for target.
-sem_to_costmap_cpp/CMakeFiles/sem_to_costmap_cpp.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/kseniia/catkin_ws/build/CMakeFiles 2
-	$(MAKE) -f CMakeFiles/Makefile2 sem_to_costmap_cpp/CMakeFiles/sem_to_costmap_cpp.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/kseniia/catkin_ws/build/CMakeFiles 0
-.PHONY : sem_to_costmap_cpp/CMakeFiles/sem_to_costmap_cpp.dir/rule
-
-# Convenience name for target.
-sem_to_costmap_cpp: sem_to_costmap_cpp/CMakeFiles/sem_to_costmap_cpp.dir/rule
-
-.PHONY : sem_to_costmap_cpp
-
-# clean rule for target.
-sem_to_costmap_cpp/CMakeFiles/sem_to_costmap_cpp.dir/clean:
-	$(MAKE) -f sem_to_costmap_cpp/CMakeFiles/sem_to_costmap_cpp.dir/build.make sem_to_costmap_cpp/CMakeFiles/sem_to_costmap_cpp.dir/clean
-.PHONY : sem_to_costmap_cpp/CMakeFiles/sem_to_costmap_cpp.dir/clean
-
-#=============================================================================
-# Target rules for target sem_to_costmap_cpp/CMakeFiles/geometry_msgs_generate_messages_nodejs.dir
-
-# All Build rule for target.
-sem_to_costmap_cpp/CMakeFiles/geometry_msgs_generate_messages_nodejs.dir/all:
-	$(MAKE) -f sem_to_costmap_cpp/CMakeFiles/geometry_msgs_generate_messages_nodejs.dir/build.make sem_to_costmap_cpp/CMakeFiles/geometry_msgs_generate_messages_nodejs.dir/depend
-	$(MAKE) -f sem_to_costmap_cpp/CMakeFiles/geometry_msgs_generate_messages_nodejs.dir/build.make sem_to_costmap_cpp/CMakeFiles/geometry_msgs_generate_messages_nodejs.dir/build
+sem_to_costmap/CMakeFiles/geometry_msgs_generate_messages_nodejs.dir/all:
+	$(MAKE) -f sem_to_costmap/CMakeFiles/geometry_msgs_generate_messages_nodejs.dir/build.make sem_to_costmap/CMakeFiles/geometry_msgs_generate_messages_nodejs.dir/depend
+	$(MAKE) -f sem_to_costmap/CMakeFiles/geometry_msgs_generate_messages_nodejs.dir/build.make sem_to_costmap/CMakeFiles/geometry_msgs_generate_messages_nodejs.dir/build
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/kseniia/catkin_ws/build/CMakeFiles --progress-num= "Built target geometry_msgs_generate_messages_nodejs"
-.PHONY : sem_to_costmap_cpp/CMakeFiles/geometry_msgs_generate_messages_nodejs.dir/all
+.PHONY : sem_to_costmap/CMakeFiles/geometry_msgs_generate_messages_nodejs.dir/all
 
 # Build rule for subdir invocation for target.
-sem_to_costmap_cpp/CMakeFiles/geometry_msgs_generate_messages_nodejs.dir/rule: cmake_check_build_system
+sem_to_costmap/CMakeFiles/geometry_msgs_generate_messages_nodejs.dir/rule: cmake_check_build_system
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/kseniia/catkin_ws/build/CMakeFiles 0
-	$(MAKE) -f CMakeFiles/Makefile2 sem_to_costmap_cpp/CMakeFiles/geometry_msgs_generate_messages_nodejs.dir/all
+	$(MAKE) -f CMakeFiles/Makefile2 sem_to_costmap/CMakeFiles/geometry_msgs_generate_messages_nodejs.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/kseniia/catkin_ws/build/CMakeFiles 0
-.PHONY : sem_to_costmap_cpp/CMakeFiles/geometry_msgs_generate_messages_nodejs.dir/rule
+.PHONY : sem_to_costmap/CMakeFiles/geometry_msgs_generate_messages_nodejs.dir/rule
 
 # Convenience name for target.
-geometry_msgs_generate_messages_nodejs: sem_to_costmap_cpp/CMakeFiles/geometry_msgs_generate_messages_nodejs.dir/rule
+geometry_msgs_generate_messages_nodejs: sem_to_costmap/CMakeFiles/geometry_msgs_generate_messages_nodejs.dir/rule
 
 .PHONY : geometry_msgs_generate_messages_nodejs
 
 # clean rule for target.
-sem_to_costmap_cpp/CMakeFiles/geometry_msgs_generate_messages_nodejs.dir/clean:
-	$(MAKE) -f sem_to_costmap_cpp/CMakeFiles/geometry_msgs_generate_messages_nodejs.dir/build.make sem_to_costmap_cpp/CMakeFiles/geometry_msgs_generate_messages_nodejs.dir/clean
-.PHONY : sem_to_costmap_cpp/CMakeFiles/geometry_msgs_generate_messages_nodejs.dir/clean
+sem_to_costmap/CMakeFiles/geometry_msgs_generate_messages_nodejs.dir/clean:
+	$(MAKE) -f sem_to_costmap/CMakeFiles/geometry_msgs_generate_messages_nodejs.dir/build.make sem_to_costmap/CMakeFiles/geometry_msgs_generate_messages_nodejs.dir/clean
+.PHONY : sem_to_costmap/CMakeFiles/geometry_msgs_generate_messages_nodejs.dir/clean
 
 #=============================================================================
-# Target rules for target sem_to_costmap_cpp/CMakeFiles/geometry_msgs_generate_messages_cpp.dir
+# Target rules for target sem_to_costmap/CMakeFiles/geometry_msgs_generate_messages_cpp.dir
 
 # All Build rule for target.
-sem_to_costmap_cpp/CMakeFiles/geometry_msgs_generate_messages_cpp.dir/all:
-	$(MAKE) -f sem_to_costmap_cpp/CMakeFiles/geometry_msgs_generate_messages_cpp.dir/build.make sem_to_costmap_cpp/CMakeFiles/geometry_msgs_generate_messages_cpp.dir/depend
-	$(MAKE) -f sem_to_costmap_cpp/CMakeFiles/geometry_msgs_generate_messages_cpp.dir/build.make sem_to_costmap_cpp/CMakeFiles/geometry_msgs_generate_messages_cpp.dir/build
+sem_to_costmap/CMakeFiles/geometry_msgs_generate_messages_cpp.dir/all:
+	$(MAKE) -f sem_to_costmap/CMakeFiles/geometry_msgs_generate_messages_cpp.dir/build.make sem_to_costmap/CMakeFiles/geometry_msgs_generate_messages_cpp.dir/depend
+	$(MAKE) -f sem_to_costmap/CMakeFiles/geometry_msgs_generate_messages_cpp.dir/build.make sem_to_costmap/CMakeFiles/geometry_msgs_generate_messages_cpp.dir/build
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/kseniia/catkin_ws/build/CMakeFiles --progress-num= "Built target geometry_msgs_generate_messages_cpp"
-.PHONY : sem_to_costmap_cpp/CMakeFiles/geometry_msgs_generate_messages_cpp.dir/all
+.PHONY : sem_to_costmap/CMakeFiles/geometry_msgs_generate_messages_cpp.dir/all
 
 # Build rule for subdir invocation for target.
-sem_to_costmap_cpp/CMakeFiles/geometry_msgs_generate_messages_cpp.dir/rule: cmake_check_build_system
+sem_to_costmap/CMakeFiles/geometry_msgs_generate_messages_cpp.dir/rule: cmake_check_build_system
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/kseniia/catkin_ws/build/CMakeFiles 0
-	$(MAKE) -f CMakeFiles/Makefile2 sem_to_costmap_cpp/CMakeFiles/geometry_msgs_generate_messages_cpp.dir/all
+	$(MAKE) -f CMakeFiles/Makefile2 sem_to_costmap/CMakeFiles/geometry_msgs_generate_messages_cpp.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/kseniia/catkin_ws/build/CMakeFiles 0
-.PHONY : sem_to_costmap_cpp/CMakeFiles/geometry_msgs_generate_messages_cpp.dir/rule
+.PHONY : sem_to_costmap/CMakeFiles/geometry_msgs_generate_messages_cpp.dir/rule
 
 # Convenience name for target.
-geometry_msgs_generate_messages_cpp: sem_to_costmap_cpp/CMakeFiles/geometry_msgs_generate_messages_cpp.dir/rule
+geometry_msgs_generate_messages_cpp: sem_to_costmap/CMakeFiles/geometry_msgs_generate_messages_cpp.dir/rule
 
 .PHONY : geometry_msgs_generate_messages_cpp
 
 # clean rule for target.
-sem_to_costmap_cpp/CMakeFiles/geometry_msgs_generate_messages_cpp.dir/clean:
-	$(MAKE) -f sem_to_costmap_cpp/CMakeFiles/geometry_msgs_generate_messages_cpp.dir/build.make sem_to_costmap_cpp/CMakeFiles/geometry_msgs_generate_messages_cpp.dir/clean
-.PHONY : sem_to_costmap_cpp/CMakeFiles/geometry_msgs_generate_messages_cpp.dir/clean
+sem_to_costmap/CMakeFiles/geometry_msgs_generate_messages_cpp.dir/clean:
+	$(MAKE) -f sem_to_costmap/CMakeFiles/geometry_msgs_generate_messages_cpp.dir/build.make sem_to_costmap/CMakeFiles/geometry_msgs_generate_messages_cpp.dir/clean
+.PHONY : sem_to_costmap/CMakeFiles/geometry_msgs_generate_messages_cpp.dir/clean
 
 #=============================================================================
-# Target rules for target sem_to_costmap_cpp/CMakeFiles/sensor_msgs_generate_messages_py.dir
+# Target rules for target sem_to_costmap/CMakeFiles/sensor_msgs_generate_messages_py.dir
 
 # All Build rule for target.
-sem_to_costmap_cpp/CMakeFiles/sensor_msgs_generate_messages_py.dir/all:
-	$(MAKE) -f sem_to_costmap_cpp/CMakeFiles/sensor_msgs_generate_messages_py.dir/build.make sem_to_costmap_cpp/CMakeFiles/sensor_msgs_generate_messages_py.dir/depend
-	$(MAKE) -f sem_to_costmap_cpp/CMakeFiles/sensor_msgs_generate_messages_py.dir/build.make sem_to_costmap_cpp/CMakeFiles/sensor_msgs_generate_messages_py.dir/build
+sem_to_costmap/CMakeFiles/sensor_msgs_generate_messages_py.dir/all:
+	$(MAKE) -f sem_to_costmap/CMakeFiles/sensor_msgs_generate_messages_py.dir/build.make sem_to_costmap/CMakeFiles/sensor_msgs_generate_messages_py.dir/depend
+	$(MAKE) -f sem_to_costmap/CMakeFiles/sensor_msgs_generate_messages_py.dir/build.make sem_to_costmap/CMakeFiles/sensor_msgs_generate_messages_py.dir/build
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/kseniia/catkin_ws/build/CMakeFiles --progress-num= "Built target sensor_msgs_generate_messages_py"
-.PHONY : sem_to_costmap_cpp/CMakeFiles/sensor_msgs_generate_messages_py.dir/all
+.PHONY : sem_to_costmap/CMakeFiles/sensor_msgs_generate_messages_py.dir/all
 
 # Build rule for subdir invocation for target.
-sem_to_costmap_cpp/CMakeFiles/sensor_msgs_generate_messages_py.dir/rule: cmake_check_build_system
+sem_to_costmap/CMakeFiles/sensor_msgs_generate_messages_py.dir/rule: cmake_check_build_system
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/kseniia/catkin_ws/build/CMakeFiles 0
-	$(MAKE) -f CMakeFiles/Makefile2 sem_to_costmap_cpp/CMakeFiles/sensor_msgs_generate_messages_py.dir/all
+	$(MAKE) -f CMakeFiles/Makefile2 sem_to_costmap/CMakeFiles/sensor_msgs_generate_messages_py.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/kseniia/catkin_ws/build/CMakeFiles 0
-.PHONY : sem_to_costmap_cpp/CMakeFiles/sensor_msgs_generate_messages_py.dir/rule
+.PHONY : sem_to_costmap/CMakeFiles/sensor_msgs_generate_messages_py.dir/rule
 
 # Convenience name for target.
-sensor_msgs_generate_messages_py: sem_to_costmap_cpp/CMakeFiles/sensor_msgs_generate_messages_py.dir/rule
+sensor_msgs_generate_messages_py: sem_to_costmap/CMakeFiles/sensor_msgs_generate_messages_py.dir/rule
 
 .PHONY : sensor_msgs_generate_messages_py
 
 # clean rule for target.
-sem_to_costmap_cpp/CMakeFiles/sensor_msgs_generate_messages_py.dir/clean:
-	$(MAKE) -f sem_to_costmap_cpp/CMakeFiles/sensor_msgs_generate_messages_py.dir/build.make sem_to_costmap_cpp/CMakeFiles/sensor_msgs_generate_messages_py.dir/clean
-.PHONY : sem_to_costmap_cpp/CMakeFiles/sensor_msgs_generate_messages_py.dir/clean
+sem_to_costmap/CMakeFiles/sensor_msgs_generate_messages_py.dir/clean:
+	$(MAKE) -f sem_to_costmap/CMakeFiles/sensor_msgs_generate_messages_py.dir/build.make sem_to_costmap/CMakeFiles/sensor_msgs_generate_messages_py.dir/clean
+.PHONY : sem_to_costmap/CMakeFiles/sensor_msgs_generate_messages_py.dir/clean
 
 #=============================================================================
-# Target rules for target sem_to_costmap_cpp/CMakeFiles/nav_msgs_generate_messages_py.dir
+# Target rules for target sem_to_costmap/CMakeFiles/nav_msgs_generate_messages_py.dir
 
 # All Build rule for target.
-sem_to_costmap_cpp/CMakeFiles/nav_msgs_generate_messages_py.dir/all:
-	$(MAKE) -f sem_to_costmap_cpp/CMakeFiles/nav_msgs_generate_messages_py.dir/build.make sem_to_costmap_cpp/CMakeFiles/nav_msgs_generate_messages_py.dir/depend
-	$(MAKE) -f sem_to_costmap_cpp/CMakeFiles/nav_msgs_generate_messages_py.dir/build.make sem_to_costmap_cpp/CMakeFiles/nav_msgs_generate_messages_py.dir/build
+sem_to_costmap/CMakeFiles/nav_msgs_generate_messages_py.dir/all:
+	$(MAKE) -f sem_to_costmap/CMakeFiles/nav_msgs_generate_messages_py.dir/build.make sem_to_costmap/CMakeFiles/nav_msgs_generate_messages_py.dir/depend
+	$(MAKE) -f sem_to_costmap/CMakeFiles/nav_msgs_generate_messages_py.dir/build.make sem_to_costmap/CMakeFiles/nav_msgs_generate_messages_py.dir/build
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/kseniia/catkin_ws/build/CMakeFiles --progress-num= "Built target nav_msgs_generate_messages_py"
-.PHONY : sem_to_costmap_cpp/CMakeFiles/nav_msgs_generate_messages_py.dir/all
+.PHONY : sem_to_costmap/CMakeFiles/nav_msgs_generate_messages_py.dir/all
 
 # Build rule for subdir invocation for target.
-sem_to_costmap_cpp/CMakeFiles/nav_msgs_generate_messages_py.dir/rule: cmake_check_build_system
+sem_to_costmap/CMakeFiles/nav_msgs_generate_messages_py.dir/rule: cmake_check_build_system
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/kseniia/catkin_ws/build/CMakeFiles 0
-	$(MAKE) -f CMakeFiles/Makefile2 sem_to_costmap_cpp/CMakeFiles/nav_msgs_generate_messages_py.dir/all
+	$(MAKE) -f CMakeFiles/Makefile2 sem_to_costmap/CMakeFiles/nav_msgs_generate_messages_py.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/kseniia/catkin_ws/build/CMakeFiles 0
-.PHONY : sem_to_costmap_cpp/CMakeFiles/nav_msgs_generate_messages_py.dir/rule
+.PHONY : sem_to_costmap/CMakeFiles/nav_msgs_generate_messages_py.dir/rule
 
 # Convenience name for target.
-nav_msgs_generate_messages_py: sem_to_costmap_cpp/CMakeFiles/nav_msgs_generate_messages_py.dir/rule
+nav_msgs_generate_messages_py: sem_to_costmap/CMakeFiles/nav_msgs_generate_messages_py.dir/rule
 
 .PHONY : nav_msgs_generate_messages_py
 
 # clean rule for target.
-sem_to_costmap_cpp/CMakeFiles/nav_msgs_generate_messages_py.dir/clean:
-	$(MAKE) -f sem_to_costmap_cpp/CMakeFiles/nav_msgs_generate_messages_py.dir/build.make sem_to_costmap_cpp/CMakeFiles/nav_msgs_generate_messages_py.dir/clean
-.PHONY : sem_to_costmap_cpp/CMakeFiles/nav_msgs_generate_messages_py.dir/clean
+sem_to_costmap/CMakeFiles/nav_msgs_generate_messages_py.dir/clean:
+	$(MAKE) -f sem_to_costmap/CMakeFiles/nav_msgs_generate_messages_py.dir/build.make sem_to_costmap/CMakeFiles/nav_msgs_generate_messages_py.dir/clean
+.PHONY : sem_to_costmap/CMakeFiles/nav_msgs_generate_messages_py.dir/clean
 
 #=============================================================================
-# Target rules for target sem_to_costmap_cpp/CMakeFiles/geometry_msgs_generate_messages_py.dir
+# Target rules for target sem_to_costmap/CMakeFiles/geometry_msgs_generate_messages_py.dir
 
 # All Build rule for target.
-sem_to_costmap_cpp/CMakeFiles/geometry_msgs_generate_messages_py.dir/all:
-	$(MAKE) -f sem_to_costmap_cpp/CMakeFiles/geometry_msgs_generate_messages_py.dir/build.make sem_to_costmap_cpp/CMakeFiles/geometry_msgs_generate_messages_py.dir/depend
-	$(MAKE) -f sem_to_costmap_cpp/CMakeFiles/geometry_msgs_generate_messages_py.dir/build.make sem_to_costmap_cpp/CMakeFiles/geometry_msgs_generate_messages_py.dir/build
+sem_to_costmap/CMakeFiles/geometry_msgs_generate_messages_py.dir/all:
+	$(MAKE) -f sem_to_costmap/CMakeFiles/geometry_msgs_generate_messages_py.dir/build.make sem_to_costmap/CMakeFiles/geometry_msgs_generate_messages_py.dir/depend
+	$(MAKE) -f sem_to_costmap/CMakeFiles/geometry_msgs_generate_messages_py.dir/build.make sem_to_costmap/CMakeFiles/geometry_msgs_generate_messages_py.dir/build
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/kseniia/catkin_ws/build/CMakeFiles --progress-num= "Built target geometry_msgs_generate_messages_py"
-.PHONY : sem_to_costmap_cpp/CMakeFiles/geometry_msgs_generate_messages_py.dir/all
+.PHONY : sem_to_costmap/CMakeFiles/geometry_msgs_generate_messages_py.dir/all
 
 # Build rule for subdir invocation for target.
-sem_to_costmap_cpp/CMakeFiles/geometry_msgs_generate_messages_py.dir/rule: cmake_check_build_system
+sem_to_costmap/CMakeFiles/geometry_msgs_generate_messages_py.dir/rule: cmake_check_build_system
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/kseniia/catkin_ws/build/CMakeFiles 0
-	$(MAKE) -f CMakeFiles/Makefile2 sem_to_costmap_cpp/CMakeFiles/geometry_msgs_generate_messages_py.dir/all
+	$(MAKE) -f CMakeFiles/Makefile2 sem_to_costmap/CMakeFiles/geometry_msgs_generate_messages_py.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/kseniia/catkin_ws/build/CMakeFiles 0
-.PHONY : sem_to_costmap_cpp/CMakeFiles/geometry_msgs_generate_messages_py.dir/rule
+.PHONY : sem_to_costmap/CMakeFiles/geometry_msgs_generate_messages_py.dir/rule
 
 # Convenience name for target.
-geometry_msgs_generate_messages_py: sem_to_costmap_cpp/CMakeFiles/geometry_msgs_generate_messages_py.dir/rule
+geometry_msgs_generate_messages_py: sem_to_costmap/CMakeFiles/geometry_msgs_generate_messages_py.dir/rule
 
 .PHONY : geometry_msgs_generate_messages_py
 
 # clean rule for target.
-sem_to_costmap_cpp/CMakeFiles/geometry_msgs_generate_messages_py.dir/clean:
-	$(MAKE) -f sem_to_costmap_cpp/CMakeFiles/geometry_msgs_generate_messages_py.dir/build.make sem_to_costmap_cpp/CMakeFiles/geometry_msgs_generate_messages_py.dir/clean
-.PHONY : sem_to_costmap_cpp/CMakeFiles/geometry_msgs_generate_messages_py.dir/clean
+sem_to_costmap/CMakeFiles/geometry_msgs_generate_messages_py.dir/clean:
+	$(MAKE) -f sem_to_costmap/CMakeFiles/geometry_msgs_generate_messages_py.dir/build.make sem_to_costmap/CMakeFiles/geometry_msgs_generate_messages_py.dir/clean
+.PHONY : sem_to_costmap/CMakeFiles/geometry_msgs_generate_messages_py.dir/clean
 
 #=============================================================================
-# Target rules for target sem_to_costmap_cpp/CMakeFiles/nav_msgs_generate_messages_lisp.dir
+# Target rules for target sem_to_costmap/CMakeFiles/nav_msgs_generate_messages_lisp.dir
 
 # All Build rule for target.
-sem_to_costmap_cpp/CMakeFiles/nav_msgs_generate_messages_lisp.dir/all:
-	$(MAKE) -f sem_to_costmap_cpp/CMakeFiles/nav_msgs_generate_messages_lisp.dir/build.make sem_to_costmap_cpp/CMakeFiles/nav_msgs_generate_messages_lisp.dir/depend
-	$(MAKE) -f sem_to_costmap_cpp/CMakeFiles/nav_msgs_generate_messages_lisp.dir/build.make sem_to_costmap_cpp/CMakeFiles/nav_msgs_generate_messages_lisp.dir/build
+sem_to_costmap/CMakeFiles/nav_msgs_generate_messages_lisp.dir/all:
+	$(MAKE) -f sem_to_costmap/CMakeFiles/nav_msgs_generate_messages_lisp.dir/build.make sem_to_costmap/CMakeFiles/nav_msgs_generate_messages_lisp.dir/depend
+	$(MAKE) -f sem_to_costmap/CMakeFiles/nav_msgs_generate_messages_lisp.dir/build.make sem_to_costmap/CMakeFiles/nav_msgs_generate_messages_lisp.dir/build
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/kseniia/catkin_ws/build/CMakeFiles --progress-num= "Built target nav_msgs_generate_messages_lisp"
-.PHONY : sem_to_costmap_cpp/CMakeFiles/nav_msgs_generate_messages_lisp.dir/all
+.PHONY : sem_to_costmap/CMakeFiles/nav_msgs_generate_messages_lisp.dir/all
 
 # Build rule for subdir invocation for target.
-sem_to_costmap_cpp/CMakeFiles/nav_msgs_generate_messages_lisp.dir/rule: cmake_check_build_system
+sem_to_costmap/CMakeFiles/nav_msgs_generate_messages_lisp.dir/rule: cmake_check_build_system
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/kseniia/catkin_ws/build/CMakeFiles 0
-	$(MAKE) -f CMakeFiles/Makefile2 sem_to_costmap_cpp/CMakeFiles/nav_msgs_generate_messages_lisp.dir/all
+	$(MAKE) -f CMakeFiles/Makefile2 sem_to_costmap/CMakeFiles/nav_msgs_generate_messages_lisp.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/kseniia/catkin_ws/build/CMakeFiles 0
-.PHONY : sem_to_costmap_cpp/CMakeFiles/nav_msgs_generate_messages_lisp.dir/rule
+.PHONY : sem_to_costmap/CMakeFiles/nav_msgs_generate_messages_lisp.dir/rule
 
 # Convenience name for target.
-nav_msgs_generate_messages_lisp: sem_to_costmap_cpp/CMakeFiles/nav_msgs_generate_messages_lisp.dir/rule
+nav_msgs_generate_messages_lisp: sem_to_costmap/CMakeFiles/nav_msgs_generate_messages_lisp.dir/rule
 
 .PHONY : nav_msgs_generate_messages_lisp
 
 # clean rule for target.
-sem_to_costmap_cpp/CMakeFiles/nav_msgs_generate_messages_lisp.dir/clean:
-	$(MAKE) -f sem_to_costmap_cpp/CMakeFiles/nav_msgs_generate_messages_lisp.dir/build.make sem_to_costmap_cpp/CMakeFiles/nav_msgs_generate_messages_lisp.dir/clean
-.PHONY : sem_to_costmap_cpp/CMakeFiles/nav_msgs_generate_messages_lisp.dir/clean
+sem_to_costmap/CMakeFiles/nav_msgs_generate_messages_lisp.dir/clean:
+	$(MAKE) -f sem_to_costmap/CMakeFiles/nav_msgs_generate_messages_lisp.dir/build.make sem_to_costmap/CMakeFiles/nav_msgs_generate_messages_lisp.dir/clean
+.PHONY : sem_to_costmap/CMakeFiles/nav_msgs_generate_messages_lisp.dir/clean
 
 #=============================================================================
-# Target rules for target sem_to_costmap_cpp/CMakeFiles/sensor_msgs_generate_messages_eus.dir
+# Target rules for target sem_to_costmap/CMakeFiles/sensor_msgs_generate_messages_eus.dir
 
 # All Build rule for target.
-sem_to_costmap_cpp/CMakeFiles/sensor_msgs_generate_messages_eus.dir/all:
-	$(MAKE) -f sem_to_costmap_cpp/CMakeFiles/sensor_msgs_generate_messages_eus.dir/build.make sem_to_costmap_cpp/CMakeFiles/sensor_msgs_generate_messages_eus.dir/depend
-	$(MAKE) -f sem_to_costmap_cpp/CMakeFiles/sensor_msgs_generate_messages_eus.dir/build.make sem_to_costmap_cpp/CMakeFiles/sensor_msgs_generate_messages_eus.dir/build
+sem_to_costmap/CMakeFiles/sensor_msgs_generate_messages_eus.dir/all:
+	$(MAKE) -f sem_to_costmap/CMakeFiles/sensor_msgs_generate_messages_eus.dir/build.make sem_to_costmap/CMakeFiles/sensor_msgs_generate_messages_eus.dir/depend
+	$(MAKE) -f sem_to_costmap/CMakeFiles/sensor_msgs_generate_messages_eus.dir/build.make sem_to_costmap/CMakeFiles/sensor_msgs_generate_messages_eus.dir/build
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/kseniia/catkin_ws/build/CMakeFiles --progress-num= "Built target sensor_msgs_generate_messages_eus"
-.PHONY : sem_to_costmap_cpp/CMakeFiles/sensor_msgs_generate_messages_eus.dir/all
+.PHONY : sem_to_costmap/CMakeFiles/sensor_msgs_generate_messages_eus.dir/all
 
 # Build rule for subdir invocation for target.
-sem_to_costmap_cpp/CMakeFiles/sensor_msgs_generate_messages_eus.dir/rule: cmake_check_build_system
+sem_to_costmap/CMakeFiles/sensor_msgs_generate_messages_eus.dir/rule: cmake_check_build_system
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/kseniia/catkin_ws/build/CMakeFiles 0
-	$(MAKE) -f CMakeFiles/Makefile2 sem_to_costmap_cpp/CMakeFiles/sensor_msgs_generate_messages_eus.dir/all
+	$(MAKE) -f CMakeFiles/Makefile2 sem_to_costmap/CMakeFiles/sensor_msgs_generate_messages_eus.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/kseniia/catkin_ws/build/CMakeFiles 0
-.PHONY : sem_to_costmap_cpp/CMakeFiles/sensor_msgs_generate_messages_eus.dir/rule
+.PHONY : sem_to_costmap/CMakeFiles/sensor_msgs_generate_messages_eus.dir/rule
 
 # Convenience name for target.
-sensor_msgs_generate_messages_eus: sem_to_costmap_cpp/CMakeFiles/sensor_msgs_generate_messages_eus.dir/rule
+sensor_msgs_generate_messages_eus: sem_to_costmap/CMakeFiles/sensor_msgs_generate_messages_eus.dir/rule
 
 .PHONY : sensor_msgs_generate_messages_eus
 
 # clean rule for target.
-sem_to_costmap_cpp/CMakeFiles/sensor_msgs_generate_messages_eus.dir/clean:
-	$(MAKE) -f sem_to_costmap_cpp/CMakeFiles/sensor_msgs_generate_messages_eus.dir/build.make sem_to_costmap_cpp/CMakeFiles/sensor_msgs_generate_messages_eus.dir/clean
-.PHONY : sem_to_costmap_cpp/CMakeFiles/sensor_msgs_generate_messages_eus.dir/clean
+sem_to_costmap/CMakeFiles/sensor_msgs_generate_messages_eus.dir/clean:
+	$(MAKE) -f sem_to_costmap/CMakeFiles/sensor_msgs_generate_messages_eus.dir/build.make sem_to_costmap/CMakeFiles/sensor_msgs_generate_messages_eus.dir/clean
+.PHONY : sem_to_costmap/CMakeFiles/sensor_msgs_generate_messages_eus.dir/clean
 
 #=============================================================================
-# Target rules for target sem_to_costmap_cpp/CMakeFiles/roscpp_generate_messages_cpp.dir
+# Target rules for target sem_to_costmap/CMakeFiles/roscpp_generate_messages_cpp.dir
 
 # All Build rule for target.
-sem_to_costmap_cpp/CMakeFiles/roscpp_generate_messages_cpp.dir/all:
-	$(MAKE) -f sem_to_costmap_cpp/CMakeFiles/roscpp_generate_messages_cpp.dir/build.make sem_to_costmap_cpp/CMakeFiles/roscpp_generate_messages_cpp.dir/depend
-	$(MAKE) -f sem_to_costmap_cpp/CMakeFiles/roscpp_generate_messages_cpp.dir/build.make sem_to_costmap_cpp/CMakeFiles/roscpp_generate_messages_cpp.dir/build
+sem_to_costmap/CMakeFiles/roscpp_generate_messages_cpp.dir/all:
+	$(MAKE) -f sem_to_costmap/CMakeFiles/roscpp_generate_messages_cpp.dir/build.make sem_to_costmap/CMakeFiles/roscpp_generate_messages_cpp.dir/depend
+	$(MAKE) -f sem_to_costmap/CMakeFiles/roscpp_generate_messages_cpp.dir/build.make sem_to_costmap/CMakeFiles/roscpp_generate_messages_cpp.dir/build
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/kseniia/catkin_ws/build/CMakeFiles --progress-num= "Built target roscpp_generate_messages_cpp"
-.PHONY : sem_to_costmap_cpp/CMakeFiles/roscpp_generate_messages_cpp.dir/all
+.PHONY : sem_to_costmap/CMakeFiles/roscpp_generate_messages_cpp.dir/all
 
 # Build rule for subdir invocation for target.
-sem_to_costmap_cpp/CMakeFiles/roscpp_generate_messages_cpp.dir/rule: cmake_check_build_system
+sem_to_costmap/CMakeFiles/roscpp_generate_messages_cpp.dir/rule: cmake_check_build_system
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/kseniia/catkin_ws/build/CMakeFiles 0
-	$(MAKE) -f CMakeFiles/Makefile2 sem_to_costmap_cpp/CMakeFiles/roscpp_generate_messages_cpp.dir/all
+	$(MAKE) -f CMakeFiles/Makefile2 sem_to_costmap/CMakeFiles/roscpp_generate_messages_cpp.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/kseniia/catkin_ws/build/CMakeFiles 0
-.PHONY : sem_to_costmap_cpp/CMakeFiles/roscpp_generate_messages_cpp.dir/rule
+.PHONY : sem_to_costmap/CMakeFiles/roscpp_generate_messages_cpp.dir/rule
 
 # Convenience name for target.
-roscpp_generate_messages_cpp: sem_to_costmap_cpp/CMakeFiles/roscpp_generate_messages_cpp.dir/rule
+roscpp_generate_messages_cpp: sem_to_costmap/CMakeFiles/roscpp_generate_messages_cpp.dir/rule
 
 .PHONY : roscpp_generate_messages_cpp
 
 # clean rule for target.
-sem_to_costmap_cpp/CMakeFiles/roscpp_generate_messages_cpp.dir/clean:
-	$(MAKE) -f sem_to_costmap_cpp/CMakeFiles/roscpp_generate_messages_cpp.dir/build.make sem_to_costmap_cpp/CMakeFiles/roscpp_generate_messages_cpp.dir/clean
-.PHONY : sem_to_costmap_cpp/CMakeFiles/roscpp_generate_messages_cpp.dir/clean
+sem_to_costmap/CMakeFiles/roscpp_generate_messages_cpp.dir/clean:
+	$(MAKE) -f sem_to_costmap/CMakeFiles/roscpp_generate_messages_cpp.dir/build.make sem_to_costmap/CMakeFiles/roscpp_generate_messages_cpp.dir/clean
+.PHONY : sem_to_costmap/CMakeFiles/roscpp_generate_messages_cpp.dir/clean
 
 #=============================================================================
-# Target rules for target sem_to_costmap_cpp/CMakeFiles/geometry_msgs_generate_messages_eus.dir
+# Target rules for target sem_to_costmap/CMakeFiles/geometry_msgs_generate_messages_eus.dir
 
 # All Build rule for target.
-sem_to_costmap_cpp/CMakeFiles/geometry_msgs_generate_messages_eus.dir/all:
-	$(MAKE) -f sem_to_costmap_cpp/CMakeFiles/geometry_msgs_generate_messages_eus.dir/build.make sem_to_costmap_cpp/CMakeFiles/geometry_msgs_generate_messages_eus.dir/depend
-	$(MAKE) -f sem_to_costmap_cpp/CMakeFiles/geometry_msgs_generate_messages_eus.dir/build.make sem_to_costmap_cpp/CMakeFiles/geometry_msgs_generate_messages_eus.dir/build
+sem_to_costmap/CMakeFiles/geometry_msgs_generate_messages_eus.dir/all:
+	$(MAKE) -f sem_to_costmap/CMakeFiles/geometry_msgs_generate_messages_eus.dir/build.make sem_to_costmap/CMakeFiles/geometry_msgs_generate_messages_eus.dir/depend
+	$(MAKE) -f sem_to_costmap/CMakeFiles/geometry_msgs_generate_messages_eus.dir/build.make sem_to_costmap/CMakeFiles/geometry_msgs_generate_messages_eus.dir/build
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/kseniia/catkin_ws/build/CMakeFiles --progress-num= "Built target geometry_msgs_generate_messages_eus"
-.PHONY : sem_to_costmap_cpp/CMakeFiles/geometry_msgs_generate_messages_eus.dir/all
+.PHONY : sem_to_costmap/CMakeFiles/geometry_msgs_generate_messages_eus.dir/all
 
 # Build rule for subdir invocation for target.
-sem_to_costmap_cpp/CMakeFiles/geometry_msgs_generate_messages_eus.dir/rule: cmake_check_build_system
+sem_to_costmap/CMakeFiles/geometry_msgs_generate_messages_eus.dir/rule: cmake_check_build_system
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/kseniia/catkin_ws/build/CMakeFiles 0
-	$(MAKE) -f CMakeFiles/Makefile2 sem_to_costmap_cpp/CMakeFiles/geometry_msgs_generate_messages_eus.dir/all
+	$(MAKE) -f CMakeFiles/Makefile2 sem_to_costmap/CMakeFiles/geometry_msgs_generate_messages_eus.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/kseniia/catkin_ws/build/CMakeFiles 0
-.PHONY : sem_to_costmap_cpp/CMakeFiles/geometry_msgs_generate_messages_eus.dir/rule
+.PHONY : sem_to_costmap/CMakeFiles/geometry_msgs_generate_messages_eus.dir/rule
 
 # Convenience name for target.
-geometry_msgs_generate_messages_eus: sem_to_costmap_cpp/CMakeFiles/geometry_msgs_generate_messages_eus.dir/rule
+geometry_msgs_generate_messages_eus: sem_to_costmap/CMakeFiles/geometry_msgs_generate_messages_eus.dir/rule
 
 .PHONY : geometry_msgs_generate_messages_eus
 
 # clean rule for target.
-sem_to_costmap_cpp/CMakeFiles/geometry_msgs_generate_messages_eus.dir/clean:
-	$(MAKE) -f sem_to_costmap_cpp/CMakeFiles/geometry_msgs_generate_messages_eus.dir/build.make sem_to_costmap_cpp/CMakeFiles/geometry_msgs_generate_messages_eus.dir/clean
-.PHONY : sem_to_costmap_cpp/CMakeFiles/geometry_msgs_generate_messages_eus.dir/clean
+sem_to_costmap/CMakeFiles/geometry_msgs_generate_messages_eus.dir/clean:
+	$(MAKE) -f sem_to_costmap/CMakeFiles/geometry_msgs_generate_messages_eus.dir/build.make sem_to_costmap/CMakeFiles/geometry_msgs_generate_messages_eus.dir/clean
+.PHONY : sem_to_costmap/CMakeFiles/geometry_msgs_generate_messages_eus.dir/clean
 
 #=============================================================================
-# Target rules for target sem_to_costmap_cpp/CMakeFiles/std_msgs_generate_messages_nodejs.dir
+# Target rules for target sem_to_costmap/CMakeFiles/std_msgs_generate_messages_nodejs.dir
 
 # All Build rule for target.
-sem_to_costmap_cpp/CMakeFiles/std_msgs_generate_messages_nodejs.dir/all:
-	$(MAKE) -f sem_to_costmap_cpp/CMakeFiles/std_msgs_generate_messages_nodejs.dir/build.make sem_to_costmap_cpp/CMakeFiles/std_msgs_generate_messages_nodejs.dir/depend
-	$(MAKE) -f sem_to_costmap_cpp/CMakeFiles/std_msgs_generate_messages_nodejs.dir/build.make sem_to_costmap_cpp/CMakeFiles/std_msgs_generate_messages_nodejs.dir/build
+sem_to_costmap/CMakeFiles/std_msgs_generate_messages_nodejs.dir/all:
+	$(MAKE) -f sem_to_costmap/CMakeFiles/std_msgs_generate_messages_nodejs.dir/build.make sem_to_costmap/CMakeFiles/std_msgs_generate_messages_nodejs.dir/depend
+	$(MAKE) -f sem_to_costmap/CMakeFiles/std_msgs_generate_messages_nodejs.dir/build.make sem_to_costmap/CMakeFiles/std_msgs_generate_messages_nodejs.dir/build
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/kseniia/catkin_ws/build/CMakeFiles --progress-num= "Built target std_msgs_generate_messages_nodejs"
-.PHONY : sem_to_costmap_cpp/CMakeFiles/std_msgs_generate_messages_nodejs.dir/all
+.PHONY : sem_to_costmap/CMakeFiles/std_msgs_generate_messages_nodejs.dir/all
 
 # Build rule for subdir invocation for target.
-sem_to_costmap_cpp/CMakeFiles/std_msgs_generate_messages_nodejs.dir/rule: cmake_check_build_system
+sem_to_costmap/CMakeFiles/std_msgs_generate_messages_nodejs.dir/rule: cmake_check_build_system
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/kseniia/catkin_ws/build/CMakeFiles 0
-	$(MAKE) -f CMakeFiles/Makefile2 sem_to_costmap_cpp/CMakeFiles/std_msgs_generate_messages_nodejs.dir/all
+	$(MAKE) -f CMakeFiles/Makefile2 sem_to_costmap/CMakeFiles/std_msgs_generate_messages_nodejs.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/kseniia/catkin_ws/build/CMakeFiles 0
-.PHONY : sem_to_costmap_cpp/CMakeFiles/std_msgs_generate_messages_nodejs.dir/rule
+.PHONY : sem_to_costmap/CMakeFiles/std_msgs_generate_messages_nodejs.dir/rule
 
 # Convenience name for target.
-std_msgs_generate_messages_nodejs: sem_to_costmap_cpp/CMakeFiles/std_msgs_generate_messages_nodejs.dir/rule
+std_msgs_generate_messages_nodejs: sem_to_costmap/CMakeFiles/std_msgs_generate_messages_nodejs.dir/rule
 
 .PHONY : std_msgs_generate_messages_nodejs
 
 # clean rule for target.
-sem_to_costmap_cpp/CMakeFiles/std_msgs_generate_messages_nodejs.dir/clean:
-	$(MAKE) -f sem_to_costmap_cpp/CMakeFiles/std_msgs_generate_messages_nodejs.dir/build.make sem_to_costmap_cpp/CMakeFiles/std_msgs_generate_messages_nodejs.dir/clean
-.PHONY : sem_to_costmap_cpp/CMakeFiles/std_msgs_generate_messages_nodejs.dir/clean
+sem_to_costmap/CMakeFiles/std_msgs_generate_messages_nodejs.dir/clean:
+	$(MAKE) -f sem_to_costmap/CMakeFiles/std_msgs_generate_messages_nodejs.dir/build.make sem_to_costmap/CMakeFiles/std_msgs_generate_messages_nodejs.dir/clean
+.PHONY : sem_to_costmap/CMakeFiles/std_msgs_generate_messages_nodejs.dir/clean
 
 #=============================================================================
-# Target rules for target sem_to_costmap_cpp/CMakeFiles/std_msgs_generate_messages_py.dir
+# Target rules for target sem_to_costmap/CMakeFiles/sem_to_costmap.dir
 
 # All Build rule for target.
-sem_to_costmap_cpp/CMakeFiles/std_msgs_generate_messages_py.dir/all:
-	$(MAKE) -f sem_to_costmap_cpp/CMakeFiles/std_msgs_generate_messages_py.dir/build.make sem_to_costmap_cpp/CMakeFiles/std_msgs_generate_messages_py.dir/depend
-	$(MAKE) -f sem_to_costmap_cpp/CMakeFiles/std_msgs_generate_messages_py.dir/build.make sem_to_costmap_cpp/CMakeFiles/std_msgs_generate_messages_py.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/kseniia/catkin_ws/build/CMakeFiles --progress-num= "Built target std_msgs_generate_messages_py"
-.PHONY : sem_to_costmap_cpp/CMakeFiles/std_msgs_generate_messages_py.dir/all
+sem_to_costmap/CMakeFiles/sem_to_costmap.dir/all:
+	$(MAKE) -f sem_to_costmap/CMakeFiles/sem_to_costmap.dir/build.make sem_to_costmap/CMakeFiles/sem_to_costmap.dir/depend
+	$(MAKE) -f sem_to_costmap/CMakeFiles/sem_to_costmap.dir/build.make sem_to_costmap/CMakeFiles/sem_to_costmap.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/kseniia/catkin_ws/build/CMakeFiles --progress-num=9,10 "Built target sem_to_costmap"
+.PHONY : sem_to_costmap/CMakeFiles/sem_to_costmap.dir/all
 
 # Build rule for subdir invocation for target.
-sem_to_costmap_cpp/CMakeFiles/std_msgs_generate_messages_py.dir/rule: cmake_check_build_system
+sem_to_costmap/CMakeFiles/sem_to_costmap.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/kseniia/catkin_ws/build/CMakeFiles 2
+	$(MAKE) -f CMakeFiles/Makefile2 sem_to_costmap/CMakeFiles/sem_to_costmap.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/kseniia/catkin_ws/build/CMakeFiles 0
-	$(MAKE) -f CMakeFiles/Makefile2 sem_to_costmap_cpp/CMakeFiles/std_msgs_generate_messages_py.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/kseniia/catkin_ws/build/CMakeFiles 0
-.PHONY : sem_to_costmap_cpp/CMakeFiles/std_msgs_generate_messages_py.dir/rule
+.PHONY : sem_to_costmap/CMakeFiles/sem_to_costmap.dir/rule
 
 # Convenience name for target.
-std_msgs_generate_messages_py: sem_to_costmap_cpp/CMakeFiles/std_msgs_generate_messages_py.dir/rule
+sem_to_costmap: sem_to_costmap/CMakeFiles/sem_to_costmap.dir/rule
+
+.PHONY : sem_to_costmap
+
+# clean rule for target.
+sem_to_costmap/CMakeFiles/sem_to_costmap.dir/clean:
+	$(MAKE) -f sem_to_costmap/CMakeFiles/sem_to_costmap.dir/build.make sem_to_costmap/CMakeFiles/sem_to_costmap.dir/clean
+.PHONY : sem_to_costmap/CMakeFiles/sem_to_costmap.dir/clean
+
+#=============================================================================
+# Target rules for target sem_to_costmap/CMakeFiles/std_msgs_generate_messages_py.dir
+
+# All Build rule for target.
+sem_to_costmap/CMakeFiles/std_msgs_generate_messages_py.dir/all:
+	$(MAKE) -f sem_to_costmap/CMakeFiles/std_msgs_generate_messages_py.dir/build.make sem_to_costmap/CMakeFiles/std_msgs_generate_messages_py.dir/depend
+	$(MAKE) -f sem_to_costmap/CMakeFiles/std_msgs_generate_messages_py.dir/build.make sem_to_costmap/CMakeFiles/std_msgs_generate_messages_py.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/kseniia/catkin_ws/build/CMakeFiles --progress-num= "Built target std_msgs_generate_messages_py"
+.PHONY : sem_to_costmap/CMakeFiles/std_msgs_generate_messages_py.dir/all
+
+# Build rule for subdir invocation for target.
+sem_to_costmap/CMakeFiles/std_msgs_generate_messages_py.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/kseniia/catkin_ws/build/CMakeFiles 0
+	$(MAKE) -f CMakeFiles/Makefile2 sem_to_costmap/CMakeFiles/std_msgs_generate_messages_py.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/kseniia/catkin_ws/build/CMakeFiles 0
+.PHONY : sem_to_costmap/CMakeFiles/std_msgs_generate_messages_py.dir/rule
+
+# Convenience name for target.
+std_msgs_generate_messages_py: sem_to_costmap/CMakeFiles/std_msgs_generate_messages_py.dir/rule
 
 .PHONY : std_msgs_generate_messages_py
 
 # clean rule for target.
-sem_to_costmap_cpp/CMakeFiles/std_msgs_generate_messages_py.dir/clean:
-	$(MAKE) -f sem_to_costmap_cpp/CMakeFiles/std_msgs_generate_messages_py.dir/build.make sem_to_costmap_cpp/CMakeFiles/std_msgs_generate_messages_py.dir/clean
-.PHONY : sem_to_costmap_cpp/CMakeFiles/std_msgs_generate_messages_py.dir/clean
+sem_to_costmap/CMakeFiles/std_msgs_generate_messages_py.dir/clean:
+	$(MAKE) -f sem_to_costmap/CMakeFiles/std_msgs_generate_messages_py.dir/build.make sem_to_costmap/CMakeFiles/std_msgs_generate_messages_py.dir/clean
+.PHONY : sem_to_costmap/CMakeFiles/std_msgs_generate_messages_py.dir/clean
 
 #=============================================================================
-# Target rules for target sem_to_costmap_cpp/CMakeFiles/nav_msgs_generate_messages_eus.dir
+# Target rules for target sem_to_costmap/CMakeFiles/nav_msgs_generate_messages_eus.dir
 
 # All Build rule for target.
-sem_to_costmap_cpp/CMakeFiles/nav_msgs_generate_messages_eus.dir/all:
-	$(MAKE) -f sem_to_costmap_cpp/CMakeFiles/nav_msgs_generate_messages_eus.dir/build.make sem_to_costmap_cpp/CMakeFiles/nav_msgs_generate_messages_eus.dir/depend
-	$(MAKE) -f sem_to_costmap_cpp/CMakeFiles/nav_msgs_generate_messages_eus.dir/build.make sem_to_costmap_cpp/CMakeFiles/nav_msgs_generate_messages_eus.dir/build
+sem_to_costmap/CMakeFiles/nav_msgs_generate_messages_eus.dir/all:
+	$(MAKE) -f sem_to_costmap/CMakeFiles/nav_msgs_generate_messages_eus.dir/build.make sem_to_costmap/CMakeFiles/nav_msgs_generate_messages_eus.dir/depend
+	$(MAKE) -f sem_to_costmap/CMakeFiles/nav_msgs_generate_messages_eus.dir/build.make sem_to_costmap/CMakeFiles/nav_msgs_generate_messages_eus.dir/build
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/kseniia/catkin_ws/build/CMakeFiles --progress-num= "Built target nav_msgs_generate_messages_eus"
-.PHONY : sem_to_costmap_cpp/CMakeFiles/nav_msgs_generate_messages_eus.dir/all
+.PHONY : sem_to_costmap/CMakeFiles/nav_msgs_generate_messages_eus.dir/all
 
 # Build rule for subdir invocation for target.
-sem_to_costmap_cpp/CMakeFiles/nav_msgs_generate_messages_eus.dir/rule: cmake_check_build_system
+sem_to_costmap/CMakeFiles/nav_msgs_generate_messages_eus.dir/rule: cmake_check_build_system
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/kseniia/catkin_ws/build/CMakeFiles 0
-	$(MAKE) -f CMakeFiles/Makefile2 sem_to_costmap_cpp/CMakeFiles/nav_msgs_generate_messages_eus.dir/all
+	$(MAKE) -f CMakeFiles/Makefile2 sem_to_costmap/CMakeFiles/nav_msgs_generate_messages_eus.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/kseniia/catkin_ws/build/CMakeFiles 0
-.PHONY : sem_to_costmap_cpp/CMakeFiles/nav_msgs_generate_messages_eus.dir/rule
+.PHONY : sem_to_costmap/CMakeFiles/nav_msgs_generate_messages_eus.dir/rule
 
 # Convenience name for target.
-nav_msgs_generate_messages_eus: sem_to_costmap_cpp/CMakeFiles/nav_msgs_generate_messages_eus.dir/rule
+nav_msgs_generate_messages_eus: sem_to_costmap/CMakeFiles/nav_msgs_generate_messages_eus.dir/rule
 
 .PHONY : nav_msgs_generate_messages_eus
 
 # clean rule for target.
-sem_to_costmap_cpp/CMakeFiles/nav_msgs_generate_messages_eus.dir/clean:
-	$(MAKE) -f sem_to_costmap_cpp/CMakeFiles/nav_msgs_generate_messages_eus.dir/build.make sem_to_costmap_cpp/CMakeFiles/nav_msgs_generate_messages_eus.dir/clean
-.PHONY : sem_to_costmap_cpp/CMakeFiles/nav_msgs_generate_messages_eus.dir/clean
+sem_to_costmap/CMakeFiles/nav_msgs_generate_messages_eus.dir/clean:
+	$(MAKE) -f sem_to_costmap/CMakeFiles/nav_msgs_generate_messages_eus.dir/build.make sem_to_costmap/CMakeFiles/nav_msgs_generate_messages_eus.dir/clean
+.PHONY : sem_to_costmap/CMakeFiles/nav_msgs_generate_messages_eus.dir/clean
 
 #=============================================================================
-# Target rules for target sem_to_costmap_cpp/CMakeFiles/actionlib_msgs_generate_messages_lisp.dir
+# Target rules for target sem_to_costmap/CMakeFiles/actionlib_msgs_generate_messages_lisp.dir
 
 # All Build rule for target.
-sem_to_costmap_cpp/CMakeFiles/actionlib_msgs_generate_messages_lisp.dir/all:
-	$(MAKE) -f sem_to_costmap_cpp/CMakeFiles/actionlib_msgs_generate_messages_lisp.dir/build.make sem_to_costmap_cpp/CMakeFiles/actionlib_msgs_generate_messages_lisp.dir/depend
-	$(MAKE) -f sem_to_costmap_cpp/CMakeFiles/actionlib_msgs_generate_messages_lisp.dir/build.make sem_to_costmap_cpp/CMakeFiles/actionlib_msgs_generate_messages_lisp.dir/build
+sem_to_costmap/CMakeFiles/actionlib_msgs_generate_messages_lisp.dir/all:
+	$(MAKE) -f sem_to_costmap/CMakeFiles/actionlib_msgs_generate_messages_lisp.dir/build.make sem_to_costmap/CMakeFiles/actionlib_msgs_generate_messages_lisp.dir/depend
+	$(MAKE) -f sem_to_costmap/CMakeFiles/actionlib_msgs_generate_messages_lisp.dir/build.make sem_to_costmap/CMakeFiles/actionlib_msgs_generate_messages_lisp.dir/build
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/kseniia/catkin_ws/build/CMakeFiles --progress-num= "Built target actionlib_msgs_generate_messages_lisp"
-.PHONY : sem_to_costmap_cpp/CMakeFiles/actionlib_msgs_generate_messages_lisp.dir/all
+.PHONY : sem_to_costmap/CMakeFiles/actionlib_msgs_generate_messages_lisp.dir/all
 
 # Build rule for subdir invocation for target.
-sem_to_costmap_cpp/CMakeFiles/actionlib_msgs_generate_messages_lisp.dir/rule: cmake_check_build_system
+sem_to_costmap/CMakeFiles/actionlib_msgs_generate_messages_lisp.dir/rule: cmake_check_build_system
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/kseniia/catkin_ws/build/CMakeFiles 0
-	$(MAKE) -f CMakeFiles/Makefile2 sem_to_costmap_cpp/CMakeFiles/actionlib_msgs_generate_messages_lisp.dir/all
+	$(MAKE) -f CMakeFiles/Makefile2 sem_to_costmap/CMakeFiles/actionlib_msgs_generate_messages_lisp.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/kseniia/catkin_ws/build/CMakeFiles 0
-.PHONY : sem_to_costmap_cpp/CMakeFiles/actionlib_msgs_generate_messages_lisp.dir/rule
+.PHONY : sem_to_costmap/CMakeFiles/actionlib_msgs_generate_messages_lisp.dir/rule
 
 # Convenience name for target.
-actionlib_msgs_generate_messages_lisp: sem_to_costmap_cpp/CMakeFiles/actionlib_msgs_generate_messages_lisp.dir/rule
+actionlib_msgs_generate_messages_lisp: sem_to_costmap/CMakeFiles/actionlib_msgs_generate_messages_lisp.dir/rule
 
 .PHONY : actionlib_msgs_generate_messages_lisp
 
 # clean rule for target.
-sem_to_costmap_cpp/CMakeFiles/actionlib_msgs_generate_messages_lisp.dir/clean:
-	$(MAKE) -f sem_to_costmap_cpp/CMakeFiles/actionlib_msgs_generate_messages_lisp.dir/build.make sem_to_costmap_cpp/CMakeFiles/actionlib_msgs_generate_messages_lisp.dir/clean
-.PHONY : sem_to_costmap_cpp/CMakeFiles/actionlib_msgs_generate_messages_lisp.dir/clean
+sem_to_costmap/CMakeFiles/actionlib_msgs_generate_messages_lisp.dir/clean:
+	$(MAKE) -f sem_to_costmap/CMakeFiles/actionlib_msgs_generate_messages_lisp.dir/build.make sem_to_costmap/CMakeFiles/actionlib_msgs_generate_messages_lisp.dir/clean
+.PHONY : sem_to_costmap/CMakeFiles/actionlib_msgs_generate_messages_lisp.dir/clean
 
 #=============================================================================
-# Target rules for target sem_to_costmap_cpp/CMakeFiles/actionlib_msgs_generate_messages_nodejs.dir
+# Target rules for target sem_to_costmap/CMakeFiles/actionlib_msgs_generate_messages_nodejs.dir
 
 # All Build rule for target.
-sem_to_costmap_cpp/CMakeFiles/actionlib_msgs_generate_messages_nodejs.dir/all:
-	$(MAKE) -f sem_to_costmap_cpp/CMakeFiles/actionlib_msgs_generate_messages_nodejs.dir/build.make sem_to_costmap_cpp/CMakeFiles/actionlib_msgs_generate_messages_nodejs.dir/depend
-	$(MAKE) -f sem_to_costmap_cpp/CMakeFiles/actionlib_msgs_generate_messages_nodejs.dir/build.make sem_to_costmap_cpp/CMakeFiles/actionlib_msgs_generate_messages_nodejs.dir/build
+sem_to_costmap/CMakeFiles/actionlib_msgs_generate_messages_nodejs.dir/all:
+	$(MAKE) -f sem_to_costmap/CMakeFiles/actionlib_msgs_generate_messages_nodejs.dir/build.make sem_to_costmap/CMakeFiles/actionlib_msgs_generate_messages_nodejs.dir/depend
+	$(MAKE) -f sem_to_costmap/CMakeFiles/actionlib_msgs_generate_messages_nodejs.dir/build.make sem_to_costmap/CMakeFiles/actionlib_msgs_generate_messages_nodejs.dir/build
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/kseniia/catkin_ws/build/CMakeFiles --progress-num= "Built target actionlib_msgs_generate_messages_nodejs"
-.PHONY : sem_to_costmap_cpp/CMakeFiles/actionlib_msgs_generate_messages_nodejs.dir/all
+.PHONY : sem_to_costmap/CMakeFiles/actionlib_msgs_generate_messages_nodejs.dir/all
 
 # Build rule for subdir invocation for target.
-sem_to_costmap_cpp/CMakeFiles/actionlib_msgs_generate_messages_nodejs.dir/rule: cmake_check_build_system
+sem_to_costmap/CMakeFiles/actionlib_msgs_generate_messages_nodejs.dir/rule: cmake_check_build_system
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/kseniia/catkin_ws/build/CMakeFiles 0
-	$(MAKE) -f CMakeFiles/Makefile2 sem_to_costmap_cpp/CMakeFiles/actionlib_msgs_generate_messages_nodejs.dir/all
+	$(MAKE) -f CMakeFiles/Makefile2 sem_to_costmap/CMakeFiles/actionlib_msgs_generate_messages_nodejs.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/kseniia/catkin_ws/build/CMakeFiles 0
-.PHONY : sem_to_costmap_cpp/CMakeFiles/actionlib_msgs_generate_messages_nodejs.dir/rule
+.PHONY : sem_to_costmap/CMakeFiles/actionlib_msgs_generate_messages_nodejs.dir/rule
 
 # Convenience name for target.
-actionlib_msgs_generate_messages_nodejs: sem_to_costmap_cpp/CMakeFiles/actionlib_msgs_generate_messages_nodejs.dir/rule
+actionlib_msgs_generate_messages_nodejs: sem_to_costmap/CMakeFiles/actionlib_msgs_generate_messages_nodejs.dir/rule
 
 .PHONY : actionlib_msgs_generate_messages_nodejs
 
 # clean rule for target.
-sem_to_costmap_cpp/CMakeFiles/actionlib_msgs_generate_messages_nodejs.dir/clean:
-	$(MAKE) -f sem_to_costmap_cpp/CMakeFiles/actionlib_msgs_generate_messages_nodejs.dir/build.make sem_to_costmap_cpp/CMakeFiles/actionlib_msgs_generate_messages_nodejs.dir/clean
-.PHONY : sem_to_costmap_cpp/CMakeFiles/actionlib_msgs_generate_messages_nodejs.dir/clean
+sem_to_costmap/CMakeFiles/actionlib_msgs_generate_messages_nodejs.dir/clean:
+	$(MAKE) -f sem_to_costmap/CMakeFiles/actionlib_msgs_generate_messages_nodejs.dir/build.make sem_to_costmap/CMakeFiles/actionlib_msgs_generate_messages_nodejs.dir/clean
+.PHONY : sem_to_costmap/CMakeFiles/actionlib_msgs_generate_messages_nodejs.dir/clean
 
 #=============================================================================
-# Target rules for target sem_to_costmap_cpp/CMakeFiles/actionlib_msgs_generate_messages_eus.dir
+# Target rules for target sem_to_costmap/CMakeFiles/actionlib_msgs_generate_messages_eus.dir
 
 # All Build rule for target.
-sem_to_costmap_cpp/CMakeFiles/actionlib_msgs_generate_messages_eus.dir/all:
-	$(MAKE) -f sem_to_costmap_cpp/CMakeFiles/actionlib_msgs_generate_messages_eus.dir/build.make sem_to_costmap_cpp/CMakeFiles/actionlib_msgs_generate_messages_eus.dir/depend
-	$(MAKE) -f sem_to_costmap_cpp/CMakeFiles/actionlib_msgs_generate_messages_eus.dir/build.make sem_to_costmap_cpp/CMakeFiles/actionlib_msgs_generate_messages_eus.dir/build
+sem_to_costmap/CMakeFiles/actionlib_msgs_generate_messages_eus.dir/all:
+	$(MAKE) -f sem_to_costmap/CMakeFiles/actionlib_msgs_generate_messages_eus.dir/build.make sem_to_costmap/CMakeFiles/actionlib_msgs_generate_messages_eus.dir/depend
+	$(MAKE) -f sem_to_costmap/CMakeFiles/actionlib_msgs_generate_messages_eus.dir/build.make sem_to_costmap/CMakeFiles/actionlib_msgs_generate_messages_eus.dir/build
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/kseniia/catkin_ws/build/CMakeFiles --progress-num= "Built target actionlib_msgs_generate_messages_eus"
-.PHONY : sem_to_costmap_cpp/CMakeFiles/actionlib_msgs_generate_messages_eus.dir/all
+.PHONY : sem_to_costmap/CMakeFiles/actionlib_msgs_generate_messages_eus.dir/all
 
 # Build rule for subdir invocation for target.
-sem_to_costmap_cpp/CMakeFiles/actionlib_msgs_generate_messages_eus.dir/rule: cmake_check_build_system
+sem_to_costmap/CMakeFiles/actionlib_msgs_generate_messages_eus.dir/rule: cmake_check_build_system
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/kseniia/catkin_ws/build/CMakeFiles 0
-	$(MAKE) -f CMakeFiles/Makefile2 sem_to_costmap_cpp/CMakeFiles/actionlib_msgs_generate_messages_eus.dir/all
+	$(MAKE) -f CMakeFiles/Makefile2 sem_to_costmap/CMakeFiles/actionlib_msgs_generate_messages_eus.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/kseniia/catkin_ws/build/CMakeFiles 0
-.PHONY : sem_to_costmap_cpp/CMakeFiles/actionlib_msgs_generate_messages_eus.dir/rule
+.PHONY : sem_to_costmap/CMakeFiles/actionlib_msgs_generate_messages_eus.dir/rule
 
 # Convenience name for target.
-actionlib_msgs_generate_messages_eus: sem_to_costmap_cpp/CMakeFiles/actionlib_msgs_generate_messages_eus.dir/rule
+actionlib_msgs_generate_messages_eus: sem_to_costmap/CMakeFiles/actionlib_msgs_generate_messages_eus.dir/rule
 
 .PHONY : actionlib_msgs_generate_messages_eus
 
 # clean rule for target.
-sem_to_costmap_cpp/CMakeFiles/actionlib_msgs_generate_messages_eus.dir/clean:
-	$(MAKE) -f sem_to_costmap_cpp/CMakeFiles/actionlib_msgs_generate_messages_eus.dir/build.make sem_to_costmap_cpp/CMakeFiles/actionlib_msgs_generate_messages_eus.dir/clean
-.PHONY : sem_to_costmap_cpp/CMakeFiles/actionlib_msgs_generate_messages_eus.dir/clean
+sem_to_costmap/CMakeFiles/actionlib_msgs_generate_messages_eus.dir/clean:
+	$(MAKE) -f sem_to_costmap/CMakeFiles/actionlib_msgs_generate_messages_eus.dir/build.make sem_to_costmap/CMakeFiles/actionlib_msgs_generate_messages_eus.dir/clean
+.PHONY : sem_to_costmap/CMakeFiles/actionlib_msgs_generate_messages_eus.dir/clean
 
 #=============================================================================
-# Target rules for target sem_to_costmap_cpp/CMakeFiles/nav_msgs_generate_messages_nodejs.dir
+# Target rules for target sem_to_costmap/CMakeFiles/nav_msgs_generate_messages_nodejs.dir
 
 # All Build rule for target.
-sem_to_costmap_cpp/CMakeFiles/nav_msgs_generate_messages_nodejs.dir/all:
-	$(MAKE) -f sem_to_costmap_cpp/CMakeFiles/nav_msgs_generate_messages_nodejs.dir/build.make sem_to_costmap_cpp/CMakeFiles/nav_msgs_generate_messages_nodejs.dir/depend
-	$(MAKE) -f sem_to_costmap_cpp/CMakeFiles/nav_msgs_generate_messages_nodejs.dir/build.make sem_to_costmap_cpp/CMakeFiles/nav_msgs_generate_messages_nodejs.dir/build
+sem_to_costmap/CMakeFiles/nav_msgs_generate_messages_nodejs.dir/all:
+	$(MAKE) -f sem_to_costmap/CMakeFiles/nav_msgs_generate_messages_nodejs.dir/build.make sem_to_costmap/CMakeFiles/nav_msgs_generate_messages_nodejs.dir/depend
+	$(MAKE) -f sem_to_costmap/CMakeFiles/nav_msgs_generate_messages_nodejs.dir/build.make sem_to_costmap/CMakeFiles/nav_msgs_generate_messages_nodejs.dir/build
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/kseniia/catkin_ws/build/CMakeFiles --progress-num= "Built target nav_msgs_generate_messages_nodejs"
-.PHONY : sem_to_costmap_cpp/CMakeFiles/nav_msgs_generate_messages_nodejs.dir/all
+.PHONY : sem_to_costmap/CMakeFiles/nav_msgs_generate_messages_nodejs.dir/all
 
 # Build rule for subdir invocation for target.
-sem_to_costmap_cpp/CMakeFiles/nav_msgs_generate_messages_nodejs.dir/rule: cmake_check_build_system
+sem_to_costmap/CMakeFiles/nav_msgs_generate_messages_nodejs.dir/rule: cmake_check_build_system
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/kseniia/catkin_ws/build/CMakeFiles 0
-	$(MAKE) -f CMakeFiles/Makefile2 sem_to_costmap_cpp/CMakeFiles/nav_msgs_generate_messages_nodejs.dir/all
+	$(MAKE) -f CMakeFiles/Makefile2 sem_to_costmap/CMakeFiles/nav_msgs_generate_messages_nodejs.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/kseniia/catkin_ws/build/CMakeFiles 0
-.PHONY : sem_to_costmap_cpp/CMakeFiles/nav_msgs_generate_messages_nodejs.dir/rule
+.PHONY : sem_to_costmap/CMakeFiles/nav_msgs_generate_messages_nodejs.dir/rule
 
 # Convenience name for target.
-nav_msgs_generate_messages_nodejs: sem_to_costmap_cpp/CMakeFiles/nav_msgs_generate_messages_nodejs.dir/rule
+nav_msgs_generate_messages_nodejs: sem_to_costmap/CMakeFiles/nav_msgs_generate_messages_nodejs.dir/rule
 
 .PHONY : nav_msgs_generate_messages_nodejs
 
 # clean rule for target.
-sem_to_costmap_cpp/CMakeFiles/nav_msgs_generate_messages_nodejs.dir/clean:
-	$(MAKE) -f sem_to_costmap_cpp/CMakeFiles/nav_msgs_generate_messages_nodejs.dir/build.make sem_to_costmap_cpp/CMakeFiles/nav_msgs_generate_messages_nodejs.dir/clean
-.PHONY : sem_to_costmap_cpp/CMakeFiles/nav_msgs_generate_messages_nodejs.dir/clean
+sem_to_costmap/CMakeFiles/nav_msgs_generate_messages_nodejs.dir/clean:
+	$(MAKE) -f sem_to_costmap/CMakeFiles/nav_msgs_generate_messages_nodejs.dir/build.make sem_to_costmap/CMakeFiles/nav_msgs_generate_messages_nodejs.dir/clean
+.PHONY : sem_to_costmap/CMakeFiles/nav_msgs_generate_messages_nodejs.dir/clean
 
 #=============================================================================
-# Target rules for target sem_to_costmap_cpp/CMakeFiles/rosgraph_msgs_generate_messages_lisp.dir
+# Target rules for target sem_to_costmap/CMakeFiles/rosgraph_msgs_generate_messages_lisp.dir
 
 # All Build rule for target.
-sem_to_costmap_cpp/CMakeFiles/rosgraph_msgs_generate_messages_lisp.dir/all:
-	$(MAKE) -f sem_to_costmap_cpp/CMakeFiles/rosgraph_msgs_generate_messages_lisp.dir/build.make sem_to_costmap_cpp/CMakeFiles/rosgraph_msgs_generate_messages_lisp.dir/depend
-	$(MAKE) -f sem_to_costmap_cpp/CMakeFiles/rosgraph_msgs_generate_messages_lisp.dir/build.make sem_to_costmap_cpp/CMakeFiles/rosgraph_msgs_generate_messages_lisp.dir/build
+sem_to_costmap/CMakeFiles/rosgraph_msgs_generate_messages_lisp.dir/all:
+	$(MAKE) -f sem_to_costmap/CMakeFiles/rosgraph_msgs_generate_messages_lisp.dir/build.make sem_to_costmap/CMakeFiles/rosgraph_msgs_generate_messages_lisp.dir/depend
+	$(MAKE) -f sem_to_costmap/CMakeFiles/rosgraph_msgs_generate_messages_lisp.dir/build.make sem_to_costmap/CMakeFiles/rosgraph_msgs_generate_messages_lisp.dir/build
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/kseniia/catkin_ws/build/CMakeFiles --progress-num= "Built target rosgraph_msgs_generate_messages_lisp"
-.PHONY : sem_to_costmap_cpp/CMakeFiles/rosgraph_msgs_generate_messages_lisp.dir/all
+.PHONY : sem_to_costmap/CMakeFiles/rosgraph_msgs_generate_messages_lisp.dir/all
 
 # Build rule for subdir invocation for target.
-sem_to_costmap_cpp/CMakeFiles/rosgraph_msgs_generate_messages_lisp.dir/rule: cmake_check_build_system
+sem_to_costmap/CMakeFiles/rosgraph_msgs_generate_messages_lisp.dir/rule: cmake_check_build_system
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/kseniia/catkin_ws/build/CMakeFiles 0
-	$(MAKE) -f CMakeFiles/Makefile2 sem_to_costmap_cpp/CMakeFiles/rosgraph_msgs_generate_messages_lisp.dir/all
+	$(MAKE) -f CMakeFiles/Makefile2 sem_to_costmap/CMakeFiles/rosgraph_msgs_generate_messages_lisp.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/kseniia/catkin_ws/build/CMakeFiles 0
-.PHONY : sem_to_costmap_cpp/CMakeFiles/rosgraph_msgs_generate_messages_lisp.dir/rule
+.PHONY : sem_to_costmap/CMakeFiles/rosgraph_msgs_generate_messages_lisp.dir/rule
 
 # Convenience name for target.
-rosgraph_msgs_generate_messages_lisp: sem_to_costmap_cpp/CMakeFiles/rosgraph_msgs_generate_messages_lisp.dir/rule
+rosgraph_msgs_generate_messages_lisp: sem_to_costmap/CMakeFiles/rosgraph_msgs_generate_messages_lisp.dir/rule
 
 .PHONY : rosgraph_msgs_generate_messages_lisp
 
 # clean rule for target.
-sem_to_costmap_cpp/CMakeFiles/rosgraph_msgs_generate_messages_lisp.dir/clean:
-	$(MAKE) -f sem_to_costmap_cpp/CMakeFiles/rosgraph_msgs_generate_messages_lisp.dir/build.make sem_to_costmap_cpp/CMakeFiles/rosgraph_msgs_generate_messages_lisp.dir/clean
-.PHONY : sem_to_costmap_cpp/CMakeFiles/rosgraph_msgs_generate_messages_lisp.dir/clean
+sem_to_costmap/CMakeFiles/rosgraph_msgs_generate_messages_lisp.dir/clean:
+	$(MAKE) -f sem_to_costmap/CMakeFiles/rosgraph_msgs_generate_messages_lisp.dir/build.make sem_to_costmap/CMakeFiles/rosgraph_msgs_generate_messages_lisp.dir/clean
+.PHONY : sem_to_costmap/CMakeFiles/rosgraph_msgs_generate_messages_lisp.dir/clean
 
 #=============================================================================
-# Target rules for target sem_to_costmap_cpp/CMakeFiles/rosgraph_msgs_generate_messages_nodejs.dir
+# Target rules for target sem_to_costmap/CMakeFiles/rosgraph_msgs_generate_messages_nodejs.dir
 
 # All Build rule for target.
-sem_to_costmap_cpp/CMakeFiles/rosgraph_msgs_generate_messages_nodejs.dir/all:
-	$(MAKE) -f sem_to_costmap_cpp/CMakeFiles/rosgraph_msgs_generate_messages_nodejs.dir/build.make sem_to_costmap_cpp/CMakeFiles/rosgraph_msgs_generate_messages_nodejs.dir/depend
-	$(MAKE) -f sem_to_costmap_cpp/CMakeFiles/rosgraph_msgs_generate_messages_nodejs.dir/build.make sem_to_costmap_cpp/CMakeFiles/rosgraph_msgs_generate_messages_nodejs.dir/build
+sem_to_costmap/CMakeFiles/rosgraph_msgs_generate_messages_nodejs.dir/all:
+	$(MAKE) -f sem_to_costmap/CMakeFiles/rosgraph_msgs_generate_messages_nodejs.dir/build.make sem_to_costmap/CMakeFiles/rosgraph_msgs_generate_messages_nodejs.dir/depend
+	$(MAKE) -f sem_to_costmap/CMakeFiles/rosgraph_msgs_generate_messages_nodejs.dir/build.make sem_to_costmap/CMakeFiles/rosgraph_msgs_generate_messages_nodejs.dir/build
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/kseniia/catkin_ws/build/CMakeFiles --progress-num= "Built target rosgraph_msgs_generate_messages_nodejs"
-.PHONY : sem_to_costmap_cpp/CMakeFiles/rosgraph_msgs_generate_messages_nodejs.dir/all
+.PHONY : sem_to_costmap/CMakeFiles/rosgraph_msgs_generate_messages_nodejs.dir/all
 
 # Build rule for subdir invocation for target.
-sem_to_costmap_cpp/CMakeFiles/rosgraph_msgs_generate_messages_nodejs.dir/rule: cmake_check_build_system
+sem_to_costmap/CMakeFiles/rosgraph_msgs_generate_messages_nodejs.dir/rule: cmake_check_build_system
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/kseniia/catkin_ws/build/CMakeFiles 0
-	$(MAKE) -f CMakeFiles/Makefile2 sem_to_costmap_cpp/CMakeFiles/rosgraph_msgs_generate_messages_nodejs.dir/all
+	$(MAKE) -f CMakeFiles/Makefile2 sem_to_costmap/CMakeFiles/rosgraph_msgs_generate_messages_nodejs.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/kseniia/catkin_ws/build/CMakeFiles 0
-.PHONY : sem_to_costmap_cpp/CMakeFiles/rosgraph_msgs_generate_messages_nodejs.dir/rule
+.PHONY : sem_to_costmap/CMakeFiles/rosgraph_msgs_generate_messages_nodejs.dir/rule
 
 # Convenience name for target.
-rosgraph_msgs_generate_messages_nodejs: sem_to_costmap_cpp/CMakeFiles/rosgraph_msgs_generate_messages_nodejs.dir/rule
+rosgraph_msgs_generate_messages_nodejs: sem_to_costmap/CMakeFiles/rosgraph_msgs_generate_messages_nodejs.dir/rule
 
 .PHONY : rosgraph_msgs_generate_messages_nodejs
 
 # clean rule for target.
-sem_to_costmap_cpp/CMakeFiles/rosgraph_msgs_generate_messages_nodejs.dir/clean:
-	$(MAKE) -f sem_to_costmap_cpp/CMakeFiles/rosgraph_msgs_generate_messages_nodejs.dir/build.make sem_to_costmap_cpp/CMakeFiles/rosgraph_msgs_generate_messages_nodejs.dir/clean
-.PHONY : sem_to_costmap_cpp/CMakeFiles/rosgraph_msgs_generate_messages_nodejs.dir/clean
+sem_to_costmap/CMakeFiles/rosgraph_msgs_generate_messages_nodejs.dir/clean:
+	$(MAKE) -f sem_to_costmap/CMakeFiles/rosgraph_msgs_generate_messages_nodejs.dir/build.make sem_to_costmap/CMakeFiles/rosgraph_msgs_generate_messages_nodejs.dir/clean
+.PHONY : sem_to_costmap/CMakeFiles/rosgraph_msgs_generate_messages_nodejs.dir/clean
 
 #=============================================================================
-# Target rules for target sem_to_costmap_cpp/CMakeFiles/actionlib_msgs_generate_messages_py.dir
+# Target rules for target sem_to_costmap/CMakeFiles/actionlib_msgs_generate_messages_py.dir
 
 # All Build rule for target.
-sem_to_costmap_cpp/CMakeFiles/actionlib_msgs_generate_messages_py.dir/all:
-	$(MAKE) -f sem_to_costmap_cpp/CMakeFiles/actionlib_msgs_generate_messages_py.dir/build.make sem_to_costmap_cpp/CMakeFiles/actionlib_msgs_generate_messages_py.dir/depend
-	$(MAKE) -f sem_to_costmap_cpp/CMakeFiles/actionlib_msgs_generate_messages_py.dir/build.make sem_to_costmap_cpp/CMakeFiles/actionlib_msgs_generate_messages_py.dir/build
+sem_to_costmap/CMakeFiles/actionlib_msgs_generate_messages_py.dir/all:
+	$(MAKE) -f sem_to_costmap/CMakeFiles/actionlib_msgs_generate_messages_py.dir/build.make sem_to_costmap/CMakeFiles/actionlib_msgs_generate_messages_py.dir/depend
+	$(MAKE) -f sem_to_costmap/CMakeFiles/actionlib_msgs_generate_messages_py.dir/build.make sem_to_costmap/CMakeFiles/actionlib_msgs_generate_messages_py.dir/build
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/kseniia/catkin_ws/build/CMakeFiles --progress-num= "Built target actionlib_msgs_generate_messages_py"
-.PHONY : sem_to_costmap_cpp/CMakeFiles/actionlib_msgs_generate_messages_py.dir/all
+.PHONY : sem_to_costmap/CMakeFiles/actionlib_msgs_generate_messages_py.dir/all
 
 # Build rule for subdir invocation for target.
-sem_to_costmap_cpp/CMakeFiles/actionlib_msgs_generate_messages_py.dir/rule: cmake_check_build_system
+sem_to_costmap/CMakeFiles/actionlib_msgs_generate_messages_py.dir/rule: cmake_check_build_system
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/kseniia/catkin_ws/build/CMakeFiles 0
-	$(MAKE) -f CMakeFiles/Makefile2 sem_to_costmap_cpp/CMakeFiles/actionlib_msgs_generate_messages_py.dir/all
+	$(MAKE) -f CMakeFiles/Makefile2 sem_to_costmap/CMakeFiles/actionlib_msgs_generate_messages_py.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/kseniia/catkin_ws/build/CMakeFiles 0
-.PHONY : sem_to_costmap_cpp/CMakeFiles/actionlib_msgs_generate_messages_py.dir/rule
+.PHONY : sem_to_costmap/CMakeFiles/actionlib_msgs_generate_messages_py.dir/rule
 
 # Convenience name for target.
-actionlib_msgs_generate_messages_py: sem_to_costmap_cpp/CMakeFiles/actionlib_msgs_generate_messages_py.dir/rule
+actionlib_msgs_generate_messages_py: sem_to_costmap/CMakeFiles/actionlib_msgs_generate_messages_py.dir/rule
 
 .PHONY : actionlib_msgs_generate_messages_py
 
 # clean rule for target.
-sem_to_costmap_cpp/CMakeFiles/actionlib_msgs_generate_messages_py.dir/clean:
-	$(MAKE) -f sem_to_costmap_cpp/CMakeFiles/actionlib_msgs_generate_messages_py.dir/build.make sem_to_costmap_cpp/CMakeFiles/actionlib_msgs_generate_messages_py.dir/clean
-.PHONY : sem_to_costmap_cpp/CMakeFiles/actionlib_msgs_generate_messages_py.dir/clean
+sem_to_costmap/CMakeFiles/actionlib_msgs_generate_messages_py.dir/clean:
+	$(MAKE) -f sem_to_costmap/CMakeFiles/actionlib_msgs_generate_messages_py.dir/build.make sem_to_costmap/CMakeFiles/actionlib_msgs_generate_messages_py.dir/clean
+.PHONY : sem_to_costmap/CMakeFiles/actionlib_msgs_generate_messages_py.dir/clean
 
 #=============================================================================
-# Target rules for target sem_to_costmap_cpp/CMakeFiles/roscpp_generate_messages_lisp.dir
+# Target rules for target sem_to_costmap/CMakeFiles/roscpp_generate_messages_lisp.dir
 
 # All Build rule for target.
-sem_to_costmap_cpp/CMakeFiles/roscpp_generate_messages_lisp.dir/all:
-	$(MAKE) -f sem_to_costmap_cpp/CMakeFiles/roscpp_generate_messages_lisp.dir/build.make sem_to_costmap_cpp/CMakeFiles/roscpp_generate_messages_lisp.dir/depend
-	$(MAKE) -f sem_to_costmap_cpp/CMakeFiles/roscpp_generate_messages_lisp.dir/build.make sem_to_costmap_cpp/CMakeFiles/roscpp_generate_messages_lisp.dir/build
+sem_to_costmap/CMakeFiles/roscpp_generate_messages_lisp.dir/all:
+	$(MAKE) -f sem_to_costmap/CMakeFiles/roscpp_generate_messages_lisp.dir/build.make sem_to_costmap/CMakeFiles/roscpp_generate_messages_lisp.dir/depend
+	$(MAKE) -f sem_to_costmap/CMakeFiles/roscpp_generate_messages_lisp.dir/build.make sem_to_costmap/CMakeFiles/roscpp_generate_messages_lisp.dir/build
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/kseniia/catkin_ws/build/CMakeFiles --progress-num= "Built target roscpp_generate_messages_lisp"
-.PHONY : sem_to_costmap_cpp/CMakeFiles/roscpp_generate_messages_lisp.dir/all
+.PHONY : sem_to_costmap/CMakeFiles/roscpp_generate_messages_lisp.dir/all
 
 # Build rule for subdir invocation for target.
-sem_to_costmap_cpp/CMakeFiles/roscpp_generate_messages_lisp.dir/rule: cmake_check_build_system
+sem_to_costmap/CMakeFiles/roscpp_generate_messages_lisp.dir/rule: cmake_check_build_system
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/kseniia/catkin_ws/build/CMakeFiles 0
-	$(MAKE) -f CMakeFiles/Makefile2 sem_to_costmap_cpp/CMakeFiles/roscpp_generate_messages_lisp.dir/all
+	$(MAKE) -f CMakeFiles/Makefile2 sem_to_costmap/CMakeFiles/roscpp_generate_messages_lisp.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/kseniia/catkin_ws/build/CMakeFiles 0
-.PHONY : sem_to_costmap_cpp/CMakeFiles/roscpp_generate_messages_lisp.dir/rule
+.PHONY : sem_to_costmap/CMakeFiles/roscpp_generate_messages_lisp.dir/rule
 
 # Convenience name for target.
-roscpp_generate_messages_lisp: sem_to_costmap_cpp/CMakeFiles/roscpp_generate_messages_lisp.dir/rule
+roscpp_generate_messages_lisp: sem_to_costmap/CMakeFiles/roscpp_generate_messages_lisp.dir/rule
 
 .PHONY : roscpp_generate_messages_lisp
 
 # clean rule for target.
-sem_to_costmap_cpp/CMakeFiles/roscpp_generate_messages_lisp.dir/clean:
-	$(MAKE) -f sem_to_costmap_cpp/CMakeFiles/roscpp_generate_messages_lisp.dir/build.make sem_to_costmap_cpp/CMakeFiles/roscpp_generate_messages_lisp.dir/clean
-.PHONY : sem_to_costmap_cpp/CMakeFiles/roscpp_generate_messages_lisp.dir/clean
+sem_to_costmap/CMakeFiles/roscpp_generate_messages_lisp.dir/clean:
+	$(MAKE) -f sem_to_costmap/CMakeFiles/roscpp_generate_messages_lisp.dir/build.make sem_to_costmap/CMakeFiles/roscpp_generate_messages_lisp.dir/clean
+.PHONY : sem_to_costmap/CMakeFiles/roscpp_generate_messages_lisp.dir/clean
 
 #=============================================================================
-# Target rules for target sem_to_costmap_cpp/CMakeFiles/_catkin_empty_exported_target.dir
+# Target rules for target sem_to_costmap/CMakeFiles/_catkin_empty_exported_target.dir
 
 # All Build rule for target.
-sem_to_costmap_cpp/CMakeFiles/_catkin_empty_exported_target.dir/all:
-	$(MAKE) -f sem_to_costmap_cpp/CMakeFiles/_catkin_empty_exported_target.dir/build.make sem_to_costmap_cpp/CMakeFiles/_catkin_empty_exported_target.dir/depend
-	$(MAKE) -f sem_to_costmap_cpp/CMakeFiles/_catkin_empty_exported_target.dir/build.make sem_to_costmap_cpp/CMakeFiles/_catkin_empty_exported_target.dir/build
+sem_to_costmap/CMakeFiles/_catkin_empty_exported_target.dir/all:
+	$(MAKE) -f sem_to_costmap/CMakeFiles/_catkin_empty_exported_target.dir/build.make sem_to_costmap/CMakeFiles/_catkin_empty_exported_target.dir/depend
+	$(MAKE) -f sem_to_costmap/CMakeFiles/_catkin_empty_exported_target.dir/build.make sem_to_costmap/CMakeFiles/_catkin_empty_exported_target.dir/build
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/kseniia/catkin_ws/build/CMakeFiles --progress-num= "Built target _catkin_empty_exported_target"
-.PHONY : sem_to_costmap_cpp/CMakeFiles/_catkin_empty_exported_target.dir/all
+.PHONY : sem_to_costmap/CMakeFiles/_catkin_empty_exported_target.dir/all
 
 # Build rule for subdir invocation for target.
-sem_to_costmap_cpp/CMakeFiles/_catkin_empty_exported_target.dir/rule: cmake_check_build_system
+sem_to_costmap/CMakeFiles/_catkin_empty_exported_target.dir/rule: cmake_check_build_system
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/kseniia/catkin_ws/build/CMakeFiles 0
-	$(MAKE) -f CMakeFiles/Makefile2 sem_to_costmap_cpp/CMakeFiles/_catkin_empty_exported_target.dir/all
+	$(MAKE) -f CMakeFiles/Makefile2 sem_to_costmap/CMakeFiles/_catkin_empty_exported_target.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/kseniia/catkin_ws/build/CMakeFiles 0
-.PHONY : sem_to_costmap_cpp/CMakeFiles/_catkin_empty_exported_target.dir/rule
+.PHONY : sem_to_costmap/CMakeFiles/_catkin_empty_exported_target.dir/rule
 
 # Convenience name for target.
-_catkin_empty_exported_target: sem_to_costmap_cpp/CMakeFiles/_catkin_empty_exported_target.dir/rule
+_catkin_empty_exported_target: sem_to_costmap/CMakeFiles/_catkin_empty_exported_target.dir/rule
 
 .PHONY : _catkin_empty_exported_target
 
 # clean rule for target.
-sem_to_costmap_cpp/CMakeFiles/_catkin_empty_exported_target.dir/clean:
-	$(MAKE) -f sem_to_costmap_cpp/CMakeFiles/_catkin_empty_exported_target.dir/build.make sem_to_costmap_cpp/CMakeFiles/_catkin_empty_exported_target.dir/clean
-.PHONY : sem_to_costmap_cpp/CMakeFiles/_catkin_empty_exported_target.dir/clean
+sem_to_costmap/CMakeFiles/_catkin_empty_exported_target.dir/clean:
+	$(MAKE) -f sem_to_costmap/CMakeFiles/_catkin_empty_exported_target.dir/build.make sem_to_costmap/CMakeFiles/_catkin_empty_exported_target.dir/clean
+.PHONY : sem_to_costmap/CMakeFiles/_catkin_empty_exported_target.dir/clean
 
 #=============================================================================
-# Target rules for target sem_to_costmap_cpp/CMakeFiles/nav_msgs_generate_messages_cpp.dir
+# Target rules for target sem_to_costmap/CMakeFiles/nav_msgs_generate_messages_cpp.dir
 
 # All Build rule for target.
-sem_to_costmap_cpp/CMakeFiles/nav_msgs_generate_messages_cpp.dir/all:
-	$(MAKE) -f sem_to_costmap_cpp/CMakeFiles/nav_msgs_generate_messages_cpp.dir/build.make sem_to_costmap_cpp/CMakeFiles/nav_msgs_generate_messages_cpp.dir/depend
-	$(MAKE) -f sem_to_costmap_cpp/CMakeFiles/nav_msgs_generate_messages_cpp.dir/build.make sem_to_costmap_cpp/CMakeFiles/nav_msgs_generate_messages_cpp.dir/build
+sem_to_costmap/CMakeFiles/nav_msgs_generate_messages_cpp.dir/all:
+	$(MAKE) -f sem_to_costmap/CMakeFiles/nav_msgs_generate_messages_cpp.dir/build.make sem_to_costmap/CMakeFiles/nav_msgs_generate_messages_cpp.dir/depend
+	$(MAKE) -f sem_to_costmap/CMakeFiles/nav_msgs_generate_messages_cpp.dir/build.make sem_to_costmap/CMakeFiles/nav_msgs_generate_messages_cpp.dir/build
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/kseniia/catkin_ws/build/CMakeFiles --progress-num= "Built target nav_msgs_generate_messages_cpp"
-.PHONY : sem_to_costmap_cpp/CMakeFiles/nav_msgs_generate_messages_cpp.dir/all
+.PHONY : sem_to_costmap/CMakeFiles/nav_msgs_generate_messages_cpp.dir/all
 
 # Build rule for subdir invocation for target.
-sem_to_costmap_cpp/CMakeFiles/nav_msgs_generate_messages_cpp.dir/rule: cmake_check_build_system
+sem_to_costmap/CMakeFiles/nav_msgs_generate_messages_cpp.dir/rule: cmake_check_build_system
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/kseniia/catkin_ws/build/CMakeFiles 0
-	$(MAKE) -f CMakeFiles/Makefile2 sem_to_costmap_cpp/CMakeFiles/nav_msgs_generate_messages_cpp.dir/all
+	$(MAKE) -f CMakeFiles/Makefile2 sem_to_costmap/CMakeFiles/nav_msgs_generate_messages_cpp.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/kseniia/catkin_ws/build/CMakeFiles 0
-.PHONY : sem_to_costmap_cpp/CMakeFiles/nav_msgs_generate_messages_cpp.dir/rule
+.PHONY : sem_to_costmap/CMakeFiles/nav_msgs_generate_messages_cpp.dir/rule
 
 # Convenience name for target.
-nav_msgs_generate_messages_cpp: sem_to_costmap_cpp/CMakeFiles/nav_msgs_generate_messages_cpp.dir/rule
+nav_msgs_generate_messages_cpp: sem_to_costmap/CMakeFiles/nav_msgs_generate_messages_cpp.dir/rule
 
 .PHONY : nav_msgs_generate_messages_cpp
 
 # clean rule for target.
-sem_to_costmap_cpp/CMakeFiles/nav_msgs_generate_messages_cpp.dir/clean:
-	$(MAKE) -f sem_to_costmap_cpp/CMakeFiles/nav_msgs_generate_messages_cpp.dir/build.make sem_to_costmap_cpp/CMakeFiles/nav_msgs_generate_messages_cpp.dir/clean
-.PHONY : sem_to_costmap_cpp/CMakeFiles/nav_msgs_generate_messages_cpp.dir/clean
+sem_to_costmap/CMakeFiles/nav_msgs_generate_messages_cpp.dir/clean:
+	$(MAKE) -f sem_to_costmap/CMakeFiles/nav_msgs_generate_messages_cpp.dir/build.make sem_to_costmap/CMakeFiles/nav_msgs_generate_messages_cpp.dir/clean
+.PHONY : sem_to_costmap/CMakeFiles/nav_msgs_generate_messages_cpp.dir/clean
 
 #=============================================================================
-# Target rules for target sem_to_costmap_cpp/CMakeFiles/rosgraph_msgs_generate_messages_eus.dir
+# Target rules for target sem_to_costmap/CMakeFiles/rosgraph_msgs_generate_messages_eus.dir
 
 # All Build rule for target.
-sem_to_costmap_cpp/CMakeFiles/rosgraph_msgs_generate_messages_eus.dir/all:
-	$(MAKE) -f sem_to_costmap_cpp/CMakeFiles/rosgraph_msgs_generate_messages_eus.dir/build.make sem_to_costmap_cpp/CMakeFiles/rosgraph_msgs_generate_messages_eus.dir/depend
-	$(MAKE) -f sem_to_costmap_cpp/CMakeFiles/rosgraph_msgs_generate_messages_eus.dir/build.make sem_to_costmap_cpp/CMakeFiles/rosgraph_msgs_generate_messages_eus.dir/build
+sem_to_costmap/CMakeFiles/rosgraph_msgs_generate_messages_eus.dir/all:
+	$(MAKE) -f sem_to_costmap/CMakeFiles/rosgraph_msgs_generate_messages_eus.dir/build.make sem_to_costmap/CMakeFiles/rosgraph_msgs_generate_messages_eus.dir/depend
+	$(MAKE) -f sem_to_costmap/CMakeFiles/rosgraph_msgs_generate_messages_eus.dir/build.make sem_to_costmap/CMakeFiles/rosgraph_msgs_generate_messages_eus.dir/build
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/kseniia/catkin_ws/build/CMakeFiles --progress-num= "Built target rosgraph_msgs_generate_messages_eus"
-.PHONY : sem_to_costmap_cpp/CMakeFiles/rosgraph_msgs_generate_messages_eus.dir/all
+.PHONY : sem_to_costmap/CMakeFiles/rosgraph_msgs_generate_messages_eus.dir/all
 
 # Build rule for subdir invocation for target.
-sem_to_costmap_cpp/CMakeFiles/rosgraph_msgs_generate_messages_eus.dir/rule: cmake_check_build_system
+sem_to_costmap/CMakeFiles/rosgraph_msgs_generate_messages_eus.dir/rule: cmake_check_build_system
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/kseniia/catkin_ws/build/CMakeFiles 0
-	$(MAKE) -f CMakeFiles/Makefile2 sem_to_costmap_cpp/CMakeFiles/rosgraph_msgs_generate_messages_eus.dir/all
+	$(MAKE) -f CMakeFiles/Makefile2 sem_to_costmap/CMakeFiles/rosgraph_msgs_generate_messages_eus.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/kseniia/catkin_ws/build/CMakeFiles 0
-.PHONY : sem_to_costmap_cpp/CMakeFiles/rosgraph_msgs_generate_messages_eus.dir/rule
+.PHONY : sem_to_costmap/CMakeFiles/rosgraph_msgs_generate_messages_eus.dir/rule
 
 # Convenience name for target.
-rosgraph_msgs_generate_messages_eus: sem_to_costmap_cpp/CMakeFiles/rosgraph_msgs_generate_messages_eus.dir/rule
+rosgraph_msgs_generate_messages_eus: sem_to_costmap/CMakeFiles/rosgraph_msgs_generate_messages_eus.dir/rule
 
 .PHONY : rosgraph_msgs_generate_messages_eus
 
 # clean rule for target.
-sem_to_costmap_cpp/CMakeFiles/rosgraph_msgs_generate_messages_eus.dir/clean:
-	$(MAKE) -f sem_to_costmap_cpp/CMakeFiles/rosgraph_msgs_generate_messages_eus.dir/build.make sem_to_costmap_cpp/CMakeFiles/rosgraph_msgs_generate_messages_eus.dir/clean
-.PHONY : sem_to_costmap_cpp/CMakeFiles/rosgraph_msgs_generate_messages_eus.dir/clean
+sem_to_costmap/CMakeFiles/rosgraph_msgs_generate_messages_eus.dir/clean:
+	$(MAKE) -f sem_to_costmap/CMakeFiles/rosgraph_msgs_generate_messages_eus.dir/build.make sem_to_costmap/CMakeFiles/rosgraph_msgs_generate_messages_eus.dir/clean
+.PHONY : sem_to_costmap/CMakeFiles/rosgraph_msgs_generate_messages_eus.dir/clean
 
 #=============================================================================
-# Target rules for target sem_to_costmap_cpp/CMakeFiles/roscpp_generate_messages_eus.dir
+# Target rules for target sem_to_costmap/CMakeFiles/roscpp_generate_messages_eus.dir
 
 # All Build rule for target.
-sem_to_costmap_cpp/CMakeFiles/roscpp_generate_messages_eus.dir/all:
-	$(MAKE) -f sem_to_costmap_cpp/CMakeFiles/roscpp_generate_messages_eus.dir/build.make sem_to_costmap_cpp/CMakeFiles/roscpp_generate_messages_eus.dir/depend
-	$(MAKE) -f sem_to_costmap_cpp/CMakeFiles/roscpp_generate_messages_eus.dir/build.make sem_to_costmap_cpp/CMakeFiles/roscpp_generate_messages_eus.dir/build
+sem_to_costmap/CMakeFiles/roscpp_generate_messages_eus.dir/all:
+	$(MAKE) -f sem_to_costmap/CMakeFiles/roscpp_generate_messages_eus.dir/build.make sem_to_costmap/CMakeFiles/roscpp_generate_messages_eus.dir/depend
+	$(MAKE) -f sem_to_costmap/CMakeFiles/roscpp_generate_messages_eus.dir/build.make sem_to_costmap/CMakeFiles/roscpp_generate_messages_eus.dir/build
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/kseniia/catkin_ws/build/CMakeFiles --progress-num= "Built target roscpp_generate_messages_eus"
-.PHONY : sem_to_costmap_cpp/CMakeFiles/roscpp_generate_messages_eus.dir/all
+.PHONY : sem_to_costmap/CMakeFiles/roscpp_generate_messages_eus.dir/all
 
 # Build rule for subdir invocation for target.
-sem_to_costmap_cpp/CMakeFiles/roscpp_generate_messages_eus.dir/rule: cmake_check_build_system
+sem_to_costmap/CMakeFiles/roscpp_generate_messages_eus.dir/rule: cmake_check_build_system
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/kseniia/catkin_ws/build/CMakeFiles 0
-	$(MAKE) -f CMakeFiles/Makefile2 sem_to_costmap_cpp/CMakeFiles/roscpp_generate_messages_eus.dir/all
+	$(MAKE) -f CMakeFiles/Makefile2 sem_to_costmap/CMakeFiles/roscpp_generate_messages_eus.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/kseniia/catkin_ws/build/CMakeFiles 0
-.PHONY : sem_to_costmap_cpp/CMakeFiles/roscpp_generate_messages_eus.dir/rule
+.PHONY : sem_to_costmap/CMakeFiles/roscpp_generate_messages_eus.dir/rule
 
 # Convenience name for target.
-roscpp_generate_messages_eus: sem_to_costmap_cpp/CMakeFiles/roscpp_generate_messages_eus.dir/rule
+roscpp_generate_messages_eus: sem_to_costmap/CMakeFiles/roscpp_generate_messages_eus.dir/rule
 
 .PHONY : roscpp_generate_messages_eus
 
 # clean rule for target.
-sem_to_costmap_cpp/CMakeFiles/roscpp_generate_messages_eus.dir/clean:
-	$(MAKE) -f sem_to_costmap_cpp/CMakeFiles/roscpp_generate_messages_eus.dir/build.make sem_to_costmap_cpp/CMakeFiles/roscpp_generate_messages_eus.dir/clean
-.PHONY : sem_to_costmap_cpp/CMakeFiles/roscpp_generate_messages_eus.dir/clean
+sem_to_costmap/CMakeFiles/roscpp_generate_messages_eus.dir/clean:
+	$(MAKE) -f sem_to_costmap/CMakeFiles/roscpp_generate_messages_eus.dir/build.make sem_to_costmap/CMakeFiles/roscpp_generate_messages_eus.dir/clean
+.PHONY : sem_to_costmap/CMakeFiles/roscpp_generate_messages_eus.dir/clean
 
 #=============================================================================
-# Target rules for target sem_to_costmap_cpp/CMakeFiles/roscpp_generate_messages_py.dir
+# Target rules for target sem_to_costmap/CMakeFiles/roscpp_generate_messages_py.dir
 
 # All Build rule for target.
-sem_to_costmap_cpp/CMakeFiles/roscpp_generate_messages_py.dir/all:
-	$(MAKE) -f sem_to_costmap_cpp/CMakeFiles/roscpp_generate_messages_py.dir/build.make sem_to_costmap_cpp/CMakeFiles/roscpp_generate_messages_py.dir/depend
-	$(MAKE) -f sem_to_costmap_cpp/CMakeFiles/roscpp_generate_messages_py.dir/build.make sem_to_costmap_cpp/CMakeFiles/roscpp_generate_messages_py.dir/build
+sem_to_costmap/CMakeFiles/roscpp_generate_messages_py.dir/all:
+	$(MAKE) -f sem_to_costmap/CMakeFiles/roscpp_generate_messages_py.dir/build.make sem_to_costmap/CMakeFiles/roscpp_generate_messages_py.dir/depend
+	$(MAKE) -f sem_to_costmap/CMakeFiles/roscpp_generate_messages_py.dir/build.make sem_to_costmap/CMakeFiles/roscpp_generate_messages_py.dir/build
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --progress-dir=/home/kseniia/catkin_ws/build/CMakeFiles --progress-num= "Built target roscpp_generate_messages_py"
-.PHONY : sem_to_costmap_cpp/CMakeFiles/roscpp_generate_messages_py.dir/all
+.PHONY : sem_to_costmap/CMakeFiles/roscpp_generate_messages_py.dir/all
 
 # Build rule for subdir invocation for target.
-sem_to_costmap_cpp/CMakeFiles/roscpp_generate_messages_py.dir/rule: cmake_check_build_system
+sem_to_costmap/CMakeFiles/roscpp_generate_messages_py.dir/rule: cmake_check_build_system
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/kseniia/catkin_ws/build/CMakeFiles 0
-	$(MAKE) -f CMakeFiles/Makefile2 sem_to_costmap_cpp/CMakeFiles/roscpp_generate_messages_py.dir/all
+	$(MAKE) -f CMakeFiles/Makefile2 sem_to_costmap/CMakeFiles/roscpp_generate_messages_py.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/kseniia/catkin_ws/build/CMakeFiles 0
-.PHONY : sem_to_costmap_cpp/CMakeFiles/roscpp_generate_messages_py.dir/rule
+.PHONY : sem_to_costmap/CMakeFiles/roscpp_generate_messages_py.dir/rule
 
 # Convenience name for target.
-roscpp_generate_messages_py: sem_to_costmap_cpp/CMakeFiles/roscpp_generate_messages_py.dir/rule
+roscpp_generate_messages_py: sem_to_costmap/CMakeFiles/roscpp_generate_messages_py.dir/rule
 
 .PHONY : roscpp_generate_messages_py
 
 # clean rule for target.
-sem_to_costmap_cpp/CMakeFiles/roscpp_generate_messages_py.dir/clean:
-	$(MAKE) -f sem_to_costmap_cpp/CMakeFiles/roscpp_generate_messages_py.dir/build.make sem_to_costmap_cpp/CMakeFiles/roscpp_generate_messages_py.dir/clean
-.PHONY : sem_to_costmap_cpp/CMakeFiles/roscpp_generate_messages_py.dir/clean
+sem_to_costmap/CMakeFiles/roscpp_generate_messages_py.dir/clean:
+	$(MAKE) -f sem_to_costmap/CMakeFiles/roscpp_generate_messages_py.dir/build.make sem_to_costmap/CMakeFiles/roscpp_generate_messages_py.dir/clean
+.PHONY : sem_to_costmap/CMakeFiles/roscpp_generate_messages_py.dir/clean
 
 #=============================================================================
 # Special targets to cleanup operation of make.

@@ -486,10 +486,10 @@ rospy_DIR:PATH=/opt/ros/noetic/share/rospy/cmake
 rostime_DIR:PATH=/opt/ros/noetic/share/rostime/cmake
 
 //Value Computed by CMake
-sem_to_costmap_cpp_BINARY_DIR:STATIC=/home/kseniia/catkin_ws/build/sem_to_costmap_cpp
+sem_to_costmap_BINARY_DIR:STATIC=/home/kseniia/catkin_ws/build/sem_to_costmap
 
 //Value Computed by CMake
-sem_to_costmap_cpp_SOURCE_DIR:STATIC=/home/kseniia/catkin_ws/src/sem_to_costmap_cpp
+sem_to_costmap_SOURCE_DIR:STATIC=/home/kseniia/catkin_ws/src/sem_to_costmap
 
 //Value Computed by CMake
 semantic_to_occupancy_BINARY_DIR:STATIC=/home/kseniia/catkin_ws/build/semantic_to_occupancy

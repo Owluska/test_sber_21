@@ -1,2 +1,2 @@
-sem_to_costmap_cpp:semantic_to_occupancy
+sem_to_costmap:semantic_to_occupancy
 -DCATKIN_DEVEL_PREFIX=/home/kseniia/catkin_ws/devel -DCMAKE_INSTALL_PREFIX=/home/kseniia/catkin_ws/install -G Unix Makefiles
