@@ -5,4 +5,4 @@ Description: Description of sem_to_costmap
 Version: 0.0.0
 Cflags: 
 Libs: -L${prefix}/lib 
-Requires: nav_msgs roscpp sensor_msgs std_msgs pcl_conversions pcl_ros
+Requires: 

@@ -3,6 +3,8 @@ project(sem_to_costmap)
 
 ## Compile as C++11, supported in ROS Kinetic and newer
 add_compile_options(-std=c++11)
+set(CMAKE_CXX_STANDARD 14)
+set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
 ## Find catkin macros and libraries
 ## if COMPONENTS list like find_package(catkin REQUIRED COMPONENTS xyz)
@@ -109,7 +111,7 @@ find_package(catkin REQUIRED COMPONENTS
 catkin_package(
   #INCLUDE_DIRS include
   #LIBRARIES sem_to_costmap
-  CATKIN_DEPENDS nav_msgs roscpp sensor_msgs std_msgs pcl_conversions pcl_ros
+  #CATKIN_DEPENDS nav_msgs roscpp sensor_msgs std_msgs pcl_conversions pcl_ros
   #DEPENDS system_lib
 )
 
@@ -122,8 +124,10 @@ catkin_package(
 include_directories(
   include
   ${catkin_INCLUDE_DIRS}
+  #${PCL_LIBRARY_DIRS}
 )
 
+#link_directories(${PCL_LIBRARIES}, ${PCL_LIBRARY_DIRS})
 ## Declare a C++ library
 # add_library(${PROJECT_NAME}
 #   src/${PROJECT_NAME}/sem_to_costmap.cpp

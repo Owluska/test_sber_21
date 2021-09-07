@@ -482,6 +482,12 @@ message_generation_DIR:PATH=/opt/ros/noetic/share/message_generation/cmake
 //The directory containing a CMake configuration file for message_runtime.
 message_runtime_DIR:PATH=/opt/ros/noetic/share/message_runtime/cmake
 
+//Value Computed by CMake
+my_pcl_tutorial_BINARY_DIR:STATIC=/home/kseniia/catkin_ws/build/my_pcl_tutorial
+
+//Value Computed by CMake
+my_pcl_tutorial_SOURCE_DIR:STATIC=/home/kseniia/catkin_ws/src/my_pcl_tutorial
+
 //The directory containing a CMake configuration file for nav_msgs.
 nav_msgs_DIR:PATH=/opt/ros/noetic/share/nav_msgs/cmake
 

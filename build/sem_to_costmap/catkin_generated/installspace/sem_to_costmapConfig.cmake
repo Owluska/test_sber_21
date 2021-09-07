@@ -185,7 +185,7 @@ foreach(t ${sem_to_costmap_EXPORTED_TARGETS})
   endif()
 endforeach()
 
-set(depends "nav_msgs;roscpp;sensor_msgs;std_msgs;pcl_conversions;pcl_ros")
+set(depends "")
 foreach(depend ${depends})
   string(REPLACE " " ";" depend_list ${depend})
   # the package name of the dependency must be kept in a unique variable so that it is not overwritten in recursive calls

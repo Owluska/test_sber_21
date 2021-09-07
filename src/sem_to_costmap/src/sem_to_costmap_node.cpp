@@ -2,6 +2,8 @@
 #include "sensor_msgs/PointCloud2.h"
 #include "nav_msgs/OccupancyGrid.h"
 #include <pcl_conversions/pcl_conversions.h>
+#include <pcl/point_cloud.h>
+#include <pcl/features/normal_3d.h>
 
 
 class points_to_map{
@@ -36,6 +38,32 @@ float unpack(std::vector<uint32_t> bytes, bool isBigEndian)
     }
     return f;
 }
+
+pcl::PointCloud<pcl::PointXYZ>::Ptr conversion(const boost::shared_ptr<const sensor_msgs::PointCloud2>& msg_input)
+{
+    pcl::PCLPointCloud2 pcl_pc2;
+    pcl_conversions::toPCL(*msg_input,pcl_pc2);
+    pcl::PointCloud<pcl::PointXYZ>::Ptr temp_cloud(new pcl::PointCloud<pcl::PointXYZ>);
+    pcl::fromPCLPointCloud2(pcl_pc2,*temp_cloud);
+    return temp_cloud;
+}
+void calc_surface_Normals(pcl::PointCloud<pcl::PointXYZRGB>::Ptr& input_cloud,
+                          const pcl::PointCloud<pcl::Normal> normals)
+{
+    // //conversion from sensor_msgs::PointCloud2 to pcl::PointCloud2
+    // pcl::PCLPointCloud2 pcl_pc2;
+    // pcl_conversions::toPCL(*msg_input,pcl_pc2);
+    // pcl::PointCloud<pcl::PointXYZ>::Ptr temp_cloud(new pcl::PointCloud<pcl::PointXYZ>);
+    // pcl::fromPCLPointCloud2(pcl_pc2,*temp_cloud);
+    //estimates local surface properties (surface normals and curvatures)at each 3D point
+    pcl::NormalEstimation<pcl::PointXYZRGB, pcl::_Normal> ne;
+    ne.setInputCloud(input_cloud);
+    pcl::search::KdTree<pcl::PointXYZRGB>::Ptr tree(new pcl::search::KdTree<pcl::PointXYZRGB>());
+    ne.setSearchMethod(tree);
+    ne.setRadiusSearch(0.05);
+    ne.compute(normals);
+}
+
 int main(int argc, char **argv)
 {
     std::string topic = std::string("/stereo_depth/point_cloud");
