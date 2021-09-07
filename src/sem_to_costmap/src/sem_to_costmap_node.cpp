@@ -1,6 +1,8 @@
 #include "ros/ros.h"
 #include "sensor_msgs/PointCloud2.h"
 #include "nav_msgs/OccupancyGrid.h"
+#include <pcl_conversions/pcl_conversions.h>
+
 
 class points_to_map{
     public:
@@ -20,6 +22,20 @@ void points_to_map::myCallback(const sensor_msgs::PointCloud2::ConstPtr& msg)
         this->ifGot = true;
 }
 
+float unpack(std::vector<uint32_t> bytes, bool isBigEndian)
+{
+    float f = 0.0;
+    uint8_t* f_p = (uint8_t*)&f;
+    uint8_t dl = sizeof(f);
+    for(int i = 0; i < dl; i++)
+    {
+        if(isBigEndian)
+            f_p[dl - i] = bytes[i];
+        else
+            f_p[i] = bytes[i];
+    }
+    return f;
+}
 int main(int argc, char **argv)
 {
     std::string topic = std::string("/stereo_depth/point_cloud");
@@ -54,27 +70,25 @@ int main(int argc, char **argv)
             ptmObject.ifGot = false;
             
             auto raw_data = ptmObject.points_msg.data;
-            int data_length = raw_data.size();
-            int bytes_count = ptmObject.points_msg.fields[1].offset;
-            std::vector<float> unpacked(data_length/4);
+            uint8_t bytes_count = ptmObject.points_msg.fields[1].offset;
+            std::vector<float> unpacked(raw_data.size()/4);
             bool isBigEndian = ptmObject.points_msg.is_bigendian;
 
             for(int i = 0; i < raw_data.back(); i++)
             {
-                float f = 0.0;
-                uint8_t *f_ptr = (uint8_t*)&f;
-                for(uint8_t j = 0; j < bytes_count; j++)
-                {   
-                    
-                    if(isBigEndian)
-                        f_ptr[bytes_count - 1 - j] = raw_data[i+j];
-                    else
-                        f_ptr[j] = raw_data[i+j];       
+                std::vector<uint32_t> buf(4);
+                for(uint8_t j = 0; j < sizeof(float); j ++)
+                {
+                    buf[j] = raw_data[j+i];
                 }
+                float f = unpack(buf, isBigEndian);
 
                 unpacked[i] = f;
+                ROS_INFO("%.2f",f);
                 i += bytes_count - 1;
-            }           
+            }
+
+            ROS_INFO("Got vector with l: %d", unpacked.back());
             //pub.publish(ptmObject.map_msg);
         }
         ros::spinOnce();

@@ -5,7 +5,9 @@
             "includePath": [
                 "${workspaceFolder}/**",
                 "/opt/ros/noetic/include",
-                "~/basic_ros_ws/devel/include"
+                "~/basic_ros_ws/devel/include",
+                "/usr/include/pcl-1.10",
+                "/usr/include/eigen3"
             ],
             "defines": [],
             "compilerPath": "/usr/bin/gcc",
