@@ -13,9 +13,11 @@ class points_to_map{
 
 void points_to_map::myCallback(const sensor_msgs::PointCloud2::ConstPtr& msg)
 {
-    //TODO check if this right 
-    this->points_msg = *msg;
-    this->ifGot = true;
+    //TODO check if this right
+    auto pntr = msg;
+    if (pntr != nullptr) 
+        this->points_msg = *pntr;
+        this->ifGot = true;
 }
 
 int main(int argc, char **argv)
@@ -24,7 +26,6 @@ int main(int argc, char **argv)
     //ROS_INFO("Starting node..");
 
     points_to_map ptmObject;
-    
     
     ros::init(argc, argv, "sem_to_costmap");
     ros::NodeHandle n;
@@ -41,8 +42,8 @@ int main(int argc, char **argv)
 
     ptmObject.map_msg.header.frame_id = "map";
     
-    ros::Publisher pub = n.advertise<nav_msgs::OccupancyGrid>("costmap", 1000);
-    ros::Subscriber sub = n.subscribe<sensor_msgs::PointCloud2>(topic, 1000, &points_to_map::myCallback, &ptmObject);
+    ros::Publisher pub = n.advertise<nav_msgs::OccupancyGrid>("costmap", 10);
+    ros::Subscriber sub = n.subscribe<sensor_msgs::PointCloud2>(topic, 10, &points_to_map::myCallback, &ptmObject);
 
     ros::Rate loop_rate(10);
     //ROS_INFO("Starting loop..");
@@ -52,32 +53,29 @@ int main(int argc, char **argv)
         {
             ptmObject.ifGot = false;
             
-            
             auto raw_data = ptmObject.points_msg.data;
             int data_length = raw_data.size();
             int bytes_count = ptmObject.points_msg.fields[1].offset;
             std::vector<float> unpacked(data_length/4);
             bool isBigEndian = ptmObject.points_msg.is_bigendian;
-            //for(int i, j = 0; i < data_length, j < data_length - 4; i++, j += 4)
-            for(auto i = raw_data.begin(); i != raw_data.end(); i++)
+
+            for(int i = 0; i < raw_data.back(); i++)
             {
-                uint32_t d = 0;
+                float f = 0.0;
+                uint8_t *f_ptr = (uint8_t*)&f;
                 for(uint8_t j = 0; j < bytes_count; j++)
-                {
-                    if(!isBigEndian)
-                        d |= (*i << j); 
+                {   
+                    
+                    if(isBigEndian)
+                        f_ptr[bytes_count - 1 - j] = raw_data[i+j];
                     else
-                        d |= (*i >> j);         
+                        f_ptr[j] = raw_data[i+j];       
                 }
-                unpacked.at(*i) = d;
-                ROS_INFO("%.2f,\t", unpacked.at(*i));
-                i += bytes_count;
+
+                unpacked[i] = f;
+                i += bytes_count - 1;
             }           
-            pub.publish(ptmObject.map_msg);
-        }
-        else
-        {
-            ROS_INFO("Empty..");
+            //pub.publish(ptmObject.map_msg);
         }
         ros::spinOnce();
         loop_rate.sleep();
