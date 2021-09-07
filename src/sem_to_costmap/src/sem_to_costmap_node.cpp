@@ -48,7 +48,7 @@ pcl::PointCloud<pcl::PointXYZ>::Ptr conversion(const boost::shared_ptr<const sen
     return temp_cloud;
 }
 void calc_surface_Normals(pcl::PointCloud<pcl::PointXYZRGB>::Ptr& input_cloud,
-                          const pcl::PointCloud<pcl::Normal> normals)
+                          pcl::PointCloud<pcl::_Normal>::Ptr normals)
 {
     // //conversion from sensor_msgs::PointCloud2 to pcl::PointCloud2
     // pcl::PCLPointCloud2 pcl_pc2;
@@ -61,7 +61,7 @@ void calc_surface_Normals(pcl::PointCloud<pcl::PointXYZRGB>::Ptr& input_cloud,
     pcl::search::KdTree<pcl::PointXYZRGB>::Ptr tree(new pcl::search::KdTree<pcl::PointXYZRGB>());
     ne.setSearchMethod(tree);
     ne.setRadiusSearch(0.05);
-    ne.compute(normals);
+    ne.compute(*normals);
 }
 
 int main(int argc, char **argv)
