@@ -40,7 +40,7 @@ float unpack(std::vector<uint32_t> bytes, bool isBigEndian)
 }
 
 void conversion(sensor_msgs::PointCloud2 msg_input,
-pcl::PointCloud<pcl::PointXYZRGB> &pcl_cloud)
+pcl::PointCloud<pcl::PointXYZ> &pcl_cloud)
 {
     //first convert from sensor_msgs to pcl_cpl2
     pcl::PCLPointCloud2 pcl_pc2;
@@ -49,18 +49,22 @@ pcl::PointCloud<pcl::PointXYZRGB> &pcl_cloud)
     //pcl::PointCloud<pcl::PointXYZ>::Ptr temp_cloud(new pcl::PointCloud<pcl::PointXYZ>);
     pcl::fromPCLPointCloud2(pcl_pc2, pcl_cloud);
 }
-void calc_surface_Normals(pcl::PointCloud<pcl::PointXYZRGB>::Ptr& input_cloud,
-                          pcl::PointCloud<pcl::_Normal>::Ptr normals)
+void calc_surface_Normals(pcl::PointCloud<pcl::PointXYZ> &input_cloud,
+                          pcl::PointCloud<pcl::_Normal> normals)
 {
-    pcl::NormalEstimation<pcl::PointXYZRGB, pcl::_Normal> ne;
-    ne.setInputCloud(input_cloud);
-    pcl::search::KdTree<pcl::PointXYZRGB>::Ptr tree(new pcl::search::KdTree<pcl::PointXYZRGB>());
+    pcl::NormalEstimation<pcl::PointXYZ, pcl::_Normal> ne;
+    // pcl::PointCloud<pcl::PointXYZRGB>::Ptr cloudPTR(new pcl::PointCloud<pcl::PointXYZRGB>);
+    // *cloudPTR = createPointCloud(input_cloud);
+    boost::shared_ptr<pcl::PointCloud<pcl::PointXYZ>> ptr(&input_cloud);
+    //shared_ptr< Feature<PointInT, PointOutT> >
+    ne.setInputCloud(ptr);
+    pcl::search::KdTree<pcl::PointXYZ>::Ptr tree(new pcl::search::KdTree<pcl::PointXYZ>());
     ne.setSearchMethod(tree);
     ne.setRadiusSearch(0.05);
-    ne.compute(*normals);
+    ne.compute(normals);
 }
 
-void calcSize(double &xMax, double &yMax, double &xMin, double &yMin,
+void calcMapSizes(double &xMax, double &yMax, double &xMin, double &yMin,
                                       pcl::PointCloud<pcl::PointXYZ> cld)
 {
     for(int p = 0; p < cld.size(); p++)
@@ -133,8 +137,11 @@ int main(int argc, char **argv)
             //     i += bytes_count - 1;
             // }
             // ROS_INFO("Got vector with l: %d", unpacked.back());
-            pcl::PointCloud<pcl::PointXYZRGB> cld;
+            pcl::PointCloud<pcl::PointXYZ> cld;
+            // pcl::PointCloud<pcl::PointXYZRGB> _cld;
+            pcl::PointCloud<pcl::_Normal> norm;
             conversion(ptmObject.points_msg, cld);
+            calc_surface_Normals(cld, norm);
 
 
             ROS_INFO("Got vector with l: %d", cld.size());
