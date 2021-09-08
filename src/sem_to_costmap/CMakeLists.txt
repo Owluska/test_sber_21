@@ -4,7 +4,6 @@ project(sem_to_costmap)
 ## Compile as C++11, supported in ROS Kinetic and newer
 add_compile_options(-std=c++11)
 set(CMAKE_CXX_STANDARD 14)
-set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
 ## Find catkin macros and libraries
 ## if COMPONENTS list like find_package(catkin REQUIRED COMPONENTS xyz)
@@ -21,7 +20,6 @@ find_package(catkin REQUIRED COMPONENTS
 
 ## System dependencies are found with CMake's conventions
 # find_package(Boost REQUIRED COMPONENTS system)
-
 
 ## Uncomment this if the package has a setup.py. This macro ensures
 ## modules and global scripts declared therein get installed
@@ -109,10 +107,10 @@ find_package(catkin REQUIRED COMPONENTS
 ## CATKIN_DEPENDS: catkin_packages dependent projects also need
 ## DEPENDS: system dependencies of this project that dependent projects also need
 catkin_package(
-  #INCLUDE_DIRS include
-  #LIBRARIES sem_to_costmap
-  #CATKIN_DEPENDS nav_msgs roscpp sensor_msgs std_msgs pcl_conversions pcl_ros
-  #DEPENDS system_lib
+  # INCLUDE_DIRS include
+  # LIBRARIES 
+  # CATKIN_DEPENDS nav_msgs roscpp sensor_msgs std_msgs pcl_msgs pcl_ros pcl_conversions
+  # DEPENDS PCL
 )
 
 ###########
@@ -124,10 +122,8 @@ catkin_package(
 include_directories(
   include
   ${catkin_INCLUDE_DIRS}
-  #${PCL_LIBRARY_DIRS}
 )
 
-#link_directories(${PCL_LIBRARIES}, ${PCL_LIBRARY_DIRS})
 ## Declare a C++ library
 # add_library(${PROJECT_NAME}
 #   src/${PROJECT_NAME}/sem_to_costmap.cpp

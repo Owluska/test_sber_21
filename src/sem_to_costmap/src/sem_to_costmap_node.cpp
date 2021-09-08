@@ -3,7 +3,7 @@
 #include "nav_msgs/OccupancyGrid.h"
 #include <pcl_conversions/pcl_conversions.h>
 #include <pcl/point_cloud.h>
-#include <pcl/features/normal_3d.h>
+#include <pcl/features/impl/normal_3d.hpp>
 
 
 class points_to_map{
@@ -50,12 +50,6 @@ pcl::PointCloud<pcl::PointXYZ>::Ptr conversion(const boost::shared_ptr<const sen
 void calc_surface_Normals(pcl::PointCloud<pcl::PointXYZRGB>::Ptr& input_cloud,
                           pcl::PointCloud<pcl::_Normal>::Ptr normals)
 {
-    // //conversion from sensor_msgs::PointCloud2 to pcl::PointCloud2
-    // pcl::PCLPointCloud2 pcl_pc2;
-    // pcl_conversions::toPCL(*msg_input,pcl_pc2);
-    // pcl::PointCloud<pcl::PointXYZ>::Ptr temp_cloud(new pcl::PointCloud<pcl::PointXYZ>);
-    // pcl::fromPCLPointCloud2(pcl_pc2,*temp_cloud);
-    //estimates local surface properties (surface normals and curvatures)at each 3D point
     pcl::NormalEstimation<pcl::PointXYZRGB, pcl::_Normal> ne;
     ne.setInputCloud(input_cloud);
     pcl::search::KdTree<pcl::PointXYZRGB>::Ptr tree(new pcl::search::KdTree<pcl::PointXYZRGB>());

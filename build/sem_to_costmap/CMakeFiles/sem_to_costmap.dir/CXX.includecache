@@ -17,7 +17,7 @@ pcl_conversions/pcl_conversions.h
 -
 pcl/point_cloud.h
 -
-pcl/features/normal_3d.h
+pcl/features/impl/normal_3d.hpp
 -
 
 /opt/ros/noetic/include/geometry_msgs/Point.h
