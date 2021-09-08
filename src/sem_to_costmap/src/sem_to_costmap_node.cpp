@@ -5,7 +5,7 @@
 #include <pcl/point_cloud.h>
 #include <pcl/features/impl/normal_3d.hpp>
 
-
+//rosrun sem_to_costmap sem_to_costmap
 class points_to_map{
     public:
         nav_msgs::OccupancyGrid map_msg;
@@ -64,21 +64,22 @@ void calc_surface_Normals(pcl::PointCloud<pcl::PointXYZ> &input_cloud,
     ne.compute(normals);
 }
 
-void calcMapSizes(double &xMax, double &yMax, double &xMin, double &yMin,
-                                      pcl::PointCloud<pcl::PointXYZ> cld)
+void calcMapSizes(float &x_max, float &y_max, float &x_min, float &y_min,
+                                pcl::PointCloud<pcl::PointXYZ> cld)
 {
-    for(int p = 0; p < cld.size(); p++)
+    for(int i = 0; i < cld.size(); i++)
     {
-        double x = cld.points[p].x;
-        double y = cld.points[p].y;
-        if(xMax < x)
-            xMax = x;
-        if(xMin > x)
-            xMin = x;
-        if(yMax < y)
-            yMax = y;
-        if(yMin > y)
-            yMin = y;
+        double x = cld.points[i].x;
+        double y = cld.points[i].y;
+
+        if(x_max < x)
+            x_max = x;
+        if(x_min > x)
+            x_min = x;
+        if(y_max < y)
+            y_max = y;
+        if(y_min > y)
+            y_min = y;
     }
 }
 
@@ -92,8 +93,10 @@ int main(int argc, char **argv)
     ros::init(argc, argv, "sem_to_costmap");
     ros::NodeHandle n;
 
-    double xMin,  yMin = 1000;
-    double xMax,  yMax = -1000;
+    float xMin, yMin = 1000.0;
+    float xMax, yMax = -1000.0;
+
+
 
 
     ptmObject.map_msg.info.origin.position.x = 0;
@@ -138,13 +141,14 @@ int main(int argc, char **argv)
             // }
             // ROS_INFO("Got vector with l: %d", unpacked.back());
             pcl::PointCloud<pcl::PointXYZ> cld;
-            // pcl::PointCloud<pcl::PointXYZRGB> _cld;
             pcl::PointCloud<pcl::_Normal> norm;
             conversion(ptmObject.points_msg, cld);
-            calc_surface_Normals(cld, norm);
+            calcMapSizes(xMax, yMax, xMin, yMin, cld);
+            // calc_surface_Normals(cld, norm);
 
 
-            ROS_INFO("Got vector with l: %d", cld.size());
+            //ROS_INFO("Got vector:\nx %f, y %f, z %f, %f", cld.points[0].x, cld.points[0].y, cld.points[0].z, cld.points[0].data[3]);
+            //ROS_INFO("Got vector:\nxmax %.2f, ymax %.2f, xmin %.2f, ymin %.2f", xMax, yMax, xMin, yMin);
             //pub.publish(ptmObject.map_msg);
         }
         ros::spinOnce();
