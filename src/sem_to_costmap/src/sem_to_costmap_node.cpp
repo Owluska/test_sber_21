@@ -159,7 +159,7 @@ int main(int argc, char **argv)
     ptmObject.map_msg.info.origin.orientation.y = 0;
     ptmObject.map_msg.info.origin.orientation.z = 0;
     ptmObject.map_msg.info.origin.orientation.w = 1;
-    ptmObject.map_msg.info.resolution = 1.0;
+    ptmObject.map_msg.info.resolution = 0.01;
 
     ptmObject.map_msg.header.frame_id = "map";
     ptmObject.map_msg.header.seq = 1;
@@ -186,16 +186,20 @@ int main(int argc, char **argv)
             calcMapSizes(xMax, yMax, xMin, yMin, cld);
 
 
-            std::vector<int8_t> _map(1e6);
+            
             
             float resolution = ptmObject.map_msg.info.resolution;
             int width = (int)((xMax - xMin)/resolution);
             int height = (int)((yMax - yMin)/resolution);
 
+            int map_size = (int)(width * height);
+            std::vector<int8_t> _map(map_size);
+
             generateMap(cld, xMax, yMax, xMin, yMin, _map, resolution);
             updateGrid(ptmObject.map_msg, _map, width, height);
                        
             pub.publish(ptmObject.map_msg);
+            //ROS_INFO("Published map msg %d %d", width, height);
         }
         
         loop_rate.sleep();
