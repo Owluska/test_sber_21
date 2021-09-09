@@ -3,6 +3,7 @@
 #include "nav_msgs/OccupancyGrid.h"
 #include <pcl_conversions/pcl_conversions.h>
 #include <pcl/point_cloud.h>
+#include <pcl/pcl_base.h>
 #include <pcl/features/impl/normal_3d.hpp>
 
 //rosrun sem_to_costmap sem_to_costmap
@@ -40,7 +41,7 @@ float unpack(std::vector<uint32_t> bytes, bool isBigEndian)
 }
 
 void conversion(sensor_msgs::PointCloud2 msg_input,
-pcl::PointCloud<pcl::PointXYZ> &pcl_cloud)
+                pcl::PointCloud<pcl::PointXYZ> &pcl_cloud)
 {
     //first convert from sensor_msgs to pcl_cpl2
     pcl::PCLPointCloud2 pcl_pc2;
@@ -50,18 +51,18 @@ pcl::PointCloud<pcl::PointXYZ> &pcl_cloud)
     pcl::fromPCLPointCloud2(pcl_pc2, pcl_cloud);
 }
 void calc_surface_Normals(pcl::PointCloud<pcl::PointXYZ> &input_cloud,
-                          pcl::PointCloud<pcl::_Normal> normals)
+                          pcl::PointCloud<pcl::_Normal> &normals)
 {
     pcl::NormalEstimation<pcl::PointXYZ, pcl::_Normal> ne;
-    // pcl::PointCloud<pcl::PointXYZRGB>::Ptr cloudPTR(new pcl::PointCloud<pcl::PointXYZRGB>);
-    // *cloudPTR = createPointCloud(input_cloud);
-    boost::shared_ptr<pcl::PointCloud<pcl::PointXYZ>> ptr(&input_cloud);
-    //shared_ptr< Feature<PointInT, PointOutT> >
-    ne.setInputCloud(ptr);
+
+    pcl::PointCloud<pcl::PointXYZ>::Ptr cloud_ptr(new pcl::PointCloud<pcl::PointXYZ>);
+    *cloud_ptr = input_cloud;
+    
+    ne.setInputCloud(cloud_ptr);
     pcl::search::KdTree<pcl::PointXYZ>::Ptr tree(new pcl::search::KdTree<pcl::PointXYZ>());
     ne.setSearchMethod(tree);
     ne.setRadiusSearch(0.05);
-    ne.compute(normals);
+    ne.compute(normals);    
 }
 
 void calcMapSizes(float &x_max, float &y_max, float &x_min, float &y_min,
@@ -141,14 +142,17 @@ int main(int argc, char **argv)
             // }
             // ROS_INFO("Got vector with l: %d", unpacked.back());
             pcl::PointCloud<pcl::PointXYZ> cld;
-            pcl::PointCloud<pcl::_Normal> norm;
+            pcl::PointCloud<pcl::_Normal> nrm;
             conversion(ptmObject.points_msg, cld);
             calcMapSizes(xMax, yMax, xMin, yMin, cld);
+            calc_surface_Normals(cld, nrm);
             // calc_surface_Normals(cld, norm);
 
 
-            //ROS_INFO("Got vector:\nx %f, y %f, z %f, %f", cld.points[0].x, cld.points[0].y, cld.points[0].z, cld.points[0].data[3]);
+            ROS_INFO("Got vector:\nx %f, y %f, z %f, %f", cld.points[0].x, cld.points[0].y, cld.points[0].z, cld.points[0].data[3]);
             //ROS_INFO("Got vector:\nxmax %.2f, ymax %.2f, xmin %.2f, ymin %.2f", xMax, yMax, xMin, yMin);
+            
+            
             //pub.publish(ptmObject.map_msg);
         }
         ros::spinOnce();

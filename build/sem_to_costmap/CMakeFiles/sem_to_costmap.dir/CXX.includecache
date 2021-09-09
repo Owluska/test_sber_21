@@ -17,6 +17,8 @@ pcl_conversions/pcl_conversions.h
 -
 pcl/point_cloud.h
 -
+pcl/pcl_base.h
+-
 pcl/features/impl/normal_3d.hpp
 -
 
