@@ -8,7 +8,7 @@
  ```$roslaunch semantic_to_occupancy sem_to_ocp_grid.launch```
   
 # Для запуска C++ ноды
-Указать актуальный путь к *.bag файлу, для этого [в файле](https://github.com/Owluska/test_sber_21/tree/master/src/semantic_to_occupancy/src/launch/sem_to_ocp_grid.launch)
+Указать актуальный путь к *.bag файлу, для этого [в файле](https://github.com/Owluska/test_sber_21/tree/master/src/sem_to_costmap/launch/bag.launch)
 изменить аргумент ```path```
 
 После этого запустить ноду следующей командой в bash:
