@@ -1,14 +1,17 @@
 # test_sber_21
-# Для запуска ноды
+# Для запуска python ноды
+Указать актуальный путь к *.bag файлу, для этого в файле
 
  ```$roslaunch semantic_to_occupancy sem_to_ocp_grid.launch```
- 
- 
- Если необходимо, выбрать путь к *.bag файлу, для этого в файле
+  
  [в файле](https://github.com/Owluska/test_sber_21/tree/master/src/semantic_to_occupancy/src/launch/sem_to_ocp_grid.launch)
  изменить аргумент ```path```
 
  # Для просмотра карты в rviz
-Добавить карту с отслеживанием топика ```/costmap```
+Добавить карту с отслеживанием топика ```/costmap```, для этого в Rviz
 
-add->from topic->/costmap
+1. В левом нижнем углу выбрать кнопку "Add"
+
+2. В появившемся окне выбрать вкладку "By topic"
+
+3. Выбрать /costmap
