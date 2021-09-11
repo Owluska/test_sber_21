@@ -30,12 +30,12 @@ def unpack_points(msg):
 #     da.sort(axis = 0)
 #     return cost_map
 
-for topic, msg, t in bag.read_messages(topics = topic):   
+
+for topic, msg, t in bag.read_messages(topics = topic): 
     data = unpack_points(msg)
     fields = msg.fields
-    print(data)
-    print()
-    print(fields)
-    break
-
+    if data[3] != 1.0:
+        print(data)
+    # print()
+    # print(fields)
 bag.close()

@@ -3,6 +3,7 @@
 #include "nav_msgs/OccupancyGrid.h"
 #include <pcl_conversions/pcl_conversions.h>
 #include <pcl/point_cloud.h>
+#include <pcl/point_types.h>
 #include <pcl/pcl_base.h>
 #include <pcl/features/impl/normal_3d.hpp>
 
@@ -38,6 +39,23 @@ struct obsts{
     int bicycle = 18;
 };
 
+
+struct PointXYZfL
+{
+    PCL_ADD_POINT4D; // This adds the members x,y,z which can also be accessed using the point (which is float[4])
+    float c;
+    PCL_MAKE_ALIGNED_OPERATOR_NEW
+}EIGEN_ALIGN32;
+
+POINT_CLOUD_REGISTER_POINT_STRUCT(PointXYZfL,
+                                (float, x, x)
+                                (float, y, y)
+                                (float, z, z)
+                                (float, c, c)
+)
+
+
+
 void points_to_map::myCallback(const sensor_msgs::PointCloud2::ConstPtr& msg)
 {
     //TODO check if this right
@@ -47,7 +65,7 @@ void points_to_map::myCallback(const sensor_msgs::PointCloud2::ConstPtr& msg)
         this->ifGot = true;
 }
 
-float unpack(std::vector<uint32_t> bytes, bool isBigEndian)
+float unpack(std::vector<uint8_t> bytes, bool isBigEndian)
 {
     float f = 0.0;
     uint8_t* f_p = (uint8_t*)&f;
@@ -55,26 +73,28 @@ float unpack(std::vector<uint32_t> bytes, bool isBigEndian)
     for(int i = 0; i < dl; i++)
     {
         if(isBigEndian)
-            f_p[dl - i] = bytes[i];
+            f_p[dl - 1 - i] = bytes[i];
         else
             f_p[i] = bytes[i];
     }
     return f;
 }
 
-void conversion(sensor_msgs::PointCloud2 input_msg,
-                pcl::PointCloud<pcl::PointXYZ> &input_cloud)
+void conversion(sensor_msgs::PointCloud2 &input_msg,
+                pcl::PointCloud<PointXYZfL> &input_cloud)
 {
     //first convert from sensor_msgs to pcl_cpl2
     pcl::PCLPointCloud2 pcl2_cloud;
     pcl_conversions::toPCL(input_msg, pcl2_cloud);
+    // for( int i = 0; i < pcl2_cloud.data.size(); i++)
+    //     ROS_INFO("%d", pcl2_cloud.data[i]);
     //then convert from pcl_pcl2 to 
     //pcl::PointCloud<pcl::PointXYZ>::Ptr temp_cloud(new pcl::PointCloud<pcl::PointXYZ>);
     pcl::fromPCLPointCloud2(pcl2_cloud, input_cloud);
 }
 
 
-void generateMap(pcl::PointCloud<pcl::PointXYZ> cld, float x_max, float y_max, float x_min,
+void generateMap(pcl::PointCloud<PointXYZfL> cld, float x_max, float y_max, float x_min,
                  float y_min, std::vector<int8_t> &map_points, float resolution)
 {
     struct obsts o;
@@ -82,8 +102,9 @@ void generateMap(pcl::PointCloud<pcl::PointXYZ> cld, float x_max, float y_max, f
     {
         float x = cld.points[i].x;
         float y = cld.points[i].y;
-        int obstacle_type = (int)(cld.points[i].data[3]);
+        int obstacle_type = (int)(cld.points[i].c);
         //ROS_INFO("Obstacle_type %d", obstacle_type);
+        //ROS_INFO("Got vector:\nx %f, y %f, z %f, %f", cld.points[0].x, cld.points[0].y, cld.points[0].z, cld.points[0].data[3]);
 
 
 
@@ -92,7 +113,7 @@ void generateMap(pcl::PointCloud<pcl::PointXYZ> cld, float x_max, float y_max, f
         int iy = (int)((y - y_min)/resolution);
         int idx = ix * iy + ix;
                
-        //ROS_INFO("Index %d %d %d", ix, iy, idx);
+        //ROS_INFO("Class value %d", obstacle_type);
         if(obstacle_type == o.road || obstacle_type == o.terrain)
             map_points[idx] = 50;
         else if(obstacle_type == o.sidewalk || obstacle_type == o.sky)
@@ -103,7 +124,7 @@ void generateMap(pcl::PointCloud<pcl::PointXYZ> cld, float x_max, float y_max, f
 
 }
 void calcMapSizes(float &x_max, float &y_max, float &x_min, float &y_min,
-                                pcl::PointCloud<pcl::PointXYZ> cld)
+                                pcl::PointCloud<pcl::PointXYZL> cld)
 {
     for(int i = 0; i < cld.size(); i++)
     {
@@ -134,6 +155,49 @@ void updateGrid(nav_msgs::OccupancyGrid &msg, std::vector<int8_t> grid, int widt
     msg.info.height = height;
 
     msg.data = grid;
+}
+
+void preprocess_data(points_to_map &Obj, std::vector<float> &outp_data)
+{
+    auto raw_data = Obj.points_msg.data;
+    uint8_t bytes_count = Obj.points_msg.fields[1].offset;
+    bool isBigEndian = Obj.points_msg.is_bigendian;
+    
+    size_t size = (size_t)(raw_data.size()/bytes_count);
+    outp_data.resize(size);
+
+    for(int i = 0, u = 0; i < raw_data.size(); i += bytes_count, u++)
+    {
+        std::vector<uint8_t> buf(bytes_count);
+        for(uint8_t j = 0; j < bytes_count; j ++)
+        {
+            buf[j] = raw_data[j+i];
+        }
+        float f = unpack(buf, isBigEndian);
+
+        //outp_data.push_back(f);
+        outp_data[u] = f;
+        //ROS_INFO("A: %d %f %d", u, f, outp_data.size());
+    }  
+}
+
+void  getXYZL(std::vector<float> vec_data, std::vector<std::vector<float>> &outp_data)
+{
+    size_t cols = 4;
+    size_t rows = vec_data.size()/cols;
+    
+    outp_data.resize(rows, std::vector<float>(cols, 0.0));
+
+    for(int i = 0; i < rows; i++)
+    {
+        
+        std::vector<float> raw(4);
+        for(int j = 0; j < cols; j++)
+        {
+           outp_data[i][j] = vec_data[i*cols + j];
+        }
+        //outp_data.push_back(raw);        
+    }        
 }
 
 int main(int argc, char **argv)
@@ -178,27 +242,44 @@ int main(int argc, char **argv)
         if (ptmObject.ifGot)
         {
             ptmObject.ifGot = false;
+            auto raw_data = ptmObject.points_msg.data;
+            std::vector<float> pdata;
             
-            pcl::PointCloud<pcl::PointXYZ> cld;
-            pcl::PointCloud<pcl::_Normal> nrm;
+            preprocess_data(ptmObject, pdata);
+            //ROS_INFO("A: %2.f %.2f %.2f %.2f", pdata[0], pdata[1], pdata[2], pdata[3]);
+
+            std::vector<std::vector<float>> matrix;
+            getXYZL(pdata, matrix);
+            size_t rows = pdata.size()/4;
+            // for(int i = 0; i < rows; i ++)
+            // {
+            //     ROS_INFO("A: %.2f %.2f %.2f %.2f", matrix[i][0], matrix[i][1], matrix[i][2], matrix[i][3]);
+            // }
+
+            //ROS_INFO("A: %.2f %.2f %.2f %.2f", pdata[4], pdata[5], pdata[6], pdata[7]); 
+
             
-            conversion(ptmObject.points_msg, cld);
-            calcMapSizes(xMax, yMax, xMin, yMin, cld);
-
-
+            // pcl::PointCloud<PointXYZfL> cld;
             
-            
-            float resolution = ptmObject.map_msg.info.resolution;
-            int width = (int)((xMax - xMin)/resolution);
-            int height = (int)((yMax - yMin)/resolution);
+            // conversion(ptmObject.points_msg, cld);
+            // ROS_INFO("x %.2f, y %.2f, z %.2f, %.2f", cld.points[1].x, cld.points[1].y, cld.points[1].z, cld.points[1].c);
+            // for (int i = 0; i < cld.size(); i++)
+            //     if(cld.points[i].data[3] != 1.0) 
+            //         ROS_INFO("x %.2f, y %.2f, z %.2f, %.1f", cld.points[i].x, cld.points[i].y, cld.points[i].z, cld.points[i].data[3]);
 
-            int map_size = (int)(width * height);
-            std::vector<int8_t> _map(map_size);
+            // calcMapSizes(xMax, yMax, xMin, yMin, cld);
 
-            generateMap(cld, xMax, yMax, xMin, yMin, _map, resolution);
-            updateGrid(ptmObject.map_msg, _map, width, height);
+            // float resolution = ptmObject.map_msg.info.resolution;
+            // int width = (int)((xMax - xMin)/resolution);
+            // int height = (int)((yMax - yMin)/resolution);
+
+            // int map_size = (int)(width * height);
+            // std::vector<int8_t> _map(map_size);
+
+            // generateMap(cld, xMax, yMax, xMin, yMin, _map, resolution);
+            // updateGrid(ptmObject.map_msg, _map, width, height);
                        
-            pub.publish(ptmObject.map_msg);
+            // pub.publish(ptmObject.map_msg);
             //ROS_INFO("Published map msg %d %d", width, height);
         }
         
