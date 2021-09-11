@@ -40,20 +40,6 @@ struct obsts{
 };
 
 
-struct PointXYZfL
-{
-    PCL_ADD_POINT4D; // This adds the members x,y,z which can also be accessed using the point (which is float[4])
-    float c;
-    PCL_MAKE_ALIGNED_OPERATOR_NEW
-}EIGEN_ALIGN32;
-
-POINT_CLOUD_REGISTER_POINT_STRUCT(PointXYZfL,
-                                (float, x, x)
-                                (float, y, y)
-                                (float, z, z)
-                                (float, c, c)
-)
-
 
 
 void points_to_map::myCallback(const sensor_msgs::PointCloud2::ConstPtr& msg)
@@ -80,29 +66,15 @@ float unpack(std::vector<uint8_t> bytes, bool isBigEndian)
     return f;
 }
 
-void conversion(sensor_msgs::PointCloud2 &input_msg,
-                pcl::PointCloud<PointXYZfL> &input_cloud)
-{
-    //first convert from sensor_msgs to pcl_cpl2
-    pcl::PCLPointCloud2 pcl2_cloud;
-    pcl_conversions::toPCL(input_msg, pcl2_cloud);
-    // for( int i = 0; i < pcl2_cloud.data.size(); i++)
-    //     ROS_INFO("%d", pcl2_cloud.data[i]);
-    //then convert from pcl_pcl2 to 
-    //pcl::PointCloud<pcl::PointXYZ>::Ptr temp_cloud(new pcl::PointCloud<pcl::PointXYZ>);
-    pcl::fromPCLPointCloud2(pcl2_cloud, input_cloud);
-}
-
-
-void generateMap(pcl::PointCloud<PointXYZfL> cld, float x_max, float y_max, float x_min,
+void generateMap(std::vector<std::vector<float>> data, float x_max, float y_max, float x_min,
                  float y_min, std::vector<int8_t> &map_points, float resolution)
 {
     struct obsts o;
-    for(int i = 0; i < cld.size(); i++)
+    for(int i = 0; i < data.size(); i++)
     {
-        float x = cld.points[i].x;
-        float y = cld.points[i].y;
-        int obstacle_type = (int)(cld.points[i].c);
+        float x = data[i][0];
+        float y = data[i][1];
+        int obstacle_type = (int)(data[i][3]);
         //ROS_INFO("Obstacle_type %d", obstacle_type);
         //ROS_INFO("Got vector:\nx %f, y %f, z %f, %f", cld.points[0].x, cld.points[0].y, cld.points[0].z, cld.points[0].data[3]);
 
@@ -124,12 +96,12 @@ void generateMap(pcl::PointCloud<PointXYZfL> cld, float x_max, float y_max, floa
 
 }
 void calcMapSizes(float &x_max, float &y_max, float &x_min, float &y_min,
-                                pcl::PointCloud<pcl::PointXYZL> cld)
+                                std::vector<std::vector<float>> data)
 {
-    for(int i = 0; i < cld.size(); i++)
+    for(int i = 0; i < data.size(); i++)
     {
-        double x = cld.points[i].x;
-        double y = cld.points[i].y;
+        float x = data[i][0];
+        float y = data[i][1];
 
         if(x_max < x)
             x_max = x;
@@ -153,7 +125,7 @@ void updateGrid(nav_msgs::OccupancyGrid &msg, std::vector<int8_t> grid, int widt
 
     msg.info.width = width;
     msg.info.height = height;
-
+    
     msg.data = grid;
 }
 
@@ -210,8 +182,8 @@ int main(int argc, char **argv)
     ros::init(argc, argv, "sem_to_costmap");
     ros::NodeHandle n;
 
-    float xMin, yMin = 1000.0;
-    float xMax, yMax = -1000.0;
+    float xMin = 1000, yMin = 1000.0;
+    float xMax = -1000, yMax = -1000.0;
     
 
 
@@ -250,36 +222,27 @@ int main(int argc, char **argv)
 
             std::vector<std::vector<float>> matrix;
             getXYZL(pdata, matrix);
-            size_t rows = pdata.size()/4;
+            //size_t rows = pdata.size()/4;
             // for(int i = 0; i < rows; i ++)
             // {
             //     ROS_INFO("A: %.2f %.2f %.2f %.2f", matrix[i][0], matrix[i][1], matrix[i][2], matrix[i][3]);
             // }
 
-            //ROS_INFO("A: %.2f %.2f %.2f %.2f", pdata[4], pdata[5], pdata[6], pdata[7]); 
 
-            
-            // pcl::PointCloud<PointXYZfL> cld;
-            
-            // conversion(ptmObject.points_msg, cld);
-            // ROS_INFO("x %.2f, y %.2f, z %.2f, %.2f", cld.points[1].x, cld.points[1].y, cld.points[1].z, cld.points[1].c);
-            // for (int i = 0; i < cld.size(); i++)
-            //     if(cld.points[i].data[3] != 1.0) 
-            //         ROS_INFO("x %.2f, y %.2f, z %.2f, %.1f", cld.points[i].x, cld.points[i].y, cld.points[i].z, cld.points[i].data[3]);
+            calcMapSizes(xMax, yMax, xMin, yMin, matrix);
+            //ROS_INFO("%.2f %.2f %.2f %.2f", xMax, yMax, xMin, yMin);
 
-            // calcMapSizes(xMax, yMax, xMin, yMin, cld);
+            float resolution = ptmObject.map_msg.info.resolution;
+            int width = (int)((xMax - xMin)/resolution);
+            int height = (int)((yMax - yMin)/resolution);
 
-            // float resolution = ptmObject.map_msg.info.resolution;
-            // int width = (int)((xMax - xMin)/resolution);
-            // int height = (int)((yMax - yMin)/resolution);
+            int map_size = (int)(width * height);
+            std::vector<int8_t> _map(map_size);
 
-            // int map_size = (int)(width * height);
-            // std::vector<int8_t> _map(map_size);
-
-            // generateMap(cld, xMax, yMax, xMin, yMin, _map, resolution);
-            // updateGrid(ptmObject.map_msg, _map, width, height);
+            generateMap(matrix, xMax, yMax, xMin, yMin, _map, resolution);
+            updateGrid(ptmObject.map_msg, _map, width, height);
                        
-            // pub.publish(ptmObject.map_msg);
+            pub.publish(ptmObject.map_msg);
             //ROS_INFO("Published map msg %d %d", width, height);
         }
         
