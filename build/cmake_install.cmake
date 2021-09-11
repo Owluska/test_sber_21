@@ -131,8 +131,8 @@ endif()
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for each subdirectory.
   include("/home/kseniia/catkin_ws/build/gtest/cmake_install.cmake")
-  include("/home/kseniia/catkin_ws/build/semantic_to_occupancy/cmake_install.cmake")
   include("/home/kseniia/catkin_ws/build/sem_to_costmap/cmake_install.cmake")
+  include("/home/kseniia/catkin_ws/build/semantic_to_occupancy/cmake_install.cmake")
 
 endif()
 

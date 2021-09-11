@@ -1,11 +1,6 @@
 #include "ros/ros.h"
 #include "sensor_msgs/PointCloud2.h"
 #include "nav_msgs/OccupancyGrid.h"
-#include <pcl_conversions/pcl_conversions.h>
-#include <pcl/point_cloud.h>
-#include <pcl/point_types.h>
-#include <pcl/pcl_base.h>
-#include <pcl/features/impl/normal_3d.hpp>
 
 //rosrun sem_to_costmap sem_to_costmap
 class points_to_map{
@@ -43,13 +38,14 @@ class points_to_map{
         float xMin = 0;
         float yMin = 0;
 
-        int width = 0;
-        int height = 0;
+        int map_width = 0;
+        int map_height = 0;
+
+        int map_size = 0;
+        float map_resolution = 1.0;
     
     public:
-        float resolution = 1.0;
         bool ifGot = false;
-        int map_size = 0;
         nav_msgs::OccupancyGrid map_msg;
         
         void myCallback(const sensor_msgs::PointCloud2::ConstPtr& msg)
@@ -99,7 +95,7 @@ class points_to_map{
             }  
         }
 
-        void  get_XYZL()
+        void get_XYZL()
         {
             size_t cols = 4;
             size_t rows = this->float_point_data.size()/cols;
@@ -141,9 +137,9 @@ class points_to_map{
                     this->yMin = y;
             }
             
-            this->width = (int)((this->xMax - this->xMin)/this->resolution);
-            this->height = (int)((this->yMax - this->yMin)/this->resolution);
-            this->map_size = this->height * this->width;
+            this->map_width = (int)((this->xMax - this->xMin)/this->map_resolution);
+            this->map_height = (int)((this->yMax - this->yMin)/this->map_resolution);
+            this->map_size = this->map_height * this->map_width;
         }
 
         void generate_map_data()
@@ -159,8 +155,8 @@ class points_to_map{
                 int obstacle_type = (int)(this->XYZLdata[i][3]);
 
                 //calculating index of map array
-                int ix = (int)((x - this->xMin)/resolution);
-                int iy = (int)((y - this->yMin)/resolution);
+                int ix = (int)((x - this->xMin)/map_resolution);
+                int iy = (int)((y - this->yMin)/map_resolution);
                 idx = ix * iy + ix;
                 //ROS_INFO("%d %d", map_points.size(), idx);
                     
@@ -186,7 +182,7 @@ class points_to_map{
             this->map_msg.info.origin.orientation.y = 0;
             this->map_msg.info.origin.orientation.z = 0;
             this->map_msg.info.origin.orientation.w = 1;
-            this->map_msg.info.resolution = 1;
+            this->map_msg.info.resolution = this->map_resolution;
 
             this->map_msg.header.frame_id = "map";
             this->map_msg.header.seq = 1;
@@ -202,11 +198,11 @@ class points_to_map{
             this->map_msg.header.stamp.nsec = ros::Time::now().nsec;
             this->map_msg.info.map_load_time = ros::Time::now();
 
-            this->map_msg.info.width = this->width;
-            this->map_msg.info.height = this->height;
+            this->map_msg.info.width = this->map_width;
+            this->map_msg.info.height = this->map_height;
 
-            this->map_msg.info.origin.position.x = -this->width / 2;
-            this->map_msg.info.origin.position.y = -this->height / 2;
+            this->map_msg.info.origin.position.x = -this->map_width / 2;
+            this->map_msg.info.origin.position.y = -this->map_height / 2;
 
             this->map_msg.data = this->map_data;
         }
