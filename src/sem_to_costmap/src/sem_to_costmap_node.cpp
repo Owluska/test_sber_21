@@ -85,13 +85,24 @@ void generateMap(std::vector<std::vector<float>> data, float x_max, float y_max,
         int iy = (int)((y - y_min)/resolution);
         int idx = ix * iy + ix;
                
-        //ROS_INFO("Class value %d", obstacle_type);
+        
         if(obstacle_type == o.road || obstacle_type == o.terrain)
+        {
+            //ROS_INFO("Gray c %d, i %d", obstacle_type, idx);
             map_points[idx] = 50;
+        }
         else if(obstacle_type == o.sidewalk || obstacle_type == o.sky)
-            map_points[idx] = 0;
+        {
+           //ROS_INFO("White c %d, i %d", obstacle_type, idx);
+           map_points[idx] = 0;
+        }
         else
+        {   
+            //ROS_INFO("Black c %d, i %d", obstacle_type, idx);
             map_points[idx] = 100;
+        }
+        if(i == data.size() - 1)
+            ROS_INFO("Last %d", idx);
     }
 
 }
@@ -125,7 +136,7 @@ void updateGrid(nav_msgs::OccupancyGrid &msg, std::vector<int8_t> grid, int widt
 
     msg.info.width = width;
     msg.info.height = height;
-    
+
     msg.data = grid;
 }
 
@@ -243,7 +254,7 @@ int main(int argc, char **argv)
             updateGrid(ptmObject.map_msg, _map, width, height);
                        
             pub.publish(ptmObject.map_msg);
-            //ROS_INFO("Published map msg %d %d", width, height);
+            ROS_INFO("Published map msg %d %d %d", width, height, _map.size());
         }
         
         loop_rate.sleep();
