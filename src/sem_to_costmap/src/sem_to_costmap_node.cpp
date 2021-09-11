@@ -94,8 +94,11 @@ class points_to_map{
                 //ROS_INFO("A: %d %f %d", u, f, outp_data.size());
             }  
         }
-
-        void get_XYZL()
+        
+        /**
+         * Reshapes data from std::vector<float> to std::vector<std::vector<float>>.
+         */
+        void reshape_floats()
         {
             size_t cols = 4;
             size_t rows = this->float_point_data.size()/cols;
@@ -117,9 +120,12 @@ class points_to_map{
         void preprocess_data()
         {
             bytes_to_floats();
-            get_XYZL();
+            reshape_floats();
         }
 
+        /**
+         * Calculates minimum and maximum x and y values of PointCloud2 data.
+         */
         void calc_map_sizes()
         {
             for(int i = 0; i < this->XYZLdata.size(); i++)
