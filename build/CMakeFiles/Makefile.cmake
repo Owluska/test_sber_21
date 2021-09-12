@@ -17,20 +17,12 @@ set(CMAKE_MAKEFILE_DEPENDS
   "cp2og_cpp/catkin_generated/package.cmake"
   "cp2og_python/catkin_generated/ordered_paths.cmake"
   "cp2og_python/catkin_generated/package.cmake"
-  "sem_to_costmap/catkin_generated/ordered_paths.cmake"
-  "sem_to_costmap/catkin_generated/package.cmake"
-  "semantic_to_occupancy/catkin_generated/ordered_paths.cmake"
-  "semantic_to_occupancy/catkin_generated/package.cmake"
   "/home/kseniia/catkin_ws/src/CMakeLists.txt"
   "/home/kseniia/catkin_ws/src/cp2og_cpp/CMakeLists.txt"
   "/home/kseniia/catkin_ws/src/cp2og_cpp/package.xml"
   "/home/kseniia/catkin_ws/src/cp2og_python/CMakeLists.txt"
   "/home/kseniia/catkin_ws/src/cp2og_python/package.xml"
   "/home/kseniia/catkin_ws/src/cp2og_python/src/cp2og_python_node.py"
-  "/home/kseniia/catkin_ws/src/sem_to_costmap/CMakeLists.txt"
-  "/home/kseniia/catkin_ws/src/sem_to_costmap/package.xml"
-  "/home/kseniia/catkin_ws/src/semantic_to_occupancy/CMakeLists.txt"
-  "/home/kseniia/catkin_ws/src/semantic_to_occupancy/package.xml"
   "/opt/ros/noetic/share/actionlib_msgs/cmake/actionlib_msgs-extras.cmake"
   "/opt/ros/noetic/share/actionlib_msgs/cmake/actionlib_msgs-msg-extras.cmake"
   "/opt/ros/noetic/share/actionlib_msgs/cmake/actionlib_msgsConfig-version.cmake"
@@ -226,8 +218,6 @@ set(CMAKE_MAKEFILE_PRODUCTS
   "gtest/googletest/CMakeFiles/CMakeDirectoryInformation.cmake"
   "cp2og_cpp/CMakeFiles/CMakeDirectoryInformation.cmake"
   "cp2og_python/CMakeFiles/CMakeDirectoryInformation.cmake"
-  "sem_to_costmap/CMakeFiles/CMakeDirectoryInformation.cmake"
-  "semantic_to_occupancy/CMakeFiles/CMakeDirectoryInformation.cmake"
   )
 
 # Dependency information for all targets:
@@ -278,5 +268,4 @@ set(CMAKE_DEPEND_INFO_FILES
   "cp2og_cpp/CMakeFiles/rosgraph_msgs_generate_messages_eus.dir/DependInfo.cmake"
   "cp2og_cpp/CMakeFiles/roscpp_generate_messages_eus.dir/DependInfo.cmake"
   "cp2og_cpp/CMakeFiles/roscpp_generate_messages_py.dir/DependInfo.cmake"
-  "sem_to_costmap/CMakeFiles/sem_to_costmap.dir/DependInfo.cmake"
   )

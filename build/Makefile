@@ -765,19 +765,6 @@ roscpp_generate_messages_py/fast:
 	$(MAKE) -f cp2og_cpp/CMakeFiles/roscpp_generate_messages_py.dir/build.make cp2og_cpp/CMakeFiles/roscpp_generate_messages_py.dir/build
 .PHONY : roscpp_generate_messages_py/fast
 
-#=============================================================================
-# Target rules for targets named sem_to_costmap
-
-# Build rule for target.
-sem_to_costmap: cmake_check_build_system
-	$(MAKE) -f CMakeFiles/Makefile2 sem_to_costmap
-.PHONY : sem_to_costmap
-
-# fast build rule for target.
-sem_to_costmap/fast:
-	$(MAKE) -f sem_to_costmap/CMakeFiles/sem_to_costmap.dir/build.make sem_to_costmap/CMakeFiles/sem_to_costmap.dir/build
-.PHONY : sem_to_costmap/fast
-
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -837,7 +824,6 @@ help:
 	@echo "... rosgraph_msgs_generate_messages_eus"
 	@echo "... roscpp_generate_messages_eus"
 	@echo "... roscpp_generate_messages_py"
-	@echo "... sem_to_costmap"
 .PHONY : help
 
 

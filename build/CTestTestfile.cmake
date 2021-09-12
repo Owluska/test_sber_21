@@ -7,5 +7,3 @@
 subdirs("gtest")
 subdirs("cp2og_cpp")
 subdirs("cp2og_python")
-subdirs("sem_to_costmap")
-subdirs("semantic_to_occupancy")
