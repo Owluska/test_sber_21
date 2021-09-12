@@ -1,8 +1,0 @@
-prefix=/home/kseniia/catkin_ws/install
-
-Name: semantic_to_occupancy
-Description: Description of semantic_to_occupancy
-Version: 0.0.0
-Cflags: 
-Libs: -L${prefix}/lib 
-Requires: roscpp rospy std_msgs sensor_msgs nav_msgs
