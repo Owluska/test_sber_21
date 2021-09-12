@@ -1,0 +1,9 @@
+<launch>
+    <arg name="path" default="/home/kseniia/downloads/semantic_pseudo_point_cloud.bag" />
+    <arg name= "rviz" default="-d $(find cp2og_python)/rviz/map.rviz" />
+    
+    <node pkg="rosbag" type="play" name="player" output="screen" args="--clock $(arg path)"/>
+    <node pkg="cp2og_python" type="cp2og_python_node.py" name="cp2og_python_node"/>
+    <node pkg="tf" type="static_transform_publisher" name="link1_broadcaster" args="0 0 0 0 0 0 1 map base_link 100" />
+    <node pkg="rviz" type="rviz" name="rviz" args="$(arg rviz)"/>
+</launch>
