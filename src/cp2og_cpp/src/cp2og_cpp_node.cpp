@@ -5,7 +5,6 @@
 /**
  * Implementation of data transformation from sensor_msgs::PointCloud2
  * to nav_msgs::OccupancyGrid (Map)
- *
  */
 class points_to_map{
     private:
@@ -266,7 +265,7 @@ int main(int argc, char **argv)
     points_to_map ptmObject;
     
     //.......1.Starting ROS node
-    ros::init(argc, argv, "sem_to_costmap"); 
+    ros::init(argc, argv, "cp2og_cpp_node"); 
     /// ROS node handler variable   
     ros::NodeHandle n;
     //.......2.Initializing map message

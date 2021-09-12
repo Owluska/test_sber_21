@@ -39,6 +39,20 @@
 После этого запустить ноду следующей командой в bash:
 
  ```$roslaunch cp2og_python cp2og_python.launch```
+
+ Если нужно запустить ноду для тестирования без rviz:
+
+    создать два терминала
+
+    в одном запустить команду:
+
+```$roscore & rosbag play FULL_PATH_TO_BAG_FILE```,
+
+    где *FULL_PATH_TO_BAG_FILE* - это полный путь к *.bag файлу
+
+    в другом запустить ноду командой:
+
+ ```$rosrun cp2og_python cp2og_python_node.py``` 
   
 ## Для запуска C++ ноды
 
