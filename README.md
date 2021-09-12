@@ -51,7 +51,20 @@
 После этого запустить ноду следующей командой в bash:
 
  ```$roslaunch cp2og_cpp cp2og_cpp.launch```
-  
+
+ Если нужно запустить ноду для тестирования без rviz:
+
+    создать два терминала
+
+    в одном запустить команду:
+
+```$roscore & rosbag play FULL_PATH_TO_BAG_FILE```,
+
+    где *FULL_PATH_TO_BAG_FILE* - это полный путь к *.bag файлу
+
+    в другом запустить ноду командой:
+
+ ```$rosrun cp2og_cpp cp2og_cpp_node``` 
 
  ## Для просмотра карты в rviz
 

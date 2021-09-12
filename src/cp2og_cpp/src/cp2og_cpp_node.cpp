@@ -2,10 +2,16 @@
 #include "sensor_msgs/PointCloud2.h"
 #include "nav_msgs/OccupancyGrid.h"
 
-//rosrun sem_to_costmap sem_to_costmap
+/**
+ * Implementation of data transformation from sensor_msgs::PointCloud2
+ * to nav_msgs::OccupancyGrid (Map)
+ *
+ */
 class points_to_map{
     private:
+        /// Container for ROS PointCloud2 message.
         sensor_msgs::PointCloud2 points_msg;
+        /// Structure saving classes numbers for obstacles classes
         struct obsts{
             int road = 0;
             int sidewalk = 1;
@@ -27,27 +33,42 @@ class points_to_map{
             int motorcycle = 17;
             int bicycle = 18;
         }o;
-
+        ///Vector for saving 1D-float PointCloud2 data
         std::vector<float> float_point_data;
+        ///Vector for saving 2D-float PointCloud2 data
         std::vector<std::vector<float>> XYZLdata;
+        ///Vector for saving ROS nav_msgs::OccupancyGrid map data
         std::vector<int8_t> map_data;
 
-
+        ///Maximum x-value in PointCloud or Map data
         float xMax = 0;
+        ///Maximum y-value in PointCloud or Map data
         float yMax = 0;
+        ///Minimum x-value in PointCloud or Map data
         float xMin = 0;
+        ///Minimum y-value in PointCloud or Map data
         float yMin = 0;
 
+        ///Map width variable
         int map_width = 0;
+        ///Map height variable
         int map_height = 0;
-
+        ///Map size variable
         int map_size = 0;
+        ///Map resolution variable
         float map_resolution = 1.0;
     
     public:
+        /// Flag is set if data was recieved from sensor_msgs::PointCloud2 topic.
         bool ifGot = false;
+        /// Map message for ROS nav_msgs::OccupancyGrid topic 
         nav_msgs::OccupancyGrid map_msg;
+
         
+        /**
+         * sensor_msgs::PointCloud2 subscriber callback procedure
+         * @param - msg Pointer to ROS PointCloud2 message
+         */
         void myCallback(const sensor_msgs::PointCloud2::ConstPtr& msg)
         {
             auto pntr = msg;
@@ -56,6 +77,11 @@ class points_to_map{
                 this->ifGot = true;
         }
 
+        /**
+         * Procedure for convertation 4 unsigned byte numbers to 1 float number.
+         * @param - bytes - Input bytes array 
+         * @param - isBigEndian - Bytes order flag, if order is Big Endian - equals True
+         */
         float unpack(std::vector<uint8_t> bytes, bool isBigEndian)
         {
             float f = 0.0;
@@ -71,6 +97,9 @@ class points_to_map{
             return f;
         }
 
+        /**
+         * Reshapes data from std::vector<uint8_t> to std::vector<uint8_t>.
+         */
         void bytes_to_floats()
         {
             auto raw_data = this->points_msg.data;
@@ -78,7 +107,7 @@ class points_to_map{
             bool isBigEndian = this->points_msg.is_bigendian;
             
             size_t size = (size_t)(raw_data.size()/bytes_count);
-            this->float_point_data.resize(size);
+            this->float_point_data.resize(size, 0);
 
             for(int i = 0, u = 0; i < raw_data.size(); i += bytes_count, u++)
             {
@@ -88,10 +117,7 @@ class points_to_map{
                     buf[j] = raw_data[j+i];
                 }
                 float f = unpack(buf, isBigEndian);
-
-                //outp_data.push_back(f);
                 this->float_point_data[u] = f;
-                //ROS_INFO("A: %d %f %d", u, f, outp_data.size());
             }  
         }
         
@@ -112,8 +138,7 @@ class points_to_map{
                 for(int j = 0; j < cols; j++)
                 {
                     this->XYZLdata[i][j] = this->float_point_data[i*cols + j];
-                }
-                //outp_data.push_back(raw);        
+                }      
             }        
         }
 
@@ -147,12 +172,16 @@ class points_to_map{
             this->map_height = (int)((this->yMax - this->yMin)/this->map_resolution);
             this->map_size = this->map_height * this->map_width;
         }
-
+        
+        /**
+         * This procedure filling map with data from CloudPoint2.
+         */
         void generate_map_data()
         {
             calc_map_sizes();
             this->map_data.resize(this->map_size, 50);
-            //ROS_INFO("raw %d floats %d XYZL %d w %d h %d map %d", this->points_msg.data.size(), this->float_point_data, this->XYZLdata.size(), this->map_height, this->map_width, this->map_data.size());
+            ROS_INFO("raw %d floats %d XYZL %d w %d h %d map %d", this->points_msg.data.size(),\
+            this->float_point_data, this->XYZLdata.size(), this->map_width, this->map_height, this->map_data.size());
             int idx = 0;
             for(int i = 0; i < this->XYZLdata.size(); i++)
             {
@@ -160,11 +189,9 @@ class points_to_map{
                 float y = this->XYZLdata[i][1];
                 int obstacle_type = (int)(this->XYZLdata[i][3]);
 
-                //calculating index of map array
                 int ix = (int)((x - this->xMin)/map_resolution) - 1;
                 int iy = (int)((y - this->yMin)/map_resolution) - 1;
                 idx = ix * iy + ix;
-                //ROS_INFO("%d %d", map_points.size(), idx);
                     
                 if(this->map_data[idx] == 100 || this->map_data[idx] == 0)
                     continue;
@@ -180,7 +207,9 @@ class points_to_map{
 
             }
         }
-
+        /**
+         * This procedure initialazing map message container.
+         */
         void initialize_map()
         {
             this->map_msg.info.origin.position.x = 0;
@@ -198,7 +227,9 @@ class points_to_map{
             this->map_msg.header.stamp.sec = ros::Time::now().sec;
             this->map_msg.header.stamp.nsec = ros::Time::now().nsec; 
         }
-
+        /**
+         * This procedure updates data in ROS map message container.
+         */
         void update_map()
         {
             this->map_msg.header.seq ++;
@@ -219,44 +250,51 @@ class points_to_map{
 };
 
 
-
+/**
+ * Main function
+ */
 int main(int argc, char **argv)
 {
+    ///Subscriber topic name
     std::string topic = std::string("/stereo_depth/point_cloud");
-    
-
+    /// points_to_map class object
     points_to_map ptmObject;
     
-    
-    //ROS_INFO("Starting node..");
-    ros::init(argc, argv, "sem_to_costmap");    
+    //.......1.Starting ROS node
+    ros::init(argc, argv, "sem_to_costmap"); 
+    /// ROS node handler variable   
     ros::NodeHandle n;
-    //Cannot use ros::Time::now() before the first NodeHandle has been create
+    //.......2.Initializing map message
     ptmObject.initialize_map();  
     
+    ///Publisher topic variable creating and initialization
     ros::Publisher pub = n.advertise<nav_msgs::OccupancyGrid>("costmap", 1000);
+    ///Subscriber topic variable creating and initialization
     ros::Subscriber sub = n.subscribe<sensor_msgs::PointCloud2>(topic, 1000, &points_to_map::myCallback, &ptmObject);
-    //frequency in Herzs
+    ///Loop rate variable creating and initialization
     ros::Rate loop_rate(1000);
-
+    //.......3.If ROS - ok, loop
     while(ros::ok())
     {
         //ros::spinOnce() will call all the callbacks waiting to be called at that point in time.
         ros::spinOnce();
+        //.......4.Check if data from subscriber recieved
         if (ptmObject.ifGot)
         {
+            //.......5.Reseting flag
             ptmObject.ifGot = false;
-                      
-            ptmObject.preprocess_data();         
-            ptmObject.generate_map_data();           
+            //.......6.Transforming data from 1D bytes vector  to 2D floats vector          
+            ptmObject.preprocess_data();
+            //.......7.Filling map            
+            ptmObject.generate_map_data();
+            //.......8.Updating map message           
             ptmObject.update_map(); 
-                                
+            //.......9.Publishing map message       
             pub.publish(ptmObject.map_msg);
         }
-        
+        //.......10.Sleeping while loop_rate
         loop_rate.sleep();
     }
-    ros::spin();
     return 0;
 }
 
