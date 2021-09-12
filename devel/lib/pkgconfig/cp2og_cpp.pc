@@ -1,0 +1,8 @@
+prefix=/home/kseniia/catkin_ws/devel
+
+Name: cp2og_cpp
+Description: Description of cp2og_cpp
+Version: 0.0.0
+Cflags: 
+Libs: -L${prefix}/lib 
+Requires: 

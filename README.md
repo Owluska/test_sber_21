@@ -1,32 +1,56 @@
 # test_sber_21
 
-# Установка проекта
+## Установка
 
-Перейти в  ```~/catkin_ws```
+Перейти в папку **catkin_ws**, для этого в bash ввести команду
 
-В bash ```git clone URL```
+```$cd ~/catkin_ws```
 
-        ```git checkout release```
-# Сборка проекта
-Перейти в  ```~/catkin_ws```
+Загрузить проект из *github*,
 
-В bash ```catkin_make```
+для этого в *bash* ввести команду
 
-# Для запуска python ноды
-Указать актуальный путь к *.bag файлу, для этого [в файле](https://github.com/Owluska/test_sber_21/tree/master/src/semantic_to_occupancy/src/launch/sem_to_ocp_grid.launch)
-изменить аргумент ```path```
+ ```$git clone https://github.com/Owluska/test_sber_21.git```
+
+и переключится на ветку *release* командой в *bash*
+
+```$git checkout release```
+
+## Сборка проекта
+
+Для того, чтобы собрать проект,
+
+нужно перейти в папку **catkin_ws**
+
+ ```$cd ~/catkin_ws```
+
+и затем запустить сборку командой:
+
+ ```$catkin_make```
+
+## Для запуска python ноды
+
+Указать актуальный путь к *.bag файлу, для этого в *.launch файле
+
+нужно изменить аргумент ```path```
+
+Файл находится **...src/cp2og_python/launch/cp2og_python.launch**
 
 После этого запустить ноду следующей командой в bash:
 
- ```$roslaunch semantic_to_occupancy sem_to_ocp_grid.launch```
+ ```$roslaunch cp2og_python cp2og_python.launch```
   
 # Для запуска C++ ноды
-Указать актуальный путь к *.bag файлу, для этого [в файле](https://github.com/Owluska/test_sber_21/tree/master/src/sem_to_costmap/launch/bag.launch)
-изменить аргумент ```path```
+
+Указать актуальный путь к *.bag файлу, для этого в *.launch файле
+
+нужно изменить аргумент ```path```
+
+Файл находится **...src/cp2og_cpp/launch/cp2og_cpp.launch**
 
 После этого запустить ноду следующей командой в bash:
 
- ```$roslaunch sem_to_costmap bag.launch```
+ ```$roslaunch cp2og_cpp cp2og_cpp.launch```
   
 
  # Для просмотра карты в rviz

@@ -1,0 +1,2 @@
+cp2og_cpp:cp2og_python
+-DCATKIN_DEVEL_PREFIX=/home/kseniia/catkin_ws/devel -DCMAKE_INSTALL_PREFIX=/home/kseniia/catkin_ws/install -G Unix Makefiles
