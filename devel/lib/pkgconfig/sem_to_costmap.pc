@@ -1,8 +1,0 @@
-prefix=/home/kseniia/catkin_ws/devel
-
-Name: sem_to_costmap
-Description: Description of sem_to_costmap
-Version: 0.0.0
-Cflags: 
-Libs: -L${prefix}/lib 
-Requires: 
