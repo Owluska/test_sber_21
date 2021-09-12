@@ -220,10 +220,6 @@ class points_to_map{
 
 
 
-
-
-
-
 int main(int argc, char **argv)
 {
     std::string topic = std::string("/stereo_depth/point_cloud");

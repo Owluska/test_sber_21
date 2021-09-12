@@ -20,24 +20,45 @@ class cloud_to_costmap():
 
     # fence - изгородь, pole - столб, vegetation - растительность
     # terrain - местность
-    keys = [         'road',     'sidewalk',   'building',   'wall', 'fence',       'pole',
-            'traffic light', 'traffic sign', 'vegetation','terrain',   'sky',     'person',
-                    'rider',          'car',      'truck',    'bus', 'train', 'motorcycle', 
-                'bicycle']
-    costs = [50,   0, 100, 100, 100, 100,
-            50, 100,  50,  100, 100, 100,
-            100, 100, 100, 100, 100, 100,
-            100]
-    # costs = [127,   0, 255, 255, 255, 255,
-    #     127, 255,  127,  127,   0, 255,
-    #     255, 255, 255, 255, 255, 255,
-    #     255]               
+    # keys = [         'road',     'sidewalk',   'building',   'wall', 'fence',       'pole',
+    #         'traffic light', 'traffic sign', 'vegetation','terrain',   'sky',     'person',
+    #                 'rider',          'car',      'truck',    'bus', 'train', 'motorcycle', 
+    #             'bicycle']
+    # costs = [50,   0, 100, 100, 100, 100,
+    #         100, 100,  50,  100, 0, 100,
+    #         100, 100, 100, 100, 100, 100,
+    #         100]
+              
     
-    classes = {k:i for k, i in zip(keys, range(len(keys)))}
+    # classes = {k:i for k, i in zip(keys, range(len(keys)))}
     sub_name = '/stereo_depth/point_cloud'
+
+    class Obstacles:
+        def __init__(self):
+            self.road = 0
+            self.sidewalk = 1
+            self.building = 2
+            self.wall = 3
+            self.fence = 4
+            self.pole = 5
+            self.traffic_light = 6
+            self.traffic_sign = 7
+            self.vegetation = 8
+            self.terrain = 9
+            self.sky = 10
+            self.person = 11
+            self.rider = 12
+            self.car = 13
+            self.truck = 14
+            self.bus = 15
+            self.train = 16
+            self.motorcycle =17
+            self.bicycle = 18
+    
     def __init__(self):
         self.pub = rospy.Publisher('costmap', OccupancyGrid, queue_size=10)
         self.msg = OccupancyGrid()
+        self.obs = self.Obstacles()
         self.msg.info.origin.position.x = 0
         self.msg.info.origin.position.y = 0
         self.msg.info.origin.position.z = 0
@@ -100,14 +121,23 @@ class cloud_to_costmap():
         for d in da:
             x = d[0]
             y = d[1]
-            c = d[3]
+            c = int(d[3])
 
             ix = int((x - x_min)/self.msg.info.resolution) - 1
             iy = int((y - y_min)/self.msg.info.resolution) - 1
             i = int(ix * iy + ix)
+
+            #print(c)
             if cost_map[i] == 100 or cost_map[i] == 0:
                 continue
-            cost_map[i] = self.costs[int(c)]
+            
+            if c == self.obs.sky or c == self.obs.sidewalk:
+                cost_map[i] = 0
+            elif c == self.obs.terrain or c == self.obs.vegetation:
+                continue
+            else:
+                cost_map[i] = 100 
+            #cost_map[i] = self.costs[int(c)]
 
         cost_map = list(cost_map)
         #cost_map = [self.costs[int(c)] if c != -1 else -1 for c in da[:, 3]]
