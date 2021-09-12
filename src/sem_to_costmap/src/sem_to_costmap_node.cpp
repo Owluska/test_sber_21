@@ -161,11 +161,14 @@ class points_to_map{
                 int obstacle_type = (int)(this->XYZLdata[i][3]);
 
                 //calculating index of map array
-                int ix = (int)((x - this->xMin)/map_resolution);
-                int iy = (int)((y - this->yMin)/map_resolution);
+                int ix = (int)((x - this->xMin)/map_resolution) - 1;
+                int iy = (int)((y - this->yMin)/map_resolution) - 1;
                 idx = ix * iy + ix;
                 //ROS_INFO("%d %d", map_points.size(), idx);
                     
+                if(this->map_data[idx] == 100 || this->map_data[idx] == 0)
+                    continue;
+
                 if(obstacle_type == this->o.road || obstacle_type == this->o.terrain)
                     this->map_data[idx] = 50;
 
