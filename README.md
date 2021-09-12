@@ -1,4 +1,17 @@
 # test_sber_21
+
+# Установка проекта
+
+Перейти в  ```~/catkin_ws```
+
+В bash ```git clone URL```
+
+        ```git checkout release```
+# Сборка проекта
+Перейти в  ```~/catkin_ws```
+
+В bash ```catkin_make```
+
 # Для запуска python ноды
 Указать актуальный путь к *.bag файлу, для этого [в файле](https://github.com/Owluska/test_sber_21/tree/master/src/semantic_to_occupancy/src/launch/sem_to_ocp_grid.launch)
 изменить аргумент ```path```
