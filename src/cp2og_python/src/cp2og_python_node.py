@@ -6,7 +6,6 @@ import struct
 import numpy as np
 
 class cloud_to_costmap():
-
     sub_name = '/stereo_depth/point_cloud'
 
     class Obstacles:
@@ -67,13 +66,12 @@ class cloud_to_costmap():
         return data
     
     def get_meta_data(self, data):
-        #l = data.shape[0]
         x_max, y_max = np.max(data[:, :2], axis = 0)
         x_min, y_min = np.min(data[:, :2], axis = 0)
         resolution = 1.0
 
-        self.map_msg.info.width = int((x_max - x_min)/resolution)#int(math.sqrt(l))
-        self.map_msg.info.height = int((y_max - y_min)/resolution)#int(math.sqrt(l))
+        self.map_msg.info.width = int((x_max - x_min)/resolution)
+        self.map_msg.info.height = int((y_max - y_min)/resolution)
         self.map_msg.info.resolution = resolution
 
         self.map_msg.header.stamp = rospy.Time.now()
@@ -93,8 +91,10 @@ class cloud_to_costmap():
 
         x_min, y_min = np.min(da[:, :2], axis = 0)
         cost_map = np.ones((self.map_msg.info.width * self.map_msg.info.height), dtype='int8') * 50
-        # print("raw {:d} floats {:d} XYZL {:d} w {:d} h {:d} map {:d}".format(len(self.cloud_msg.data),
-        # len(data), da.shape[0], self.map_msg.info.width, self.map_msg.info.height, cost_map.shape[0]))
+
+        print("raw {:d} floats {:d} XYZL {:d} w {:d} h {:d} map {:d}".format(len(self.cloud_msg.data),
+        len(data), da.shape[0], self.map_msg.info.width, self.map_msg.info.height, cost_map.shape[0]))
+
         for d in da:
             x = d[0]
             y = d[1]
@@ -104,7 +104,6 @@ class cloud_to_costmap():
             iy = int((y - y_min)/self.map_msg.info.resolution) - 1
             i = int(ix * iy + ix)
 
-            #print(c)
             if cost_map[i] == 100 or cost_map[i] == 0:
                 continue
             
@@ -114,11 +113,8 @@ class cloud_to_costmap():
                 continue
             else:
                 cost_map[i] = 100 
-            #cost_map[i] = self.costs[int(c)]
 
         cost_map = list(cost_map)
-        #cost_map = [self.costs[int(c)] if c != -1 else -1 for c in da[:, 3]]
-        #rospy.loginfo("Data shape: {}, map shape: {}".format(da.shape, len(cost_map)))
         return cost_map
 
     def callback(self, msg): 

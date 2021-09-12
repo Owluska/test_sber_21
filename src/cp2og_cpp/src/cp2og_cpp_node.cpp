@@ -41,13 +41,13 @@ class points_to_map{
         std::vector<int8_t> map_data;
 
         ///Maximum x-value in PointCloud or Map data
-        float xMax = 0;
+        float xMax = -100;
         ///Maximum y-value in PointCloud or Map data
-        float yMax = 0;
+        float yMax = -100;
         ///Minimum x-value in PointCloud or Map data
-        float xMin = 0;
+        float xMin = 100;
         ///Minimum y-value in PointCloud or Map data
-        float yMin = 0;
+        float yMin = 100;
 
         ///Map width variable
         int map_width = 0;
@@ -105,10 +105,10 @@ class points_to_map{
             auto raw_data = this->points_msg.data;
             uint8_t bytes_count = this->points_msg.fields[1].offset;
             bool isBigEndian = this->points_msg.is_bigendian;
-            
+    
             size_t size = (size_t)(raw_data.size()/bytes_count);
             this->float_point_data.resize(size, 0);
-
+        
             for(int i = 0, u = 0; i < raw_data.size(); i += bytes_count, u++)
             {
                 std::vector<uint8_t> buf(bytes_count);
@@ -128,7 +128,7 @@ class points_to_map{
         {
             size_t cols = 4;
             size_t rows = this->float_point_data.size()/cols;
-            
+  
             this->XYZLdata.resize(rows, std::vector<float>(cols, 0.0));
 
             for(int i = 0; i < rows; i++)
@@ -179,7 +179,9 @@ class points_to_map{
         void generate_map_data()
         {
             calc_map_sizes();
+
             this->map_data.resize(this->map_size, 50);
+   
             ROS_INFO("raw %d floats %d XYZL %d w %d h %d map %d", this->points_msg.data.size(),\
             this->float_point_data, this->XYZLdata.size(), this->map_width, this->map_height, this->map_data.size());
             int idx = 0;
@@ -192,7 +194,10 @@ class points_to_map{
                 int ix = (int)((x - this->xMin)/map_resolution) - 1;
                 int iy = (int)((y - this->yMin)/map_resolution) - 1;
                 idx = ix * iy + ix;
-                    
+                
+                if(idx >= map_data.size())
+                    continue;
+                
                 if(this->map_data[idx] == 100 || this->map_data[idx] == 0)
                     continue;
 
@@ -272,7 +277,7 @@ int main(int argc, char **argv)
     ///Subscriber topic variable creating and initialization
     ros::Subscriber sub = n.subscribe<sensor_msgs::PointCloud2>(topic, 1000, &points_to_map::myCallback, &ptmObject);
     ///Loop rate variable creating and initialization
-    ros::Rate loop_rate(1000);
+    ros::Rate loop_rate(100);
     //.......3.If ROS - ok, loop
     while(ros::ok())
     {
@@ -281,14 +286,22 @@ int main(int argc, char **argv)
         //.......4.Check if data from subscriber recieved
         if (ptmObject.ifGot)
         {
-            //.......5.Reseting flag
-            ptmObject.ifGot = false;
-            //.......6.Transforming data from 1D bytes vector  to 2D floats vector          
-            ptmObject.preprocess_data();
-            //.......7.Filling map            
-            ptmObject.generate_map_data();
-            //.......8.Updating map message           
-            ptmObject.update_map(); 
+            try{
+                //.......5.Reseting flag
+                ptmObject.ifGot = false;
+                //.......6.Transforming data from 1D bytes vector  to 2D floats vector          
+                ptmObject.preprocess_data();
+                //.......7.Filling map            
+                ptmObject.generate_map_data();
+                //.......8.Updating map message           
+                ptmObject.update_map(); 
+            }
+            catch(...)
+            {
+                loop_rate.sleep();
+                continue;
+            }
+
             //.......9.Publishing map message       
             pub.publish(ptmObject.map_msg);
         }
