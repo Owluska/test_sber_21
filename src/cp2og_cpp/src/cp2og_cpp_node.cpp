@@ -152,7 +152,7 @@ class points_to_map{
         {
             calc_map_sizes();
             this->map_data.resize(this->map_size, 50);
-            ROS_INFO("%d", this->map_data.size());
+            //ROS_INFO("raw %d floats %d XYZL %d w %d h %d map %d", this->points_msg.data.size(), this->float_point_data, this->XYZLdata.size(), this->map_height, this->map_width, this->map_data.size());
             int idx = 0;
             for(int i = 0; i < this->XYZLdata.size(); i++)
             {
@@ -247,13 +247,10 @@ int main(int argc, char **argv)
         {
             ptmObject.ifGot = false;
                       
-            ptmObject.preprocess_data();
-            std::vector<int8_t> map_data; 
-            
-            
-            ptmObject.generate_map_data();
-            
-            ptmObject.update_map();                     
+            ptmObject.preprocess_data();         
+            ptmObject.generate_map_data();           
+            ptmObject.update_map(); 
+                                
             pub.publish(ptmObject.map_msg);
         }
         
