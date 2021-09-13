@@ -12,10 +12,6 @@
 
  ```$git clone https://github.com/Owluska/test_sber_21.git```
 
-и переключится на ветку *release* командой в *bash*
-
-```$git checkout release```
-
 ## Сборка проекта
 
 Для того, чтобы собрать проект,
