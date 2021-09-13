@@ -43,6 +43,8 @@ class cloud_to_costmap():
         #Map massage container
         self.map_msg = OccupancyGrid()
         #Initialization of map messages container
+        self.resolution = 0.5
+
         self.map_msg.info.origin.position.x = 0
         self.map_msg.info.origin.position.y = 0
         self.map_msg.info.origin.position.z = 0
@@ -51,6 +53,8 @@ class cloud_to_costmap():
         self.map_msg.info.origin.orientation.y = 0
         self.map_msg.info.origin.orientation.z = 0
         self.map_msg.info.origin.orientation.w = 1
+
+        self.map_msg.info.resolution = self.resolution
         self.map_msg.header.frame_id = "map"
         #If data from Subscriber received then it is set True
         self.Got = False
@@ -87,16 +91,16 @@ class cloud_to_costmap():
         """
         x_max, y_max = np.max(data[:, :2], axis = 0)
         x_min, y_min = np.min(data[:, :2], axis = 0)
-        resolution = 1.0
+        
 
-        self.map_msg.info.width = int((x_max - x_min)/resolution)
-        self.map_msg.info.height = int((y_max - y_min)/resolution)
-        self.map_msg.info.resolution = resolution
+        self.map_msg.info.width = int((x_max - x_min)/self.resolution)
+        self.map_msg.info.height = int((y_max - y_min)/self.resolution)
+
 
         self.map_msg.header.stamp = rospy.Time.now()
 
-        self.map_msg.info.origin.position.x = -self.map_msg.info.width/2
-        self.map_msg.info.origin.position.y = -self.map_msg.info.height/2
+        self.map_msg.info.origin.position.x = -self.map_msg.info.width * self.resolution/2
+        self.map_msg.info.origin.position.y = -self.map_msg.info.height * self.resolution/2
     
     def points_to_costmap(self):
         """
@@ -113,28 +117,28 @@ class cloud_to_costmap():
         x_min, y_min = np.min(da[:, :2], axis = 0)
         cost_map = np.ones((self.map_msg.info.width * self.map_msg.info.height), dtype='int8') * 50
 
-        print("raw {:d} floats {:d} XYZL {:d} w {:d} h {:d} map {:d}".format(len(self.cloud_msg.data),
-        len(data), da.shape[0], self.map_msg.info.width, self.map_msg.info.height, cost_map.shape[0]))
-
+        w = self.map_msg.info.width
         for d in da:
             x = d[0]
             y = d[1]
             c = int(d[3])
 
-            ix = int((x - x_min)/self.map_msg.info.resolution) - 1
-            iy = int((y - y_min)/self.map_msg.info.resolution) - 1
-            i = int(ix * iy + ix)
-
+            ix = int(round((x - x_min)/self.resolution)) - 1
+            iy = int(round((y - y_min)/self.resolution)) - 1
+            i = ix + (w - 1) * iy
+            
             if cost_map[i] == 100 or cost_map[i] == 0 or i > cost_map.shape[0]:
                 continue
             
-            if c == self.obs.sky or c == self.obs.sidewalk:
+            if c == self.obs.sky or c == self.obs.sidewalk or self.obs.road:
                 cost_map[i] = 0
             elif c == self.obs.terrain or c == self.obs.vegetation:
                 continue
             else:
                 cost_map[i] = 100 
 
+        print("raw {:d} floats {:d} XYZL {:d} w {:d} h {:d} map {:d}".format(len(self.cloud_msg.data),
+        len(data), da.shape[0], self.map_msg.info.width, self.map_msg.info.height, cost_map.shape[0]))
         cost_map = list(cost_map)
         return cost_map
 

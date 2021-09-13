@@ -55,7 +55,7 @@ class points_to_map{
         ///Map size variable
         int map_size = 0;
         ///Map resolution variable
-        float map_resolution = 1.0;
+        float map_resolution = 0.5;
     
     public:
         /// Flag is set if data was recieved from sensor_msgs::PointCloud2 topic.
@@ -190,9 +190,9 @@ class points_to_map{
                 float y = this->XYZLdata[i][1];
                 int obstacle_type = (int)(this->XYZLdata[i][3]);
 
-                int ix = (int)((x - this->xMin)/map_resolution) - 1;
-                int iy = (int)((y - this->yMin)/map_resolution) - 1;
-                idx = ix * iy + ix;
+                int ix = (int)round((x - this->xMin)/map_resolution) - 1;
+                int iy = (int)round((y - this->yMin)/map_resolution) - 1;
+                idx = ix + (this->map_width - 1) * iy;
                 
                 if(idx >= map_data.size())
                     continue;
@@ -200,10 +200,11 @@ class points_to_map{
                 if(this->map_data[idx] == 100 || this->map_data[idx] == 0)
                     continue;
 
-                if(obstacle_type == this->o.road || obstacle_type == this->o.terrain)
+                if(obstacle_type == this->o.vegetation || obstacle_type == this->o.terrain)
                     this->map_data[idx] = 50;
 
-                else if(obstacle_type == this->o.sidewalk || obstacle_type == this->o.sky)
+                else if(obstacle_type == this->o.sidewalk || obstacle_type == this->o.sky\
+                 || obstacle_type == this->o.road)
                     this->map_data[idx] = 0;
 
                 else
@@ -245,8 +246,8 @@ class points_to_map{
             this->map_msg.info.width = this->map_width;
             this->map_msg.info.height = this->map_height;
 
-            this->map_msg.info.origin.position.x = -this->map_width / 2;
-            this->map_msg.info.origin.position.y = -this->map_height / 2;
+            this->map_msg.info.origin.position.x = -this->map_width * this->map_resolution / 2;
+            this->map_msg.info.origin.position.y = -this->map_height * this->map_resolution / 2;
 
             this->map_msg.data = this->map_data;
         }
